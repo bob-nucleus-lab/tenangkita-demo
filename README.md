@@ -1,18 +1,18 @@
-# TenangKita Demo v2.3
+# TenangKita Demo v3.0
 
 A zero-backend GitHub Pages prototype.
 
-## v2.3 focus
-- Strategic UX and trust upgrade
-- Stronger product thesis
-- Data Journey visual
-- Score component breakdown
-- Replaces pseudo-map with Local Action Panel
-- Adds stronger citizen trust proof
-- Adds MVP readiness panel for management
-- Improves BM copy consistency
-- Keeps Bahasa Malaysia default and English toggle
-- Keeps checklist, calculator and all current functions intact
+## v3.0 focus
+- World-standard citizen-first UI refresh
+- Tailored for Malaysian citizens
+- Stronger product thesis and clearer journey
+- Premium warm government digital design
+- Cleaner navigation, spacing and hierarchy
+- Better decision-focused summary
+- Local Action Panel replacing weak pseudo-map
+- Stronger trust and MVP readiness story
+- Bahasa Malaysia default with English toggle
+- Single index.html + assets folder only
 
 ## Files
 - index.html
