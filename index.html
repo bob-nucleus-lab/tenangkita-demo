@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TenangKita Demo v1.7</title>
+  <title>TenangKita Demo v1.8</title>
   <meta name="description" content="TenangKita demo prototype: Data negara, ketenangan keluarga." />
   <style>
     :root{
@@ -96,7 +96,7 @@
       .app{display:block} aside{position:relative;width:100%;height:auto;border-right:0;border-bottom:1px solid var(--line)} main{margin-left:0;width:100%} section{padding:24px 18px}.hero{grid-template-columns:1fr;min-height:auto} h1{font-size:42px}h2{font-size:30px}.span3,.span4,.span5,.span6,.span7,.span8,.span12{grid-column:span 12}.topbar{flex-direction:column}.trust-panel{grid-template-columns:1fr}.floating{right:8px;top:8px;transform:scale(.9);transform-origin:top right}nav{grid-template-columns:1fr 1fr}nav button{font-size:13px}
     }
   
-    /* v1.7 reliability pack */
+    /* v1.8 map reliability polish
     aside{
       width:260px !important;
       padding:22px 14px 20px 14px !important;
@@ -327,7 +327,7 @@
     }
 
   
-    /* v1.4 trust and value layer */
+    /* v1.8 map reliability polish
     .value-journey{
       display:grid;
       grid-template-columns:repeat(4,1fr);
@@ -465,7 +465,7 @@
     }
 
   
-    /* v1.5 subtle motion polish */
+    /* v1.8 map reliability polish
     @keyframes fadeSlideUp{
       from{opacity:0; transform:translateY(14px);}
       to{opacity:1; transform:translateY(0);}
@@ -560,7 +560,7 @@
     }
 
   
-    /* v1.7 reliability pack */
+    /* v1.8 map reliability polish
     .checklist-card{
       background:linear-gradient(135deg,#ffffff,#fffdf8);
       border:1px solid var(--line);
@@ -663,7 +663,7 @@
     }
 
   
-    /* v1.7 reliability pack */
+    /* v1.8 map reliability polish
     .reliability-panel{
       background:linear-gradient(135deg,#ffffff,#fbfffc);
       border:1px solid var(--teal-line);
@@ -780,6 +780,168 @@
       }
     }
 
+  
+    /* v1.8 credible schematic map */
+    .schematic-map{
+      min-height:420px;
+      border-radius:28px;
+      border:1px solid var(--line);
+      background:
+        radial-gradient(circle at 22% 22%,rgba(8,117,104,.12),transparent 24%),
+        radial-gradient(circle at 78% 68%,rgba(215,169,75,.16),transparent 26%),
+        linear-gradient(135deg,#f7fbf8,#fffaf0);
+      position:relative;
+      overflow:hidden;
+      padding:22px;
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.55);
+    }
+    .map-titlebar{
+      position:absolute;
+      left:22px;
+      top:18px;
+      right:22px;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:14px;
+      z-index:3;
+    }
+    .map-titlebar b{
+      display:block;
+      color:var(--text);
+      font-size:14px;
+      margin-bottom:2px;
+    }
+    .map-titlebar span{
+      display:block;
+      color:var(--muted);
+      font-size:11px;
+      line-height:1.35;
+    }
+    .map-badge{
+      white-space:nowrap;
+      font-size:10px;
+      font-weight:950;
+      text-transform:uppercase;
+      color:var(--teal);
+      background:var(--teal-soft);
+      border:1px solid var(--teal-line);
+      border-radius:999px;
+      padding:7px 9px;
+    }
+    .map-gridline{
+      position:absolute;
+      inset:84px 28px 58px;
+      border-radius:24px;
+      background:
+        linear-gradient(90deg,rgba(8,117,104,.07) 1px,transparent 1px),
+        linear-gradient(0deg,rgba(8,117,104,.07) 1px,transparent 1px);
+      background-size:54px 54px;
+      opacity:.85;
+    }
+    .route{
+      position:absolute;
+      height:10px;
+      border-radius:999px;
+      background:rgba(103,117,109,.16);
+      transform-origin:left center;
+      z-index:1;
+    }
+    .route.main{width:72%;left:13%;top:50%;transform:rotate(-12deg);}
+    .route.secondary{width:58%;left:26%;top:59%;transform:rotate(24deg);}
+    .route.vertical{width:44%;left:54%;top:31%;transform:rotate(78deg);}
+    .zone{
+      position:absolute;
+      border-radius:999px;
+      z-index:1;
+      opacity:.78;
+      filter:blur(.1px);
+    }
+    .zone.home{width:170px;height:98px;left:43%;top:43%;background:rgba(47,125,79,.11);border:1px solid rgba(47,125,79,.18);}
+    .zone.price{width:178px;height:104px;left:18%;top:31%;background:rgba(8,117,104,.10);border:1px solid rgba(8,117,104,.18);}
+    .zone.support{width:190px;height:110px;right:12%;bottom:22%;background:rgba(215,169,75,.13);border:1px solid rgba(215,169,75,.24);}
+    .pin{
+      position:absolute;
+      z-index:4;
+      transform:translate(-50%,-50%);
+      display:flex;
+      align-items:center;
+      gap:8px;
+      background:#fff;
+      border:2px solid var(--teal);
+      border-radius:16px;
+      padding:9px 11px;
+      box-shadow:0 12px 26px rgba(18,45,38,.10);
+      color:var(--teal);
+      font-size:11px;
+      font-weight:950;
+      white-space:nowrap;
+    }
+    .pin:after{
+      content:"";
+      position:absolute;
+      left:22px;
+      bottom:-7px;
+      width:12px;
+      height:12px;
+      transform:rotate(45deg);
+      background:#fff;
+      border-right:2px solid currentColor;
+      border-bottom:2px solid currentColor;
+    }
+    .pin .dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:currentColor;
+      box-shadow:0 0 0 5px rgba(8,117,104,.10);
+    }
+    .pin.home{left:50%;top:51%;color:var(--green);border-color:#8fc79a;}
+    .pin.price{left:30%;top:38%;color:var(--teal);border-color:var(--teal);}
+    .pin.rahmah{left:72%;top:66%;color:#7a5510;border-color:var(--gold);}
+    .pin.petrol{left:66%;top:34%;color:var(--red);border-color:#e7a19b;}
+    .map-footer-note{
+      position:absolute;
+      left:22px;
+      right:22px;
+      bottom:18px;
+      background:rgba(255,255,255,.82);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:10px 12px;
+      font-size:11px;
+      color:var(--muted);
+      line-height:1.35;
+      z-index:5;
+      backdrop-filter:blur(10px);
+    }
+    .local-source-stack{
+      display:grid;
+      gap:9px;
+      margin-top:14px;
+    }
+    .local-source-stack div{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      padding:10px 0;
+      border-top:1px solid var(--line);
+      font-size:13px;
+    }
+    .local-source-stack div:first-child{border-top:0;}
+    .local-source-stack span{color:var(--muted);}
+    .local-source-stack b{text-align:right;}
+    @media(max-width:940px){
+      .schematic-map{min-height:360px;padding:16px;}
+      .map-titlebar{left:16px;top:14px;right:16px;flex-direction:column;}
+      .map-gridline{inset:112px 18px 62px;}
+      .pin{font-size:10px;padding:7px 9px;}
+      .pin.price{left:33%;top:42%;}
+      .pin.petrol{left:68%;top:40%;}
+      .pin.rahmah{left:70%;top:68%;}
+      .pin.home{left:50%;top:56%;}
+    }
+
   </style>
 </head>
 <body>
@@ -841,7 +1003,31 @@
     </section>
     <section id="basket"><div class="container"><span class="pill">PriceCatcher KPDN · Curated sample</span><h2>Apa Yang Berubah / Harga Berhampiran</h2><p>PriceCatcher membantu melihat pilihan harga berhampiran. Ia melengkapkan isyarat CPI rasmi, bukan menggantikannya.</p><div class="grid"><div class="card span4"><h3>Beras Putih Tempatan</h3><div class="value">RM26.00</div><p>10kg · stabil</p><div class="list"><div class="item"><span>Pasaraya Econsave Klang</span><b>RM25.50</b></div><div class="item"><span>Kedai Runcit Seksyen 7</span><b>RM26.00</b></div></div><div class="source">Pilihan harga setempat</div></div><div class="card span4"><h3>Ayam Standard</h3><div class="value">RM8.50/kg</div><p>+RM0.30 minggu ini</p><div class="list"><div class="item"><span>Pasar Besar Klang</span><b>RM8.00</b></div><div class="item"><span>Lotus's Setia Alam</span><b>RM8.20</b></div></div><div class="source">PriceCatcher sample</div></div><div class="card span4"><h3>Minyak Masak</h3><div class="value">RM7.10</div><p>Sample pack</p><div class="list"><div class="item"><span>Jualan Rahmah Shah Alam</span><b>diskaun</b></div><div class="item"><span>Pasaraya berhampiran</span><b>RM7.10</b></div></div><div class="source">Curated demo data</div></div><div class="card span12"><h3>Nota amanah data</h3><p>Untuk demo ini, harga setempat menggunakan data contoh terpilih. Sambungan penuh kepada dataset PriceCatcher perlu dinilai dari sudut kaedah akses data, kemaskini berkala dan tadbir urus.</p></div></div></div><Footer></Footer></section>
     <section id="calculator"><div class="container"><span class="pill">Kalkulator Kesan Belanja</span><h2>Simulasi Kesan Minyak dan Belanja</h2><p>Kiraan ini membantu isi rumah memahami kesan perubahan harga. Ia bukan nasihat kewangan rasmi, jumlah bantuan rasmi atau keputusan kelayakan.</p><div class="grid"><div class="card span7"><div class="calc-row"><div class="calc-label"><span>Kenaikan harga minyak per liter</span><b id="fuelRiseLabel">RM0.30</b></div><input id="fuelRise" type="range" min="0" max="0.6" step="0.05" value="0.3"></div><div class="calc-row"><div class="calc-label"><span>Penggunaan minyak sebulan</span><b id="fuelUseLabel">180L</b></div><input id="fuelUse" type="range" min="80" max="260" step="20" value="180"></div><div class="calc-row"><div class="calc-label"><span>Bakul dapur bulanan</span><b id="basketLabel">RM1456</b></div><input id="basketAmount" type="range" min="900" max="1800" step="50" value="1456"></div><div class="calc-row"><div class="calc-label"><span>Lokasi</span><b>Sample</b></div><select><option>Shah Alam, Selangor</option><option>Klang, Selangor</option><option>Johor Bahru, Johor</option></select></div></div><div class="span5 result-box"><h3>Anggaran Impak</h3><p>Tambahan bulanan</p><div class="value" id="impactValue">RM54</div><p>Skor dikemas kini</p><div class="value" id="scoreValue">82 / 100</div><p><b id="scoreStatus">Stabil / Stable</b></p><div class="disclaimer" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.24);color:white" id="calcSummary">Tekanan masih terkawal. Semak harga berhampiran sebelum membeli.</div><div class="decision-grid"><div class="decision-card"><b>Apa berubah?</b><span id="whatChanged">Kesan minyak dan bakul dapur meningkat sedikit.</span></div><div class="decision-card"><b>Apa tindakan?</b><span id="whatAction">Semak harga dan rancang perjalanan.</span></div><div class="decision-card"><b>Apa perlu disemak?</b><span>Manfaat rasmi dan pilihan harga setempat.</span></div></div></div></div></div><Footer></Footer></section>
-    <section id="local"><div class="container"><span class="pill">Wawasan Setempat Shah Alam</span><h2>Wawasan Komuniti Kita di Shah Alam</h2><p>Maklumat ini membantu anda melihat peluang harga, sokongan komuniti dan tindakan mudah di kawasan Shah Alam. Sila semak sumber rasmi untuk pengesahan.</p><div class="grid"><div class="card span7"><div class="map"><div class="road a"></div><div class="road b"></div><div class="road c"></div><div class="road d"></div><div class="marker green" style="left:48%;top:50%">Anda di sini · Shah Alam</div><div class="marker" style="left:28%;top:35%">PriceCatcher KPDN</div><div class="marker gold" style="left:72%;top:64%">Jualan Rahmah</div><div class="marker red" style="left:64%;top:30%">Petrol hotspot</div></div><div class="legend"><span>DOSM/OpenDOSM</span><span>PriceCatcher KPDN</span><span>Portal Manfaat MOF</span><span>Jualan Rahmah</span></div></div><div class="card span5"><h3>Status Ekonomi Setempat: Stabil</h3><span class="data-badge estimate">TenangKita estimate</span><span class="data-badge sample">Local sample</span><p>Harga asas di kawasan Shah Alam masih terkawal. Peluang tindakan minggu ini ialah menyemak harga sebelum membeli, merancang pembelian dapur dan menyemak manfaat rasmi.</p><div class="list"><div class="item"><span>Pilihan harga berhampiran</span><b>2 kedai sample</b></div><div class="item"><span>Jualan Rahmah berhampiran</span><b>diskaun barangan asas</b></div><div class="item"><span>Manfaat mungkin berkaitan</span><b>semak rasmi</b></div><div class="item"><span>Tindakan komuniti</span><b>rancang pembelian</b></div></div><div class="source-row"><span>Data rasmi ekonomi</span><span>Pilihan harga setempat</span><span>Sokongan komuniti</span></div></div></div></div><Footer></Footer></section>
+    <section id="local"><div class="container"><span class="pill">Wawasan Setempat Shah Alam</span><h2>Wawasan Komuniti Kita di Shah Alam</h2><p>Maklumat ini membantu anda melihat peluang harga, sokongan komuniti dan tindakan mudah di kawasan Shah Alam. Sila semak sumber rasmi untuk pengesahan.</p><div class="grid"><div class="card span7"><div class="schematic-map">
+              <div class="map-titlebar">
+                <div>
+                  <b>Shah Alam local insight layer</b>
+                  <span>Schematic view for prototype demo. Not a real geospatial map.</span>
+                </div>
+                <div class="map-badge">Prototype map layer</div>
+              </div>
+              <div class="map-gridline"></div>
+              <div class="route main"></div>
+              <div class="route secondary"></div>
+              <div class="route vertical"></div>
+              <div class="zone price"></div>
+              <div class="zone home"></div>
+              <div class="zone support"></div>
+
+              <div class="pin price"><span class="dot"></span>PriceCatcher sample point</div>
+              <div class="pin petrol"><span class="dot"></span>Petrol pressure point</div>
+              <div class="pin home"><span class="dot"></span>Anda di sini · Shah Alam</div>
+              <div class="pin rahmah"><span class="dot"></span>Jualan Rahmah sample</div>
+
+              <div class="map-footer-note">
+                This is an illustrated local insight layer for demo purposes. Production version should use approved geospatial data, official event locations and governed source updates.
+              </div>
+            </div><div class="legend"><span>DOSM/OpenDOSM</span><span>PriceCatcher KPDN</span><span>Portal Manfaat MOF</span><span>Jualan Rahmah</span></div></div><div class="card span5"><h3>Status Ekonomi Setempat: Stabil</h3><span class="data-badge estimate">TenangKita estimate</span><span class="data-badge sample">Local sample</span><p>Paparan ini menunjukkan wawasan setempat secara skematik untuk Shah Alam. Ia membantu rakyat melihat pola tindakan yang berpotensi, tetapi lokasi dan harga sebenar perlu disahkan melalui sumber rasmi.</p><div class="local-source-stack"><div><span>Pilihan harga berhampiran</span><b>sample PriceCatcher</b></div><div><span>Jualan Rahmah berhampiran</span><b>sample event</b></div><div><span>Manfaat mungkin berkaitan</span><b>semak rasmi</b></div><div><span>Tindakan komuniti</span><b>rancang pembelian</b></div></div><div class="why-box"><b>Kenapa paparan ini muncul?</b><ul><li>Lokasi persona ialah Shah Alam, Selangor.</li><li>Harga dan sokongan setempat dipaparkan sebagai sample demo.</li><li>TenangKita tidak mendakwa lokasi sebenar tanpa integrasi geospatial rasmi.</li></ul></div><div class="source-row"><span>Data rasmi ekonomi</span><span>Pilihan harga setempat</span><span>Sokongan komuniti</span></div></div></div></div><Footer></Footer></section>
     <section id="benefits"><div class="container"><span class="pill">Portal Manfaat MOF · sample catalogue</span><h2>Manfaat Yang Mungkin Berkaitan</h2><p>Cadangan ini membantu anda mengenal pasti manfaat yang mungkin berkaitan. Kelayakan sebenar perlu disemak melalui Portal Manfaat rasmi.</p><div class="trust-warning"><b>Nota amanah:</b> TenangKita tidak menentukan kelayakan bantuan. Paparan manfaat adalah panduan awal sahaja dan mesti disahkan melalui portal rasmi kerajaan.</div><div class="grid"><div class="card span4"><h3>Sumbangan Tunai Rahmah</h3><p>Bantuan kewangan untuk meringankan kos sara hidup bagi kumpulan tertentu.</p><button class="btn secondary">Semak kelayakan rasmi</button><div class="source">Portal Manfaat reference</div></div><div class="card span4"><h3>Pas My50</h3><p>Berpotensi relevan jika pengguna kerap menggunakan pengangkutan awam sekitar Lembah Klang.</p><button class="btn secondary">Semak manfaat rasmi</button><div class="source">Manfaat mungkin berkaitan</div></div><div class="card span4"><h3>SARA</h3><p>Bantuan barangan asas melalui mekanisme rasmi. Tidak dianggap layak sehingga disahkan.</p><button class="btn secondary">Semak lanjut</button><div class="source">No eligibility claim</div></div><div class="card span12"><h3>3 Tindakan Minggu Ini</h3><div class="list"><div class="item"><span>Semak harga ayam dan beras sebelum membeli</span><b>Hari ini</b></div><div class="item"><span>Rancang penggunaan minyak untuk perjalanan utama</span><b>Minggu ini</b></div><div class="item"><span>Semak manfaat mungkin berkaitan melalui portal rasmi</span><b>Apabila lapang</b></div></div><button class="btn soft" style="margin-top:16px" data-target="checklist">Buka Checklist Mingguan →</button></div></div></div><Footer></Footer></section>
 
     <section id="checklist">

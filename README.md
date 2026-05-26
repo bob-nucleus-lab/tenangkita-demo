@@ -1,16 +1,13 @@
-# TenangKita Demo v1.7
+# TenangKita Demo v1.8
 
 A zero-backend GitHub Pages prototype.
 
-## v1.7 focus
-- Reliability Pack
-- Stronger data source clarity
-- Clear Live / Sample / Estimate / Official Check labels
-- Added Amanah Data section
-- Added Why this recommendation explanations
-- Strengthened Portal Manfaat and PADU boundary wording
-- Keeps checklist, calculator and current UX intact
-- Single index.html + assets folder only
+## v1.8 focus
+- Replaced weird Wawasan Setempat map with a credible schematic local insight layer
+- Added clear prototype map disclaimer
+- Improved source interpretation for Shah Alam local insights
+- Better distinction between sample points and real geospatial data
+- Keeps checklist, calculator, reliability pack and current UX intact
 
 ## Files
 - index.html
