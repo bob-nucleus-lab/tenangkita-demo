@@ -1,14 +1,17 @@
-# TenangKita Demo v1.1
+# TenangKita Demo v1.2
 
 A zero-backend GitHub Pages prototype.
 
-## v1.1 improvements
-- Improved visual polish and spacing
-- Better mobile/tablet layout
-- Enhanced calculator logic and status messaging
-- Stronger digital trust and source transparency labels
-- OpenDOSM live API test with fallback wording
-- Clearer PriceCatcher, Portal Manfaat and PADU-style sample disclaimers
+## v1.2 focus
+- UX, function and digital trust as core product pillars
+- Stronger opening page and dashboard narrative
+- Improved calculator and status messaging
+- Clearer data source transparency
+- Better stakeholder-ready wording
+- Single index.html + assets folder only
 
-## Deploy
-Upload `index.html` and the `assets/` folder to the repository root.
+## Files
+- index.html
+- assets/hero-family.png
+- assets/maya-scenario.png
+- assets/ismail-prof1.png
