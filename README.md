@@ -1,16 +1,18 @@
-# TenangKita Demo v2.2
+# TenangKita Demo v2.3
 
 A zero-backend GitHub Pages prototype.
 
-## v2.2 focus
-- Cleaner score card hierarchy
-- Rating text no longer overlaps the score donut
-- Added next action under the score
-- Simplified Wawasan Setempat into a cleaner schematic
-- Removed clutter from the map
-- Moved map disclaimer below the visual
+## v2.3 focus
+- Strategic UX and trust upgrade
+- Stronger product thesis
+- Data Journey visual
+- Score component breakdown
+- Replaces pseudo-map with Local Action Panel
+- Adds stronger citizen trust proof
+- Adds MVP readiness panel for management
+- Improves BM copy consistency
 - Keeps Bahasa Malaysia default and English toggle
-- Keeps checklist, calculator, Amanah Data and existing functions intact
+- Keeps checklist, calculator and all current functions intact
 
 ## Files
 - index.html
