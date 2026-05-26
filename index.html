@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TenangKita Demo v1.4</title>
+  <title>TenangKita Demo v1.5</title>
   <meta name="description" content="TenangKita demo prototype: Data negara, ketenangan keluarga." />
   <style>
     :root{
@@ -96,7 +96,7 @@
       .app{display:block} aside{position:relative;width:100%;height:auto;border-right:0;border-bottom:1px solid var(--line)} main{margin-left:0;width:100%} section{padding:24px 18px}.hero{grid-template-columns:1fr;min-height:auto} h1{font-size:42px}h2{font-size:30px}.span3,.span4,.span5,.span6,.span7,.span8,.span12{grid-column:span 12}.topbar{flex-direction:column}.trust-panel{grid-template-columns:1fr}.floating{right:8px;top:8px;transform:scale(.9);transform-origin:top right}nav{grid-template-columns:1fr 1fr}nav button{font-size:13px}
     }
   
-    /* v1.4 trust polish */
+    /* v1.5 motion polish */
     aside{
       width:260px !important;
       padding:22px 14px 20px 14px !important;
@@ -461,6 +461,101 @@
     @media(max-width:940px){
       .value-journey,.trust-strip{
         grid-template-columns:1fr;
+      }
+    }
+
+  
+    /* v1.5 subtle motion polish */
+    @keyframes fadeSlideUp{
+      from{opacity:0; transform:translateY(14px);}
+      to{opacity:1; transform:translateY(0);}
+    }
+    @keyframes softFloat{
+      0%,100%{transform:translateY(0);}
+      50%{transform:translateY(-8px);}
+    }
+    @keyframes gentlePulse{
+      0%,100%{box-shadow:0 0 0 0 rgba(8,117,104,.20);}
+      50%{box-shadow:0 0 0 10px rgba(8,117,104,0);}
+    }
+    @keyframes markerBreathe{
+      0%,100%{transform:translate(-50%,-50%) scale(1);}
+      50%{transform:translate(-50%,-50%) scale(1.035);}
+    }
+    @keyframes scoreGlow{
+      0%,100%{filter:drop-shadow(0 0 0 rgba(8,117,104,0));}
+      50%{filter:drop-shadow(0 8px 18px rgba(8,117,104,.18));}
+    }
+    section.active .container{
+      animation:fadeSlideUp .45s ease both;
+    }
+    .hero-img{
+      animation:softFloat 7s ease-in-out infinite;
+    }
+    .floating{
+      animation:gentlePulse 4.5s ease-in-out infinite;
+    }
+    .card,
+    .journey-card,
+    .decision-card,
+    .trust-chip{
+      transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .card:hover,
+    .journey-card:hover,
+    .decision-card:hover,
+    .trust-chip:hover{
+      transform:translateY(-3px);
+      box-shadow:0 14px 30px rgba(18,45,38,.085);
+      border-color:rgba(8,117,104,.22);
+    }
+    .btn,
+    nav button{
+      transition:transform .18s ease, box-shadow .18s ease, background-color .18s ease, color .18s ease;
+    }
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 24px rgba(8,117,104,.14);
+    }
+    nav button:hover{
+      transform:translateX(2px);
+    }
+    .score{
+      animation:scoreGlow 5.5s ease-in-out infinite;
+    }
+    .marker{
+      animation:markerBreathe 4.8s ease-in-out infinite;
+    }
+    .marker:nth-of-type(2){animation-delay:.2s;}
+    .marker:nth-of-type(3){animation-delay:.6s;}
+    .marker:nth-of-type(4){animation-delay:1s;}
+    input[type=range]{
+      transition:filter .2s ease;
+    }
+    input[type=range]:hover{
+      filter:brightness(1.03);
+    }
+    .data-badge{
+      transition:transform .18s ease, background-color .18s ease;
+    }
+    .data-badge:hover{
+      transform:translateY(-1px);
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *,
+      *::before,
+      *::after{
+        animation-duration:.001ms !important;
+        animation-iteration-count:1 !important;
+        scroll-behavior:auto !important;
+        transition:none !important;
+      }
+      .hero-img,
+      .floating,
+      .score,
+      .marker{
+        animation:none !important;
       }
     }
 

@@ -1,14 +1,22 @@
-# TenangKita Demo v1.4
+# TenangKita Demo v1.5
 
 A zero-backend GitHub Pages prototype.
 
-## v1.4 focus
-- Rakyat-facing opening value cards
-- UX, Function and Digital Trust moved into a clearer trust layer
-- Better Live / Sample / Estimate / Official Check labels
-- Improved calculator decision outputs
-- More stakeholder-ready digital trust framing
-- Still single index.html + assets folder only
+## v1.5 focus
+- Subtle motion polish
+- Soft section fade-in
+- Gentle hero image floating
+- Card hover lift
+- Score ring glow
+- Map marker breathing animation
+- Button and navigation micro-interactions
+- Reduced-motion accessibility support
+
+## Product principles retained
+- UX-first
+- Function-led
+- Digital trust
+- Single index.html + assets folder only
 
 ## Files
 - index.html
