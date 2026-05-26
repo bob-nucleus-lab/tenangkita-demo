@@ -1,18 +1,19 @@
-# TenangKita Demo v3.0
+# TenangKita Demo v3.1
 
 A zero-backend GitHub Pages prototype.
 
-## v3.0 focus
-- World-standard citizen-first UI refresh
-- Tailored for Malaysian citizens
-- Stronger product thesis and clearer journey
-- Premium warm government digital design
-- Cleaner navigation, spacing and hierarchy
-- Better decision-focused summary
-- Local Action Panel replacing weak pseudo-map
-- Stronger trust and MVP readiness story
-- Bahasa Malaysia default with English toggle
-- Single index.html + assets folder only
+## v3.1 focus
+- Family Branch Upgrade
+- Positions TenangKita as a citizen branch of Pantau Krisis DOSM
+- Makes Maya Ismail's wife and part of the same household
+- Adds Family Mode for Ismail & Maya
+- Adds family conversation/storytelling section
+- Adds "Apa yang berubah bulan ini"
+- Upgrades checklist to Pelan Mingguan Keluarga
+- Adds small decisions that help
+- Adds strategic value to government
+- Keeps Bahasa Malaysia default and English toggle
+- Keeps calculator, checklist, OpenDOSM test and trust layers
 
 ## Files
 - index.html

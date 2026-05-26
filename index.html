@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TenangKita Demo v3.0</title>
+  <title>TenangKita Demo v3.1</title>
   <style>
     :root{
       --bg:#fbf7ef;
@@ -384,6 +384,225 @@
       .local-action{grid-template-columns:48px 1fr}.local-action .tag{grid-column:1/-1;justify-self:start}
       .check-head{flex-direction:column}.hero-floating{right:10px}
     }
+  
+    /* v3.1 family branch upgrade */
+    .family-mode{
+      margin-top:24px;
+      background:linear-gradient(135deg,#ffffff,#fbfffc);
+      border:1px solid var(--green-line);
+      border-radius:28px;
+      padding:24px;
+      box-shadow:var(--shadow-soft);
+    }
+    .family-head{
+      display:flex;
+      justify-content:space-between;
+      gap:18px;
+      align-items:flex-start;
+      margin-bottom:18px;
+    }
+    .family-members{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+    }
+    .family-member{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:15px;
+    }
+    .family-avatar{
+      width:54px;
+      height:54px;
+      border-radius:18px;
+      background:var(--green-soft);
+      display:grid;
+      place-items:center;
+      font-size:26px;
+      flex:0 0 auto;
+    }
+    .family-member b{
+      display:block;
+      margin-bottom:3px;
+    }
+    .family-member span{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.4;
+      display:block;
+    }
+    .conversation{
+      display:grid;
+      gap:12px;
+      margin-top:18px;
+    }
+    .bubble{
+      max-width:760px;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:14px 16px;
+      background:#fff;
+      box-shadow:0 6px 16px rgba(28,45,38,.045);
+    }
+    .bubble.maya{
+      border-color:#ead19b;
+      background:#fffaf0;
+    }
+    .bubble.ismail{
+      border-color:var(--green-line);
+      background:#f7fffb;
+      margin-left:auto;
+    }
+    .bubble.system{
+      border-color:#c9def2;
+      background:#f4f9ff;
+      margin-left:34px;
+      margin-right:34px;
+    }
+    .bubble b{
+      display:block;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.035em;
+      margin-bottom:5px;
+      color:var(--green);
+    }
+    .bubble.maya b{color:#7c5812}
+    .bubble.system b{color:var(--blue)}
+    .bubble span{
+      color:var(--muted);
+      line-height:1.55;
+      font-size:14px;
+    }
+    .month-change{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+      margin-top:18px;
+    }
+    .change-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:16px;
+      min-height:130px;
+    }
+    .change-card em{
+      font-style:normal;
+      font-size:24px;
+      display:block;
+      margin-bottom:8px;
+    }
+    .change-card b{
+      display:block;
+      color:var(--ink);
+      margin-bottom:4px;
+    }
+    .change-card span{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
+      display:block;
+    }
+    .small-decisions{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:18px;
+    }
+    .decision-tile{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:16px;
+    }
+    .decision-tile strong{
+      display:block;
+      color:var(--green);
+      font-size:24px;
+      margin-bottom:5px;
+    }
+    .decision-tile b{
+      display:block;
+      margin-bottom:5px;
+    }
+    .decision-tile span{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
+    }
+    .strategic-value{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:12px;
+      margin-top:18px;
+    }
+    .strategic-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+    }
+    .strategic-card b{
+      display:block;
+      color:var(--green);
+      font-size:12px;
+      line-height:1.25;
+      text-transform:uppercase;
+      letter-spacing:.035em;
+      margin-bottom:7px;
+    }
+    .strategic-card span{
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.45;
+      display:block;
+    }
+    .family-plan{
+      background:#fff;
+      border:1px solid var(--green-line);
+      border-radius:24px;
+      padding:20px;
+      box-shadow:var(--shadow-soft);
+      margin-top:18px;
+    }
+    .family-plan-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+    .plan-step{
+      background:#fffdf8;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+    }
+    .plan-step b{
+      display:block;
+      color:var(--green);
+      margin-bottom:5px;
+    }
+    .plan-step span{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
+      display:block;
+    }
+    @media(max-width:1200px){
+      .month-change,.family-plan-grid,.small-decisions{grid-template-columns:1fr 1fr}
+      .strategic-value{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:920px){
+      .family-head{flex-direction:column}
+      .family-members,.month-change,.family-plan-grid,.small-decisions,.strategic-value{grid-template-columns:1fr}
+      .bubble,.bubble.ismail,.bubble.system{margin-left:0;margin-right:0;max-width:100%}
+    }
+
   </style>
 </head>
 
@@ -396,7 +615,7 @@
 
     <div class="persona">
       <img src="assets/ismail-prof1.png" alt="Ismail" onerror="this.style.display='none'">
-      <div><b>Ismail</b><span data-ms="Status: Stabil" data-en="Status: Stable">Status: Stabil</span></div>
+      <div><b>Ismail & Maya</b><span data-ms="Keluarga: Stabil" data-en="Household: Stable">Keluarga: Stabil</span></div>
     </div>
 
     <nav>
@@ -405,6 +624,7 @@
       <button data-target="basket" data-ms="🧺 Harga & Bakul" data-en="🧺 Prices & Basket">🧺 Harga & Bakul</button>
       <button data-target="calculator" data-ms="⛽ Kalkulator" data-en="⛽ Calculator">⛽ Kalkulator</button>
       <button data-target="local" data-ms="📍 Wawasan Setempat" data-en="📍 Local Insights">📍 Wawasan Setempat</button>
+      <button data-target="family-story" data-ms="👨‍👩‍👧 Cerita Keluarga" data-en="👨‍👩‍👧 Family Story">👨‍👩‍👧 Cerita Keluarga</button>
       <button data-target="benefits" data-ms="🤝 Manfaat" data-en="🤝 Support">🤝 Manfaat</button>
       <button data-target="checklist" data-ms="✅ Checklist" data-en="✅ Checklist">✅ Checklist</button>
       <button data-target="reliability" data-ms="🔎 Amanah Data" data-en="🔎 Data Trust">🔎 Amanah Data</button>
@@ -423,8 +643,8 @@
       <div class="container hero">
         <div>
           <span class="pill" data-ms="Sahabat daya tahan ekonomi rakyat" data-en="Citizen economic resilience companion">Sahabat daya tahan ekonomi rakyat</span>
-          <h1 data-ms="Daripada data negara kepada <span style='color:var(--green)'>tindakan keluarga.</span>" data-en="From national data to <span style='color:var(--green)'>household action.</span>">Daripada data negara kepada <span style="color:var(--green)">tindakan keluarga.</span></h1>
-          <p class="lead" data-ms="TenangKita menterjemahkan isyarat ekonomi negara kepada kefahaman, pilihan dan tindakan mingguan untuk isi rumah Malaysia." data-en="TenangKita translates national economic signals into understanding, options and weekly actions for Malaysian households.">TenangKita menterjemahkan isyarat ekonomi negara kepada kefahaman, pilihan dan tindakan mingguan untuk isi rumah Malaysia.</p>
+          <h1 data-ms="Daripada data negara kepada <span style='color:var(--green)'>tindakan keluarga.</span>" data-en="Citizen branch of <span style='color:var(--green)'>Pantau Krisis DOSM.</span>">Cabang rakyat daripada <span style="color:var(--green)">Pantau Krisis DOSM.</span></h1>
+          <p class="lead" data-ms="TenangKita menterjemahkan isyarat ekonomi negara kepada kefahaman keluarga, pilihan harga setempat dan tindakan mingguan yang boleh dibuat bersama." data-en="TenangKita translates national economic signals into family understanding, local price options and weekly household actions.">TenangKita menterjemahkan isyarat ekonomi negara kepada kefahaman keluarga, pilihan harga setempat dan tindakan mingguan yang boleh dibuat bersama.</p>
           <div class="btns">
             <button class="btn primary" data-target="overview" data-ms="Lihat Ringkasan →" data-en="View Summary →">Lihat Ringkasan →</button>
             <button class="btn secondary" data-target="reliability" data-ms="Kenapa boleh percaya" data-en="Why it is trustworthy">Kenapa boleh percaya</button>
@@ -435,6 +655,21 @@
             <div class="value-card"><em>📍</em><b data-ms="Cari pilihan" data-en="Find options">Cari pilihan</b><span data-ms="Lihat peluang harga dan sokongan setempat." data-en="See local price and support opportunities.">Lihat peluang harga dan sokongan setempat.</span></div>
             <div class="value-card"><em>✅</em><b data-ms="Bertindak yakin" data-en="Act confidently">Bertindak yakin</b><span data-ms="Ikut checklist mingguan dan semak manfaat rasmi." data-en="Follow weekly checklist and verify official support.">Ikut checklist mingguan dan semak manfaat rasmi.</span></div>
           </div>
+
+          <div class="family-mode">
+            <div class="family-head">
+              <div>
+                <h3 data-ms="Mod Keluarga Ismail & Maya" data-en="Ismail & Maya Family Mode">Mod Keluarga Ismail & Maya</h3>
+                <p data-ms="TenangKita membantu satu isi rumah melihat keadaan bersama: apa yang berubah, apa yang perlu dibuat dan apa yang perlu disemak secara rasmi." data-en="TenangKita helps one household view the situation together: what changed, what needs action and what requires official checking.">TenangKita membantu satu isi rumah melihat keadaan bersama: apa yang berubah, apa yang perlu dibuat dan apa yang perlu disemak secara rasmi.</p>
+              </div>
+              <span class="badge estimate" data-ms="Persona keluarga demo" data-en="Demo family persona">Persona keluarga demo</span>
+            </div>
+            <div class="family-members">
+              <div class="family-member"><div class="family-avatar">👨‍💼</div><div><b>Ismail</b><span data-ms="Ketua isi rumah · menyemak tekanan belanja dan perjalanan." data-en="Household lead · checks spending and travel pressure.">Ketua isi rumah · menyemak tekanan belanja dan perjalanan.</span></div></div>
+              <div class="family-member"><div class="family-avatar">👩‍👧</div><div><b>Maya</b><span data-ms="Isteri · menyusun keperluan keluarga dan belanja dapur." data-en="Wife · organises family needs and grocery planning.">Isteri · menyusun keperluan keluarga dan belanja dapur.</span></div></div>
+            </div>
+          </div>
+
 
           <div class="data-journey">
             <h3 data-ms="Aliran data kepada tindakan rakyat" data-en="Data flow into citizen action">Aliran data kepada tindakan rakyat</h3>
@@ -462,8 +697,8 @@
         <span class="pill">Shah Alam, Selangor</span>
         <div style="display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:24px;flex-wrap:wrap">
           <div>
-            <h2 data-ms="Ringkasan Untuk Saya" data-en="My Summary">Ringkasan Untuk Saya</h2>
-            <p class="subtitle" data-ms="Ismail, keadaan keluarga anda masih stabil bulan ini. Tekanan utama datang daripada minyak dan beberapa barang dapur seperti beras, ayam dan minyak masak." data-en="Ismail, your household remains stable this month. Main pressure comes from fuel and selected kitchen essentials such as rice, chicken and cooking oil.">Ismail, keadaan keluarga anda masih stabil bulan ini. Tekanan utama datang daripada minyak dan beberapa barang dapur seperti beras, ayam dan minyak masak.</p>
+            <h2 data-ms="Ringkasan Keluarga" data-en="Family Summary">Ringkasan Keluarga</h2>
+            <p class="subtitle" data-ms="Ismail dan Maya, keadaan keluarga masih stabil bulan ini. Tekanan utama datang daripada minyak dan beberapa barang dapur seperti beras, ayam dan minyak masak." data-en="Ismail and Maya, your household remains stable this month. Main pressure comes from fuel and selected kitchen essentials such as rice, chicken and cooking oil.">Ismail dan Maya, keadaan keluarga masih stabil bulan ini. Tekanan utama datang daripada minyak dan beberapa barang dapur seperti beras, ayam dan minyak masak.</p>
           </div>
           <button class="btn secondary" id="testOpenDOSM" data-ms="Uji OpenDOSM" data-en="Test OpenDOSM">Uji OpenDOSM</button>
         </div>
@@ -487,11 +722,23 @@
 
           <div>
             <div class="answer-card">
-              <h3 data-ms="Adakah keluarga saya masih okay bulan ini?" data-en="Is my household still okay this month?">Adakah keluarga saya masih okay bulan ini?</h3>
+              <h3 data-ms="Adakah keluarga kita masih okay bulan ini?" data-en="Is our household still okay this month?">Adakah keluarga kita masih okay bulan ini?</h3>
               <p data-ms="Ya, keluarga masih stabil bulan ini. TenangKita mengesan tekanan kecil pada bakul dapur dan perjalanan minyak. Tindakan paling praktikal ialah semak pilihan harga berhampiran, rancang pembelian dapur dan semak manfaat rasmi yang mungkin berkaitan." data-en="Yes, the household remains stable this month. TenangKita detects mild pressure from groceries and fuel travel. The most practical action is to check nearby price options, plan grocery spending and verify potentially relevant official support.">Ya, keluarga masih stabil bulan ini. TenangKita mengesan tekanan kecil pada bakul dapur dan perjalanan minyak. Tindakan paling praktikal ialah semak pilihan harga berhampiran, rancang pembelian dapur dan semak manfaat rasmi yang mungkin berkaitan.</p>
               <div class="badge-row"><span class="badge live" data-ms="Data langsung" data-en="Live data">Data langsung</span><span class="badge sample" data-ms="Data contoh" data-en="Sample data">Data contoh</span><span class="badge estimate" data-ms="Anggaran" data-en="Estimate">Anggaran</span></div>
             </div>
             <div class="why"><b data-ms="Kenapa ringkasan ini muncul?" data-en="Why does this summary appear?">Kenapa ringkasan ini muncul?</b><ul><li data-ms="Profil isi rumah menggunakan persona demo Ismail, bukan data PADU sebenar." data-en="The household profile uses Ismail as a demo persona, not real PADU data.">Profil isi rumah menggunakan persona demo Ismail, bukan data PADU sebenar.</li><li data-ms="Tekanan belanja dikira melalui anggaran bakul dapur dan penggunaan minyak." data-en="Spending pressure is estimated from groceries and fuel usage.">Tekanan belanja dikira melalui anggaran bakul dapur dan penggunaan minyak.</li><li data-ms="Data rasmi ekonomi diambil daripada OpenDOSM jika tersedia." data-en="Official economic data is retrieved from OpenDOSM where available.">Data rasmi ekonomi diambil daripada OpenDOSM jika tersedia.</li></ul></div>
+            
+            <div class="panel" style="margin-top:20px">
+              <h3 data-ms="Apa yang berubah bulan ini?" data-en="What changed this month?">Apa yang berubah bulan ini?</h3>
+              <p data-ms="Ringkasan ini membantu Ismail dan Maya melihat punca tekanan sebelum membuat keputusan keluarga." data-en="This summary helps Ismail and Maya understand pressure drivers before making household decisions.">Ringkasan ini membantu Ismail dan Maya melihat punca tekanan sebelum membuat keputusan keluarga.</p>
+              <div class="month-change">
+                <div class="change-card"><em>🧺</em><b data-ms="Bakul dapur" data-en="Kitchen basket">Bakul dapur</b><span data-ms="Naik RM68 bulan ini berdasarkan data contoh." data-en="Increased by RM68 this month based on sample data.">Naik RM68 bulan ini berdasarkan data contoh.</span></div>
+                <div class="change-card"><em>⛽</em><b data-ms="Perjalanan" data-en="Travel">Perjalanan</b><span data-ms="Tambahan anggaran minyak ialah RM54." data-en="Estimated additional fuel impact is RM54.">Tambahan anggaran minyak ialah RM54.</span></div>
+                <div class="change-card"><em>📍</em><b data-ms="Setempat" data-en="Local">Setempat</b><span data-ms="Beberapa pilihan harga perlu disemak berhampiran." data-en="Nearby price options should be checked.">Beberapa pilihan harga perlu disemak berhampiran.</span></div>
+                <div class="change-card"><em>🤝</em><b data-ms="Manfaat" data-en="Support">Manfaat</b><span data-ms="Manfaat mungkin berkaitan perlu disemak rasmi." data-en="Potentially relevant support must be officially checked.">Manfaat mungkin berkaitan perlu disemak rasmi.</span></div>
+              </div>
+            </div>
+
             <div class="grid" style="margin-top:20px">
               <div class="card span6 metric-card"><div><h3 data-ms="Bakul Dapur" data-en="Kitchen Basket">Bakul Dapur</h3><div class="value">RM1,456</div><div class="change" data-ms="+RM68 bulan ini" data-en="+RM68 this month">+RM68 bulan ini</div></div><div class="icon">🧺</div></div>
               <div class="card span6 metric-card"><div><h3 data-ms="Kesan Minyak" data-en="Fuel Impact">Kesan Minyak</h3><div class="value">+RM54</div><div class="change" data-ms="anggaran bulanan" data-en="monthly estimate">anggaran bulanan</div></div><div class="icon">⛽</div></div>
@@ -574,6 +821,34 @@
       <Footer></Footer>
     </section>
 
+
+    <section id="family-story">
+      <div class="container">
+        <span class="pill" data-ms="Cerita Keluarga" data-en="Family Story">Cerita Keluarga</span>
+        <h2 data-ms="Perbualan Keluarga Ismail & Maya" data-en="Ismail & Maya Family Conversation">Perbualan Keluarga Ismail & Maya</h2>
+        <p class="subtitle" data-ms="TenangKita bukan sekadar memaparkan data. Ia membantu keluarga berbincang dengan lebih tenang tentang apa yang berubah dan apa yang boleh dibuat." data-en="TenangKita does not only display data. It helps families discuss calmly what changed and what can be done.">TenangKita bukan sekadar memaparkan data. Ia membantu keluarga berbincang dengan lebih tenang tentang apa yang berubah dan apa yang boleh dibuat.</p>
+
+        <div class="conversation">
+          <div class="bubble maya"><b>Maya</b><span data-ms="Apa barang dapur yang perlu kita utamakan minggu ini?" data-en="Which groceries should we prioritise this week?">Apa barang dapur yang perlu kita utamakan minggu ini?</span></div>
+          <div class="bubble system"><b>TenangKita</b><span data-ms="Fokus kepada beras, ayam dan minyak masak. Semak pilihan harga berhampiran sebelum membeli." data-en="Focus on rice, chicken and cooking oil. Check nearby price options before buying.">Fokus kepada beras, ayam dan minyak masak. Semak pilihan harga berhampiran sebelum membeli.</span></div>
+          <div class="bubble ismail"><b>Ismail</b><span data-ms="Bagaimana dengan minyak dan perjalanan harian?" data-en="What about fuel and daily travel?">Bagaimana dengan minyak dan perjalanan harian?</span></div>
+          <div class="bubble system"><b>TenangKita</b><span data-ms="Anggaran tambahan bulan ini ialah RM54. Rancang perjalanan utama dan elakkan pembelian kecil berulang." data-en="The estimated additional impact this month is RM54. Plan key trips and avoid repeated small purchases.">Anggaran tambahan bulan ini ialah RM54. Rancang perjalanan utama dan elakkan pembelian kecil berulang.</span></div>
+        </div>
+
+        <div class="panel" style="margin-top:22px">
+          <h3 data-ms="Keputusan kecil yang membantu" data-en="Small decisions that help">Keputusan kecil yang membantu</h3>
+          <p data-ms="Jika Ismail dan Maya menyemak harga berhampiran, merancang pembelian dapur dan mengurangkan perjalanan kecil berulang, tekanan belanja minggu ini boleh menjadi lebih terkawal." data-en="If Ismail and Maya check nearby prices, plan groceries and reduce repeated small trips, this week’s spending pressure may become more manageable.">Jika Ismail dan Maya menyemak harga berhampiran, merancang pembelian dapur dan mengurangkan perjalanan kecil berulang, tekanan belanja minggu ini boleh menjadi lebih terkawal.</p>
+          <div class="small-decisions">
+            <div class="decision-tile"><strong>1</strong><b data-ms="Semak harga" data-en="Check prices">Semak harga</b><span data-ms="Bandingkan pilihan sebelum membeli." data-en="Compare options before buying.">Bandingkan pilihan sebelum membeli.</span></div>
+            <div class="decision-tile"><strong>2</strong><b data-ms="Rancang dapur" data-en="Plan groceries">Rancang dapur</b><span data-ms="Susun pembelian untuk 7 hari." data-en="Plan purchases for 7 days.">Susun pembelian untuk 7 hari.</span></div>
+            <div class="decision-tile"><strong>3</strong><b data-ms="Kurang ulang alik" data-en="Reduce repeated trips">Kurang ulang alik</b><span data-ms="Gabungkan urusan untuk jimat masa dan minyak." data-en="Combine errands to save time and fuel.">Gabungkan urusan untuk jimat masa dan minyak.</span></div>
+          </div>
+        </div>
+      </div>
+      <Footer></Footer>
+    </section>
+
+
     <section id="benefits">
       <div class="container">
         <span class="pill blue">Portal Manfaat MOF</span>
@@ -592,11 +867,22 @@
     <section id="checklist">
       <div class="container">
         <span class="pill" data-ms="Tindakan Minggu Ini" data-en="This Week’s Actions">Tindakan Minggu Ini</span>
-        <h2 data-ms="Checklist Tindakan Minggu Ini" data-en="This Week’s Action Checklist">Checklist Tindakan Minggu Ini</h2>
+        <h2 data-ms="Pelan Mingguan Keluarga" data-en="Family Weekly Plan">Pelan Mingguan Keluarga</h2>
         <p class="subtitle" data-ms="Checklist ini membantu rakyat menukar insight kepada tindakan kecil yang boleh dibuat minggu ini. Ia tidak menyimpan data, tidak menilai rakyat dan tidak menggantikan semakan rasmi." data-en="This checklist helps citizens turn insights into small actions this week. It does not store data, judge citizens or replace official checks.">Checklist ini membantu rakyat menukar insight kepada tindakan kecil yang boleh dibuat minggu ini. Ia tidak menyimpan data, tidak menilai rakyat dan tidak menggantikan semakan rasmi.</p>
+        
+        <div class="family-plan">
+          <h3 data-ms="Ritma keluarga minggu ini" data-en="This week’s family rhythm">Ritma keluarga minggu ini</h3>
+          <div class="family-plan-grid">
+            <div class="plan-step"><b data-ms="Hari ini" data-en="Today">Hari ini</b><span data-ms="Semak harga barang asas sebelum membeli." data-en="Check essential item prices before buying.">Semak harga barang asas sebelum membeli.</span></div>
+            <div class="plan-step"><b data-ms="Sebelum hujung minggu" data-en="Before weekend">Sebelum hujung minggu</b><span data-ms="Rancang pembelian dapur untuk 7 hari." data-en="Plan 7 days of grocery purchases.">Rancang pembelian dapur untuk 7 hari.</span></div>
+            <div class="plan-step"><b data-ms="Minggu ini" data-en="This week">Minggu ini</b><span data-ms="Kira semula kesan minyak jika perjalanan berubah." data-en="Recalculate fuel impact if travel changes.">Kira semula kesan minyak jika perjalanan berubah.</span></div>
+            <div class="plan-step"><b data-ms="Apabila lapang" data-en="When available">Apabila lapang</b><span data-ms="Semak manfaat rasmi yang mungkin berkaitan." data-en="Check potentially relevant official support.">Semak manfaat rasmi yang mungkin berkaitan.</span></div>
+          </div>
+        </div>
+
         <div class="grid">
           <div class="span7 checklist-card">
-            <div class="check-head"><div><h3 data-ms="Langkah praktikal untuk Ismail" data-en="Practical steps for Ismail">Langkah praktikal untuk Ismail</h3><p data-ms="Fokus minggu ini ialah kekalkan kawalan belanja, semak pilihan harga dan rancang perjalanan." data-en="This week’s focus is to maintain spending control, check price options and plan travel.">Fokus minggu ini ialah kekalkan kawalan belanja, semak pilihan harga dan rancang perjalanan.</p></div><div class="progress-pill"><span id="checklistCount">0 / 5 selesai</span></div></div>
+            <div class="check-head"><div><h3 data-ms="Langkah praktikal untuk Ismail & Maya" data-en="Practical steps for Ismail & Maya">Langkah praktikal untuk Ismail & Maya</h3><p data-ms="Fokus minggu ini ialah menyusun belanja dapur, merancang perjalanan dan menyemak manfaat rasmi yang mungkin berkaitan." data-en="This week’s focus is to organise groceries, plan travel and check potentially relevant official support.">Fokus minggu ini ialah menyusun belanja dapur, merancang perjalanan dan menyemak manfaat rasmi yang mungkin berkaitan.</p></div><div class="progress-pill"><span id="checklistCount">0 / 5 selesai</span></div></div>
             <div class="track"><div class="fill" id="checklistProgress"></div></div>
             <div class="tasks" id="weeklyChecklist">
               <label class="task"><input type="checkbox"><span><span class="task-title" data-ms="Semak harga beras, ayam dan minyak masak sebelum membeli" data-en="Check rice, chicken and cooking oil prices before buying">Semak harga beras, ayam dan minyak masak sebelum membeli</span><span class="task-desc" data-ms="Gunakan pilihan harga berhampiran sebagai panduan, bukan jaminan harga rasmi." data-en="Use nearby price options as guidance, not guaranteed official prices.">Gunakan pilihan harga berhampiran sebagai panduan, bukan jaminan harga rasmi.</span></span></label>
@@ -625,6 +911,19 @@
           <div class="trust-card"><b data-ms="Privasi dijaga" data-en="Privacy protected">Privasi dijaga</b><span data-ms="Demo ini menggunakan persona, bukan data sensitif rakyat sebenar." data-en="This demo uses personas, not real sensitive citizen data.">Demo ini menggunakan persona, bukan data sensitif rakyat sebenar.</span></div>
         </div>
         <div class="panel" style="margin-top:20px"><h3 data-ms="Status Sumber Data Dalam Prototaip" data-en="Data Source Status in Prototype">Status Sumber Data Dalam Prototaip</h3><div class="grid"><div class="card span3"><b>OpenDOSM</b><p data-ms="Data langsung jika tersedia." data-en="Live data where available.">Data langsung jika tersedia.</p><span class="badge live" data-ms="Data langsung" data-en="Live data">Data langsung</span></div><div class="card span3"><b>PriceCatcher</b><p data-ms="Data contoh pilihan harga setempat." data-en="Sample local price data.">Data contoh pilihan harga setempat.</p><span class="badge sample" data-ms="Data contoh" data-en="Sample data">Data contoh</span></div><div class="card span3"><b>Portal Manfaat</b><p data-ms="Rujukan semakan manfaat rasmi." data-en="Official support checking reference.">Rujukan semakan manfaat rasmi.</p><span class="badge official" data-ms="Semakan rasmi" data-en="Official check">Semakan rasmi</span></div><div class="card span3"><b>Persona</b><p data-ms="Profil demo sahaja, bukan data PADU." data-en="Demo profile only, not PADU data.">Profil demo sahaja, bukan data PADU.</p><span class="badge estimate" data-ms="Persona demo" data-en="Demo persona">Persona demo</span></div></div></div>
+        
+        <div class="panel" style="margin-top:20px">
+          <h3 data-ms="Nilai Strategik Kepada Kerajaan" data-en="Strategic Value to Government">Nilai Strategik Kepada Kerajaan</h3>
+          <p data-ms="TenangKita membawa data negara lebih dekat kepada rakyat tanpa menggantikan portal rasmi sedia ada." data-en="TenangKita brings national data closer to citizens without replacing existing official portals.">TenangKita membawa data negara lebih dekat kepada rakyat tanpa menggantikan portal rasmi sedia ada.</p>
+          <div class="strategic-value">
+            <div class="strategic-card"><b data-ms="Dekatkan data" data-en="Bring data closer">Dekatkan data</b><span data-ms="Data negara diterjemah kepada bahasa keluarga." data-en="National data is translated into family language.">Data negara diterjemah kepada bahasa keluarga.</span></div>
+            <div class="strategic-card"><b data-ms="Kurang keliru" data-en="Reduce confusion">Kurang keliru</b><span data-ms="Bezakan data, manfaat, anggaran dan semakan rasmi." data-en="Separate data, support, estimates and official checks.">Bezakan data, manfaat, anggaran dan semakan rasmi.</span></div>
+            <div class="strategic-card"><b data-ms="Sokong tindakan" data-en="Support action">Sokong tindakan</b><span data-ms="Checklist menukar insight kepada tindakan mingguan." data-en="Checklist turns insight into weekly action.">Checklist menukar insight kepada tindakan mingguan.</span></div>
+            <div class="strategic-card"><b data-ms="Bina percaya" data-en="Build trust">Bina percaya</b><span data-ms="Sumber dan had penggunaan dinyatakan jelas." data-en="Sources and limits are clearly stated.">Sumber dan had penggunaan dinyatakan jelas.</span></div>
+            <div class="strategic-card"><b data-ms="Sambung portal" data-en="Connect portals">Sambung portal</b><span data-ms="Pantau Krisis, OpenDOSM, KPDN dan MOF saling melengkapi." data-en="Pantau Krisis, OpenDOSM, KPDN and MOF complement each other.">Pantau Krisis, OpenDOSM, KPDN dan MOF saling melengkapi.</span></div>
+          </div>
+        </div>
+
         <div class="panel" style="margin-top:20px"><h3 data-ms="Kesediaan MVP" data-en="MVP Readiness">Kesediaan MVP</h3><p data-ms="Paparan ini membezakan apa yang sudah boleh didemokan, apa yang perlu diintegrasikan dan apa yang perlu ditadbir sebelum produksi." data-en="This separates what can be demonstrated now, what requires integration and what needs governance before production.">Paparan ini membezakan apa yang sudah boleh didemokan, apa yang perlu diintegrasikan dan apa yang perlu ditadbir sebelum produksi.</p><div class="mvp-grid"><div class="mvp-card"><b data-ms="Sedia sekarang" data-en="Ready now">Sedia sekarang</b><ul><li data-ms="Prototaip statik" data-en="Static prototype">Prototaip statik</li><li data-ms="Kalkulator dan checklist" data-en="Calculator and checklist">Kalkulator dan checklist</li><li data-ms="Ujian OpenDOSM" data-en="OpenDOSM test">Ujian OpenDOSM</li></ul></div><div class="mvp-card"><b data-ms="Perlu integrasi" data-en="Needs integration">Perlu integrasi</b><ul><li>PriceCatcher dataset</li><li>Portal Manfaat reference</li><li data-ms="Lapisan lokasi / notifikasi" data-en="Location / notification layer">Lapisan lokasi / notifikasi</li></ul></div><div class="mvp-card"><b data-ms="Perlu tadbir urus" data-en="Needs governance">Perlu tadbir urus</b><ul><li data-ms="Perkongsian data" data-en="Data sharing">Perkongsian data</li><li data-ms="Semakan privasi" data-en="Privacy review">Semakan privasi</li><li data-ms="Semakan keselamatan" data-en="Security review">Semakan keselamatan</li></ul></div></div></div>
       </div>
       <Footer></Footer>
@@ -646,8 +945,8 @@
     <section id="maya">
       <div class="container">
         <span class="pill amber" data-ms="Tekanan Meningkat" data-en="Pressure Rising">Tekanan Meningkat</span>
-        <h2 data-ms="Maya · Ibu tunggal di Johor Bahru" data-en="Maya · Single mother in Johor Bahru">Maya · Ibu tunggal di Johor Bahru</h2>
-        <p class="subtitle" data-ms="Tekanan belanja meningkat bulan ini. Kita fokus kepada pilihan harga berhampiran, manfaat yang mungkin berkaitan dan tindakan kecil yang boleh membantu minggu ini." data-en="Spending pressure has increased this month. The focus is nearby price options, potentially relevant support and small actions this week.">Tekanan belanja meningkat bulan ini. Kita fokus kepada pilihan harga berhampiran, manfaat yang mungkin berkaitan dan tindakan kecil yang boleh membantu minggu ini.</p>
+        <h2 data-ms="Maya · Isteri dalam Keluarga Ismail" data-en="Maya · Wife in Ismail’s Household">Maya · Isteri dalam Keluarga Ismail</h2>
+        <p class="subtitle" data-ms="Maya membantu menyusun keperluan keluarga, belanja dapur dan semakan manfaat rasmi yang mungkin berkaitan. Fokusnya ialah keputusan kecil yang membantu keluarga kekal tenang." data-en="Maya helps organise family needs, groceries and potentially relevant official support checks. The focus is small decisions that help the household stay calm.">Maya membantu menyusun keperluan keluarga, belanja dapur dan semakan manfaat rasmi yang mungkin berkaitan. Fokusnya ialah keputusan kecil yang membantu keluarga kekal tenang.</p>
         <div class="grid">
           <div class="card span5 image-card"><img src="assets/maya-scenario.png" alt="Maya scenario artwork"></div>
           <div class="card span7"><div class="score-ring" style="background:conic-gradient(var(--amber) 0 62%,#edf1ed 62% 100%)"><b style="color:var(--amber)">62</b></div><h3 data-ms="Skor Ketenangan" data-en="Peace Score">Skor Ketenangan</h3><span class="status-pill" style="background:var(--amber-soft);color:var(--amber)" data-ms="Tekanan Meningkat" data-en="Pressure Rising">Tekanan Meningkat</span><div class="list"><div class="item"><span>Bakul Dapur</span><b>+12%</b></div><div class="item"><span>Kesan Petrol</span><b>+8%</b></div><div class="item"><span>Jualan Rahmah Pasir Gudang</span><b data-ms="diskaun barangan asas" data-en="essential goods discount">diskaun barangan asas</b></div><div class="item"><span data-ms="Manfaat mungkin berkaitan" data-en="Potentially relevant support">Manfaat mungkin berkaitan</span><b data-ms="semak rasmi" data-en="official check">semak rasmi</b></div></div></div>
@@ -660,7 +959,7 @@
 
 <template id="footerTemplate">
   <div class="footer">
-    <div><strong>TenangKita</strong><br><span data-ms="© 2026 TenangKita Malaysia · Data negara, ketenangan keluarga." data-en="© 2026 TenangKita Malaysia · National data, family peace of mind.">© 2026 TenangKita Malaysia · Data negara, ketenangan keluarga.</span><br>Built by IH for GovTech Malaysia.</div>
+    <div><strong>TenangKita</strong><br><span data-ms="© 2026 TenangKita Malaysia · Cabang rakyat daripada Pantau Krisis DOSM." data-en="© 2026 TenangKita Malaysia · Citizen branch of Pantau Krisis DOSM.">© 2026 TenangKita Malaysia · Cabang rakyat daripada Pantau Krisis DOSM.</span><br>Built by IH for GovTech Malaysia.</div>
     <div data-ms="Dasar Privasi · Terma Perkhidmatan · Hubungi Kami" data-en="Privacy Policy · Terms of Service · Contact Us">Dasar Privasi · Terma Perkhidmatan · Hubungi Kami</div>
   </div>
 </template>
