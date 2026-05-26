@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TenangKita Demo v3.1</title>
+  <title>TenangKita Demo v3.2</title>
   <style>
     :root{
       --bg:#fbf7ef;
@@ -603,6 +603,360 @@
       .bubble,.bubble.ismail,.bubble.system{margin-left:0;margin-right:0;max-width:100%}
     }
 
+  
+    /* v3.2 open data + family intelligence upgrade */
+    .signal-dashboard{
+      margin-top:24px;
+      background:linear-gradient(135deg,#ffffff,#fbfffc);
+      border:1px solid var(--green-line);
+      border-radius:30px;
+      padding:24px;
+      box-shadow:var(--shadow-soft);
+    }
+    .signal-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+    .signal-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:16px;
+      min-height:128px;
+    }
+    .signal-card em{
+      font-style:normal;
+      display:block;
+      font-size:24px;
+      margin-bottom:8px;
+    }
+    .signal-card b{
+      display:block;
+      color:var(--ink);
+      margin-bottom:5px;
+    }
+    .signal-card span{
+      display:block;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
+    }
+    .source-matrix{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:12px;
+      margin-top:16px;
+    }
+    .source-cell{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+      min-height:132px;
+    }
+    .source-cell b{
+      display:block;
+      color:var(--green);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.035em;
+      margin-bottom:6px;
+      line-height:1.25;
+    }
+    .source-cell span{
+      display:block;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.45;
+    }
+    .family-basket{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+      margin-top:18px;
+    }
+    .basket-item{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:16px;
+    }
+    .basket-item .item-icon{
+      width:46px;
+      height:46px;
+      border-radius:17px;
+      background:var(--green-soft);
+      display:grid;
+      place-items:center;
+      font-size:23px;
+      margin-bottom:10px;
+    }
+    .basket-item b{
+      display:block;
+      margin-bottom:4px;
+    }
+    .basket-item span{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
+      display:block;
+    }
+    .priority-stack{
+      counter-reset:priority;
+      display:grid;
+      gap:12px;
+      margin-top:16px;
+    }
+    .priority-row{
+      counter-increment:priority;
+      display:grid;
+      grid-template-columns:46px 1fr auto;
+      gap:14px;
+      align-items:center;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:14px;
+    }
+    .priority-row:before{
+      content:counter(priority);
+      width:46px;
+      height:46px;
+      border-radius:16px;
+      background:var(--green-soft);
+      color:var(--green);
+      display:grid;
+      place-items:center;
+      font-weight:950;
+      font-size:18px;
+    }
+    .priority-row b{
+      display:block;
+      margin-bottom:4px;
+    }
+    .priority-row span{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
+    }
+    .priority-row small{
+      background:var(--gold-soft);
+      color:#745011;
+      border:1px solid #ecd28e;
+      border-radius:999px;
+      padding:7px 10px;
+      font-size:10px;
+      font-weight:950;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+    .whatif-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:18px;
+    }
+    .whatif-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:16px;
+      min-height:150px;
+    }
+    .whatif-card strong{
+      display:block;
+      color:var(--green);
+      font-size:26px;
+      line-height:1;
+      margin-bottom:8px;
+    }
+    .whatif-card b{
+      display:block;
+      margin-bottom:6px;
+    }
+    .whatif-card span{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
+      display:block;
+    }
+    .explain-panel{
+      background:#fffdf8;
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:22px;
+      margin-top:20px;
+      box-shadow:var(--shadow-soft);
+    }
+    .explain-list{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+    .explain-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:15px;
+    }
+    .explain-card b{
+      color:var(--green);
+      display:block;
+      margin-bottom:6px;
+    }
+    .explain-card span{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
+    }
+    .privacy-mode{
+      background:linear-gradient(135deg,#fff,#f8fffc);
+      border:1px solid var(--green-line);
+      border-radius:28px;
+      padding:24px;
+      margin-top:20px;
+      box-shadow:var(--shadow-soft);
+    }
+    .privacy-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+    .privacy-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:15px;
+    }
+    .privacy-card b{
+      display:block;
+      color:var(--green);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.035em;
+      margin-bottom:6px;
+    }
+    .privacy-card span{
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.45;
+      display:block;
+    }
+    .pathway{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+      margin-top:18px;
+    }
+    .phase-card{
+      position:relative;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:18px;
+      min-height:230px;
+    }
+    .phase-card .phase{
+      display:inline-flex;
+      background:var(--green-soft);
+      color:var(--green);
+      border:1px solid var(--green-line);
+      border-radius:999px;
+      padding:7px 10px;
+      font-size:10px;
+      font-weight:950;
+      text-transform:uppercase;
+      margin-bottom:12px;
+    }
+    .phase-card b{
+      display:block;
+      font-size:18px;
+      margin-bottom:8px;
+    }
+    .phase-card ul{
+      margin:0 0 0 18px;
+      padding:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.55;
+    }
+    .art-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:18px;
+    }
+    .art-card{
+      position:relative;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:18px;
+      min-height:190px;
+      background:linear-gradient(135deg,#fff,#fffaf0);
+    }
+    .art-card:before{
+      content:"";
+      position:absolute;
+      width:170px;
+      height:170px;
+      border-radius:50%;
+      right:-60px;
+      top:-50px;
+      background:rgba(8,117,104,.10);
+    }
+    .art-card:after{
+      content:"";
+      position:absolute;
+      width:110px;
+      height:110px;
+      border-radius:38px;
+      right:24px;
+      bottom:-34px;
+      transform:rotate(12deg);
+      background:rgba(214,166,74,.16);
+    }
+    .art-emoji{
+      position:relative;
+      width:54px;
+      height:54px;
+      border-radius:20px;
+      background:var(--green-soft);
+      display:grid;
+      place-items:center;
+      font-size:28px;
+      margin-bottom:14px;
+      z-index:1;
+    }
+    .art-card b,.art-card span{
+      position:relative;
+      z-index:1;
+      display:block;
+    }
+    .art-card b{
+      margin-bottom:6px;
+    }
+    .art-card span{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
+    }
+
+    @media(max-width:1200px){
+      .signal-grid,.family-basket,.privacy-grid{grid-template-columns:repeat(2,1fr)}
+      .source-matrix,.art-grid{grid-template-columns:repeat(2,1fr)}
+      .whatif-grid,.explain-list,.pathway{grid-template-columns:1fr}
+      .priority-row{grid-template-columns:46px 1fr}
+      .priority-row small{grid-column:2;justify-self:start}
+    }
+    @media(max-width:920px){
+      .signal-grid,.family-basket,.privacy-grid,.source-matrix,.art-grid{grid-template-columns:1fr}
+    }
+
   </style>
 </head>
 
@@ -621,6 +975,7 @@
     <nav>
       <button class="active" data-target="opening" data-ms="🏠 Mula" data-en="🏠 Start">🏠 Mula</button>
       <button data-target="overview" data-ms="🌿 Ringkasan" data-en="🌿 Summary">🌿 Ringkasan</button>
+      <button data-target="signals" data-ms="📊 Isyarat Data" data-en="📊 Data Signals">📊 Isyarat Data</button>
       <button data-target="basket" data-ms="🧺 Harga & Bakul" data-en="🧺 Prices & Basket">🧺 Harga & Bakul</button>
       <button data-target="calculator" data-ms="⛽ Kalkulator" data-en="⛽ Calculator">⛽ Kalkulator</button>
       <button data-target="local" data-ms="📍 Wawasan Setempat" data-en="📍 Local Insights">📍 Wawasan Setempat</button>
@@ -628,6 +983,7 @@
       <button data-target="benefits" data-ms="🤝 Manfaat" data-en="🤝 Support">🤝 Manfaat</button>
       <button data-target="checklist" data-ms="✅ Checklist" data-en="✅ Checklist">✅ Checklist</button>
       <button data-target="reliability" data-ms="🔎 Amanah Data" data-en="🔎 Data Trust">🔎 Amanah Data</button>
+      <button data-target="pathway" data-ms="🚀 Laluan Produksi" data-en="🚀 Production Pathway">🚀 Laluan Produksi</button>
       <button data-target="methodology" data-ms="🛡️ Metodologi" data-en="🛡️ Methodology">🛡️ Metodologi</button>
       <button data-target="maya" data-ms="⚠️ Maya" data-en="⚠️ Maya">⚠️ Maya</button>
     </nav>
@@ -682,6 +1038,16 @@
               <div class="flow-step"><b data-ms="Tindakan" data-en="Action">Tindakan</b><span data-ms="Kalkulator, checklist dan semakan rasmi." data-en="Calculator, checklist and official checks.">Kalkulator, checklist dan semakan rasmi.</span></div>
             </div>
           </div>
+          <div class="panel" style="margin-top:24px">
+            <h3 data-ms="Lapisan visual TenangKita" data-en="TenangKita visual layer">Lapisan visual TenangKita</h3>
+            <p data-ms="Arah visual menggunakan gaya Rakyat Daylight Premium: hangat, jelas, bermaruah dan dekat dengan kehidupan keluarga Malaysia." data-en="The visual direction uses Rakyat Daylight Premium: warm, clear, dignified and close to Malaysian family life.">Arah visual menggunakan gaya Rakyat Daylight Premium: hangat, jelas, bermaruah dan dekat dengan kehidupan keluarga Malaysia.</p>
+            <div class="art-grid">
+              <div class="art-card"><div class="art-emoji">🏡</div><b data-ms="Perancangan keluarga" data-en="Family planning">Perancangan keluarga</b><span data-ms="Keluarga menyusun belanja dapur dan perjalanan dengan tenang." data-en="A family calmly plans groceries and travel.">Keluarga menyusun belanja dapur dan perjalanan dengan tenang.</span></div>
+              <div class="art-card"><div class="art-emoji">🧺</div><b data-ms="Bakul asas" data-en="Essentials basket">Bakul asas</b><span data-ms="Barangan harian dipaparkan secara mudah dan mesra rakyat." data-en="Daily essentials are shown in a simple citizen-friendly way.">Barangan harian dipaparkan secara mudah dan mesra rakyat.</span></div>
+              <div class="art-card"><div class="art-emoji">🤝</div><b data-ms="Sokongan rasmi" data-en="Official support">Sokongan rasmi</b><span data-ms="Manfaat disampaikan sebagai semakan rasmi, bukan janji kelayakan." data-en="Support is presented as official checks, not eligibility promises.">Manfaat disampaikan sebagai semakan rasmi, bukan janji kelayakan.</span></div>
+            </div>
+          </div>
+
         </div>
 
         <div class="hero-art">
@@ -691,6 +1057,40 @@
       </div>
       <Footer></Footer>
     </section>
+
+
+    <section id="signals">
+      <div class="container">
+        <span class="pill" data-ms="Open Data + Family Intelligence" data-en="Open Data + Family Intelligence">Open Data + Family Intelligence</span>
+        <h2 data-ms="Isyarat Negara Hari Ini" data-en="Today’s National Signals">Isyarat Negara Hari Ini</h2>
+        <p class="subtitle" data-ms="TenangKita mengambil isyarat negara daripada ekosistem data rasmi dan menterjemahkannya kepada maksud keluarga." data-en="TenangKita takes national signals from the official data ecosystem and translates them into family meaning.">TenangKita mengambil isyarat negara daripada ekosistem data rasmi dan menterjemahkannya kepada maksud keluarga.</p>
+
+        <div class="signal-dashboard">
+          <h3 data-ms="Apa yang keluarga perlu tahu hari ini?" data-en="What does the family need to know today?">Apa yang keluarga perlu tahu hari ini?</h3>
+          <div class="signal-grid">
+            <div class="signal-card"><em>📈</em><b data-ms="Tekanan harga" data-en="Price pressure">Tekanan harga</b><span data-ms="Sederhana. Belanja asas perlu dirancang." data-en="Moderate. Essential spending should be planned.">Sederhana. Belanja asas perlu dirancang.</span></div>
+            <div class="signal-card"><em>⛽</em><b data-ms="Isyarat minyak" data-en="Fuel signal">Isyarat minyak</b><span data-ms="Perlu perhatian. Semak kesan perjalanan bulanan." data-en="Needs attention. Check monthly travel impact.">Perlu perhatian. Semak kesan perjalanan bulanan.</span></div>
+            <div class="signal-card"><em>🧺</em><b data-ms="Bekalan asas" data-en="Essentials supply">Bekalan asas</b><span data-ms="Stabil dalam demo. Harga setempat masih perlu disemak." data-en="Stable in demo. Local prices still need checking.">Stabil dalam demo. Harga setempat masih perlu disemak.</span></div>
+            <div class="signal-card"><em>🏡</em><b data-ms="Kesan keluarga" data-en="Family impact">Kesan keluarga</b><span data-ms="Belanja minggu ini boleh menjadi lebih terkawal dengan pelan ringkas." data-en="This week’s spending may be more manageable with a simple plan.">Belanja minggu ini boleh menjadi lebih terkawal dengan pelan ringkas.</span></div>
+          </div>
+          <div class="badge-row"><span class="badge live" data-ms="OpenDOSM jika tersedia" data-en="OpenDOSM where available">OpenDOSM jika tersedia</span><span class="badge sample" data-ms="Data contoh" data-en="Sample data">Data contoh</span><span class="badge estimate" data-ms="Anggaran keluarga" data-en="Family estimate">Anggaran keluarga</span></div>
+        </div>
+
+        <div class="panel" style="margin-top:22px">
+          <h3 data-ms="Data yang digunakan oleh TenangKita" data-en="Data used by TenangKita">Data yang digunakan oleh TenangKita</h3>
+          <p data-ms="Setiap sumber mempunyai peranan yang berbeza. TenangKita menggabungkannya secara telus tanpa menggantikan portal rasmi." data-en="Each source has a different role. TenangKita combines them transparently without replacing official portals.">Setiap sumber mempunyai peranan yang berbeza. TenangKita menggabungkannya secara telus tanpa menggantikan portal rasmi.</p>
+          <div class="source-matrix">
+            <div class="source-cell"><b>Pantau Krisis DOSM</b><span data-ms="Rujukan tekanan makro dan krisis bekalan negara." data-en="Reference for national macro pressure and supply crisis.">Rujukan tekanan makro dan krisis bekalan negara.</span></div>
+            <div class="source-cell"><b>OpenDOSM</b><span data-ms="Data rasmi dan API terbuka jika tersedia." data-en="Official data and open API where available.">Data rasmi dan API terbuka jika tersedia.</span></div>
+            <div class="source-cell"><b>PriceCatcher KPDN</b><span data-ms="Rujukan harga barangan terpilih dan peluang harga setempat." data-en="Reference for selected item prices and local price opportunities.">Rujukan harga barangan terpilih dan peluang harga setempat.</span></div>
+            <div class="source-cell"><b>Portal Manfaat MOF</b><span data-ms="Semakan rasmi manfaat yang mungkin berkaitan." data-en="Official checking for potentially relevant support.">Semakan rasmi manfaat yang mungkin berkaitan.</span></div>
+            <div class="source-cell"><b>MyGDX</b><span data-ms="Laluan integrasi kerajaan untuk fasa produksi." data-en="Government integration pathway for production phase.">Laluan integrasi kerajaan untuk fasa produksi.</span></div>
+          </div>
+        </div>
+      </div>
+      <Footer></Footer>
+    </section>
+
 
     <section id="overview">
       <div class="container">
@@ -755,6 +1155,19 @@
         <span class="pill">PriceCatcher KPDN</span>
         <h2 data-ms="Harga & Bakul Dapur" data-en="Prices & Kitchen Basket">Harga & Bakul Dapur</h2>
         <p class="subtitle" data-ms="PriceCatcher membantu melihat pilihan harga berhampiran. Ia melengkapkan isyarat CPI rasmi, bukan menggantikannya." data-en="PriceCatcher helps show nearby price options. It complements official CPI signals, not replaces them.">PriceCatcher membantu melihat pilihan harga berhampiran. Ia melengkapkan isyarat CPI rasmi, bukan menggantikannya.</p>
+        
+        <div class="panel" style="margin-bottom:22px">
+          <h3 data-ms="Bakul Asas Keluarga Malaysia" data-en="Malaysian Family Essentials Basket">Bakul Asas Keluarga Malaysia</h3>
+          <p data-ms="Bakul ini membantu keluarga melihat barang yang kerap memberi kesan kepada belanja harian. Untuk demo, harga ditunjukkan sebagai data contoh." data-en="This basket helps households see items that commonly affect daily spending. For demo, prices are shown as sample data.">Bakul ini membantu keluarga melihat barang yang kerap memberi kesan kepada belanja harian. Untuk demo, harga ditunjukkan sebagai data contoh.</p>
+          <div class="family-basket">
+            <div class="basket-item"><div class="item-icon">🌾</div><b data-ms="Beras" data-en="Rice">Beras</b><span data-ms="Barang asas utama untuk pemantauan keluarga." data-en="Core essential for household monitoring.">Barang asas utama untuk pemantauan keluarga.</span></div>
+            <div class="basket-item"><div class="item-icon">🍗</div><b data-ms="Ayam & telur" data-en="Chicken & eggs">Ayam & telur</b><span data-ms="Sumber protein harian yang kerap berubah harga." data-en="Daily protein sources with frequent price movement.">Sumber protein harian yang kerap berubah harga.</span></div>
+            <div class="basket-item"><div class="item-icon">🛢️</div><b data-ms="Minyak masak" data-en="Cooking oil">Minyak masak</b><span data-ms="Barang dapur yang memberi kesan kepada belanja mingguan." data-en="Kitchen item affecting weekly spending.">Barang dapur yang memberi kesan kepada belanja mingguan.</span></div>
+            <div class="basket-item"><div class="item-icon">🥬</div><b data-ms="Sayur & ikan" data-en="Vegetables & fish">Sayur & ikan</b><span data-ms="Item harian yang bergantung kepada lokasi dan musim." data-en="Daily items influenced by location and season.">Item harian yang bergantung kepada lokasi dan musim.</span></div>
+          </div>
+          <div class="caption" data-ms="Label amanah: data contoh PriceCatcher. Bukan harga dijamin. Harga sebenar perlu disemak melalui sumber rasmi." data-en="Trust label: PriceCatcher sample data. Not guaranteed prices. Actual prices must be checked through official sources.">Label amanah: data contoh PriceCatcher. Bukan harga dijamin. Harga sebenar perlu disemak melalui sumber rasmi.</div>
+        </div>
+
         <div class="grid">
           <div class="card span4"><h3 data-ms="Beras Putih Tempatan" data-en="Local White Rice">Beras Putih Tempatan</h3><div class="metric-card"><div><div class="value">RM26.00</div><div class="change">10kg</div></div><div class="icon">🌾</div></div><div class="list"><div class="item"><span>Pasaraya Econsave Klang</span><b>RM25.50</b></div><div class="item"><span>Kedai Runcit Seksyen 7</span><b>RM26.00</b></div></div></div>
           <div class="card span4"><h3 data-ms="Ayam Standard" data-en="Standard Chicken">Ayam Standard</h3><div class="metric-card"><div><div class="value">RM8.50/kg</div><div class="change" data-ms="+RM0.30 minggu ini" data-en="+RM0.30 this week">+RM0.30 minggu ini</div></div><div class="icon">🍗</div></div><div class="list"><div class="item"><span>Pasar Besar Klang</span><b>RM8.00</b></div><div class="item"><span>Lotus's Setia Alam</span><b>RM8.20</b></div></div></div>
@@ -854,6 +1267,16 @@
         <span class="pill blue">Portal Manfaat MOF</span>
         <h2 data-ms="Manfaat Yang Mungkin Berkaitan" data-en="Potentially Relevant Support">Manfaat Yang Mungkin Berkaitan</h2>
         <p class="subtitle" data-ms="Cadangan ini membantu mengenal pasti manfaat yang mungkin berkaitan. Kelayakan sebenar perlu disemak melalui Portal Manfaat rasmi." data-en="These suggestions help identify support that may be relevant. Actual eligibility must be checked through the official Portal Manfaat.">Cadangan ini membantu mengenal pasti manfaat yang mungkin berkaitan. Kelayakan sebenar perlu disemak melalui Portal Manfaat rasmi.</p>
+        
+        <div class="explain-panel">
+          <h3 data-ms="Kenapa cadangan ini muncul?" data-en="Why does this recommendation appear?">Kenapa cadangan ini muncul?</h3>
+          <div class="explain-list">
+            <div class="explain-card"><b data-ms="Harga asas berubah" data-en="Essentials changed">Harga asas berubah</b><span data-ms="Beberapa barang asas memberi kesan kepada bakul keluarga." data-en="Some essential items affect the family basket.">Beberapa barang asas memberi kesan kepada bakul keluarga.</span></div>
+            <div class="explain-card"><b data-ms="Perjalanan memberi kesan" data-en="Travel has impact">Perjalanan memberi kesan</b><span data-ms="Penggunaan minyak bulanan mempengaruhi tekanan belanja." data-en="Monthly fuel usage affects spending pressure.">Penggunaan minyak bulanan mempengaruhi tekanan belanja.</span></div>
+            <div class="explain-card"><b data-ms="Semakan rasmi diperlukan" data-en="Official check required">Semakan rasmi diperlukan</b><span data-ms="Manfaat hanya mungkin berkaitan dan perlu disahkan melalui portal kerajaan." data-en="Support is only potentially relevant and must be verified through government portals.">Manfaat hanya mungkin berkaitan dan perlu disahkan melalui portal kerajaan.</span></div>
+          </div>
+        </div>
+
         <div class="grid">
           <div class="card span4"><h3>Sumbangan Tunai Rahmah</h3><p data-ms="Bantuan kewangan untuk meringankan kos sara hidup bagi kumpulan tertentu." data-en="Financial support to ease cost of living for selected groups.">Bantuan kewangan untuk meringankan kos sara hidup bagi kumpulan tertentu.</p><button class="btn secondary" data-ms="Semak rasmi" data-en="Official check">Semak rasmi</button></div>
           <div class="card span4"><h3>Pas My50</h3><p data-ms="Berpotensi relevan jika pengguna kerap menggunakan pengangkutan awam sekitar Lembah Klang." data-en="Potentially relevant if the user frequently uses public transport around Klang Valley.">Berpotensi relevan jika pengguna kerap menggunakan pengangkutan awam sekitar Lembah Klang.</p><button class="btn secondary" data-ms="Semak manfaat" data-en="Check support">Semak manfaat</button></div>
@@ -910,6 +1333,18 @@
           <div class="trust-card"><b data-ms="Kelayakan tidak diputuskan" data-en="No eligibility decision">Kelayakan tidak diputuskan</b><span data-ms="Manfaat hanya dipaparkan sebagai mungkin berkaitan dan perlu disemak rasmi." data-en="Support is shown only as potentially relevant and must be officially checked.">Manfaat hanya dipaparkan sebagai mungkin berkaitan dan perlu disemak rasmi.</span></div>
           <div class="trust-card"><b data-ms="Privasi dijaga" data-en="Privacy protected">Privasi dijaga</b><span data-ms="Demo ini menggunakan persona, bukan data sensitif rakyat sebenar." data-en="This demo uses personas, not real sensitive citizen data.">Demo ini menggunakan persona, bukan data sensitif rakyat sebenar.</span></div>
         </div>
+        
+        <div class="privacy-mode">
+          <h3 data-ms="Privasi Keluarga" data-en="Family Privacy Mode">Privasi Keluarga</h3>
+          <p data-ms="TenangKita perlu membantu keluarga tanpa membuat mereka rasa dipantau, dinilai atau dihukum." data-en="TenangKita should help families without making them feel watched, judged or punished.">TenangKita perlu membantu keluarga tanpa membuat mereka rasa dipantau, dinilai atau dihukum.</p>
+          <div class="privacy-grid">
+            <div class="privacy-card"><b data-ms="Tidak menilai" data-en="No judgement">Tidak menilai</b><span data-ms="Skor digunakan untuk kefahaman, bukan hukuman." data-en="Scores are used for understanding, not punishment.">Skor digunakan untuk kefahaman, bukan hukuman.</span></div>
+            <div class="privacy-card"><b data-ms="Tiada kelayakan automatik" data-en="No automatic eligibility">Tiada kelayakan automatik</b><span data-ms="Manfaat perlu disemak rasmi." data-en="Support must be officially checked.">Manfaat perlu disemak rasmi.</span></div>
+            <div class="privacy-card"><b data-ms="Persona demo" data-en="Demo persona">Persona demo</b><span data-ms="Ismail dan Maya bukan data rakyat sebenar." data-en="Ismail and Maya are not real citizen data.">Ismail dan Maya bukan data rakyat sebenar.</span></div>
+            <div class="privacy-card"><b data-ms="Sumber jelas" data-en="Clear sources">Sumber jelas</b><span data-ms="Setiap cadangan perlu menyatakan sumber dan hadnya." data-en="Each recommendation should state its source and limits.">Setiap cadangan perlu menyatakan sumber dan hadnya.</span></div>
+          </div>
+        </div>
+
         <div class="panel" style="margin-top:20px"><h3 data-ms="Status Sumber Data Dalam Prototaip" data-en="Data Source Status in Prototype">Status Sumber Data Dalam Prototaip</h3><div class="grid"><div class="card span3"><b>OpenDOSM</b><p data-ms="Data langsung jika tersedia." data-en="Live data where available.">Data langsung jika tersedia.</p><span class="badge live" data-ms="Data langsung" data-en="Live data">Data langsung</span></div><div class="card span3"><b>PriceCatcher</b><p data-ms="Data contoh pilihan harga setempat." data-en="Sample local price data.">Data contoh pilihan harga setempat.</p><span class="badge sample" data-ms="Data contoh" data-en="Sample data">Data contoh</span></div><div class="card span3"><b>Portal Manfaat</b><p data-ms="Rujukan semakan manfaat rasmi." data-en="Official support checking reference.">Rujukan semakan manfaat rasmi.</p><span class="badge official" data-ms="Semakan rasmi" data-en="Official check">Semakan rasmi</span></div><div class="card span3"><b>Persona</b><p data-ms="Profil demo sahaja, bukan data PADU." data-en="Demo profile only, not PADU data.">Profil demo sahaja, bukan data PADU.</p><span class="badge estimate" data-ms="Persona demo" data-en="Demo persona">Persona demo</span></div></div></div>
         
         <div class="panel" style="margin-top:20px">
@@ -928,6 +1363,22 @@
       </div>
       <Footer></Footer>
     </section>
+
+
+    <section id="pathway">
+      <div class="container">
+        <span class="pill" data-ms="Laluan Produksi" data-en="Production Pathway">Laluan Produksi</span>
+        <h2 data-ms="Daripada Demo kepada MVP" data-en="From Demo to MVP">Daripada Demo kepada MVP</h2>
+        <p class="subtitle" data-ms="Laluan ini menunjukkan bagaimana TenangKita boleh bergerak daripada prototaip GitHub Pages kepada produk rakyat yang ditadbir dengan selamat." data-en="This pathway shows how TenangKita can move from a GitHub Pages prototype into a safely governed citizen product.">Laluan ini menunjukkan bagaimana TenangKita boleh bergerak daripada prototaip GitHub Pages kepada produk rakyat yang ditadbir dengan selamat.</p>
+        <div class="pathway">
+          <div class="phase-card"><span class="phase" data-ms="Fasa 1" data-en="Phase 1">Fasa 1</span><b data-ms="Demo" data-en="Demo">Demo</b><ul><li data-ms="GitHub Pages" data-en="GitHub Pages">GitHub Pages</li><li data-ms="Data contoh dan persona keluarga" data-en="Sample data and family persona">Data contoh dan persona keluarga</li><li data-ms="Ujian OpenDOSM" data-en="OpenDOSM test">Ujian OpenDOSM</li><li data-ms="Checklist dan kalkulator" data-en="Checklist and calculator">Checklist dan kalkulator</li></ul></div>
+          <div class="phase-card"><span class="phase" data-ms="Fasa 2" data-en="Phase 2">Fasa 2</span><b data-ms="MVP" data-en="MVP">MVP</b><ul><li data-ms="Integrasi OpenDOSM" data-en="OpenDOSM integration">Integrasi OpenDOSM</li><li data-ms="PriceCatcher batch dataset" data-en="PriceCatcher batch dataset">PriceCatcher batch dataset</li><li data-ms="Jadual kemas kini sumber" data-en="Source update schedule">Jadual kemas kini sumber</li><li data-ms="Maklum balas tanpa analitik invasif" data-en="Feedback without invasive analytics">Maklum balas tanpa analitik invasif</li></ul></div>
+          <div class="phase-card"><span class="phase" data-ms="Fasa 3" data-en="Phase 3">Fasa 3</span><b data-ms="Produksi" data-en="Production">Produksi</b><ul><li data-ms="MyGDX / API agensi diluluskan" data-en="MyGDX / approved agency APIs">MyGDX / API agensi diluluskan</li><li data-ms="Lapisan geospatial dan notifikasi" data-en="Geospatial and notification layer">Lapisan geospatial dan notifikasi</li><li data-ms="Semakan privasi dan keselamatan" data-en="Privacy and security review">Semakan privasi dan keselamatan</li><li data-ms="Tadbir urus data rentas agensi" data-en="Cross-agency data governance">Tadbir urus data rentas agensi</li></ul></div>
+        </div>
+      </div>
+      <Footer></Footer>
+    </section>
+
 
     <section id="methodology">
       <div class="container">
