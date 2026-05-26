@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TenangKita Demo v1.3</title>
+  <title>TenangKita Demo v1.4</title>
   <meta name="description" content="TenangKita demo prototype: Data negara, ketenangan keluarga." />
   <style>
     :root{
@@ -96,7 +96,7 @@
       .app{display:block} aside{position:relative;width:100%;height:auto;border-right:0;border-bottom:1px solid var(--line)} main{margin-left:0;width:100%} section{padding:24px 18px}.hero{grid-template-columns:1fr;min-height:auto} h1{font-size:42px}h2{font-size:30px}.span3,.span4,.span5,.span6,.span7,.span8,.span12{grid-column:span 12}.topbar{flex-direction:column}.trust-panel{grid-template-columns:1fr}.floating{right:8px;top:8px;transform:scale(.9);transform-origin:top right}nav{grid-template-columns:1fr 1fr}nav button{font-size:13px}
     }
   
-    /* v1.3 layout polish */
+    /* v1.4 trust polish */
     aside{
       width:260px !important;
       padding:22px 14px 20px 14px !important;
@@ -326,6 +326,144 @@
       }
     }
 
+  
+    /* v1.4 trust and value layer */
+    .value-journey{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:12px;
+      margin-top:20px;
+    }
+    .value-journey .journey-card{
+      background:rgba(255,255,255,.92);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:15px;
+      box-shadow:0 8px 18px rgba(18,45,38,.045);
+    }
+    .journey-card .emoji{
+      font-size:24px;
+      margin-bottom:8px;
+      display:block;
+    }
+    .journey-card b{
+      display:block;
+      font-size:13px;
+      margin-bottom:6px;
+      color:var(--text);
+    }
+    .journey-card span{
+      display:block;
+      font-size:12px;
+      line-height:1.45;
+      color:var(--muted);
+    }
+    .trust-strip{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:10px;
+    }
+    .trust-chip{
+      background:#fffdf8;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:12px;
+      font-size:11px;
+      line-height:1.4;
+      color:var(--muted);
+    }
+    .trust-chip b{
+      display:block;
+      color:var(--teal);
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.045em;
+      margin-bottom:4px;
+    }
+    .data-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      border-radius:999px;
+      padding:6px 9px;
+      font-size:10px;
+      font-weight:950;
+      letter-spacing:.045em;
+      text-transform:uppercase;
+      border:1px solid var(--line);
+      background:white;
+      color:var(--muted);
+      margin:4px 4px 0 0;
+    }
+    .data-badge.live{background:#e8f5e9;color:var(--green);border-color:#b9dfc0}
+    .data-badge.sample{background:var(--gold-soft);color:#7a5510;border-color:#ecd28e}
+    .data-badge.estimate{background:var(--teal-soft);color:var(--teal);border-color:var(--teal-line)}
+    .data-badge.official{background:#eef6ff;color:#285b89;border-color:#c9def2}
+    .answer-card{
+      background:linear-gradient(135deg,#ffffff,#f8fffc);
+      border:1px solid var(--teal-line);
+      border-radius:22px;
+      padding:22px;
+      box-shadow:var(--shadow2);
+    }
+    .answer-card h3{
+      color:var(--teal);
+    }
+    .decision-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+    .decision-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:15px;
+    }
+    .decision-card b{
+      display:block;
+      color:var(--text);
+      margin-bottom:6px;
+    }
+    .decision-card span{
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.45;
+    }
+    .last-updated{
+      color:var(--subtle);
+      font-size:11px;
+      margin-top:8px;
+      display:block;
+    }
+    .trust-section{
+      margin-top:20px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:22px;
+      box-shadow:var(--shadow2);
+    }
+    .trust-section h3{
+      margin-bottom:4px;
+    }
+
+    @media(max-width:1180px){
+      .value-journey,.trust-strip{
+        grid-template-columns:repeat(2,1fr);
+      }
+      .decision-grid{
+        grid-template-columns:1fr;
+      }
+    }
+    @media(max-width:940px){
+      .value-journey,.trust-strip{
+        grid-template-columns:1fr;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -348,11 +486,17 @@
           <h1>Data negara,<br/><span style="color:var(--teal)">ketenangan keluarga.</span></h1>
           <p>TenangKita menterjemahkan isyarat ekonomi negara kepada kefahaman isi rumah, peluang harga setempat dan tindakan mudah minggu ini.</p>
           <div class="btns"><button class="btn primary" data-target="overview">Mula Sekarang →</button><button class="btn secondary" data-target="methodology">Lihat Cara Mengira</button></div>
-          <div class="trust-panel">
-            <div><b>UX</b><span>Bahasa mudah, rakyat-friendly, tidak menyalahkan pengguna.</span></div>
-            <div><b>Function</b><span>Skor, kalkulator, tindakan dan wawasan setempat.</span></div>
-            <div><b>Digital Trust</b><span>Sumber data jelas, had penggunaan telus.</span></div>
-            <div><b>Governance</b><span>Tiada tuntutan PADU atau kelayakan automatik.</span></div>
+          <div class="value-journey">
+            <div class="journey-card"><span class="emoji">🌿</span><b>Faham keadaan keluarga</b><span>Lihat sama ada tekanan belanja bulan ini masih terkawal.</span></div>
+            <div class="journey-card"><span class="emoji">🧺</span><b>Lihat apa yang berubah</b><span>Kenal pasti barang dapur, minyak dan kos setempat yang memberi kesan.</span></div>
+            <div class="journey-card"><span class="emoji">📍</span><b>Cari pilihan berhampiran</b><span>Bandingkan peluang harga dan sokongan komuniti di kawasan berdekatan.</span></div>
+            <div class="journey-card"><span class="emoji">🤝</span><b>Semak sokongan rasmi</b><span>Lihat manfaat yang mungkin berkaitan tanpa membuat tuntutan kelayakan.</span></div>
+          </div>
+          <div class="trust-strip">
+            <div class="trust-chip"><b>UX</b>Bahasa mudah, tidak menakutkan, tidak menyalahkan rakyat.</div>
+            <div class="trust-chip"><b>Function</b>Skor, kalkulator, tindakan mingguan dan wawasan setempat.</div>
+            <div class="trust-chip"><b>Digital Trust</b>Sumber data, status data dan had penggunaan dinyatakan dengan jelas.</div>
+            <div class="trust-chip"><b>Governance</b>PADU dan kelayakan rasmi tidak diandaikan dalam demo ini.</div>
           </div>
           <div class="disclaimer">Paparan ini menggunakan gabungan data langsung yang tersedia dan data contoh terpilih untuk tujuan prototaip. Integrasi penuh dengan PADU, PriceCatcher dan Portal Manfaat memerlukan kelulusan, tadbir urus data dan semakan keselamatan.</div>
         </div>
@@ -364,16 +508,16 @@
         <div class="topbar"><div><span class="pill">Shah Alam, Selangor · Demo Data</span><h2>Ringkasan Untuk Saya</h2><p>Ismail, bulan ini keadaan keluarga anda masih stabil. Tekanan utama datang daripada minyak dan beberapa barang dapur seperti beras, ayam dan minyak masak.</p></div><button class="btn secondary" id="testOpenDOSM">Uji OpenDOSM Live</button></div>
         <div class="grid">
           <div class="card span5"><div class="score"><div><b>82</b><small>Skor Ketenangan Belanja</small></div></div><p style="text-align:center"><span class="status">Stabil / Stable</span></p><p style="text-align:center">Tekanan belanja meningkat sedikit, tetapi masih terkawal.</p></div>
-          <div class="card span7"><h3>Jawapan pantas</h3><p>Ya, keluarga masih okay bulan ini. Namun, TenangKita mengesan tekanan kecil pada bakul dapur dan perjalanan minyak. Tindakan yang paling praktikal ialah semak pilihan harga berhampiran dan rancang pembelian minggu ini.</p><div class="grid"><div class="card span6 soft"><div class="kpi"><div><b>Bakul Dapur</b><div class="value">RM1,456</div><div class="change">+RM68 bulan ini</div></div><div class="icon">🧺</div></div><div class="source">PriceCatcher sample</div></div><div class="card span6 soft"><div class="kpi"><div><b>Kesan Minyak</b><div class="value">+RM54</div><div class="change">anggaran bulanan</div></div><div class="icon">⛽</div></div><div class="source">TenangKita estimate</div></div></div><div id="opendosmResult" class="disclaimer">OpenDOSM status: belum diuji dalam sesi ini.</div></div>
+          <div class="card span7"><div class="answer-card"><h3>Jawapan pantas</h3><p><b>Ya, keluarga masih okay bulan ini.</b> Namun, TenangKita mengesan tekanan kecil pada bakul dapur dan perjalanan minyak. Tindakan paling praktikal ialah semak pilihan harga berhampiran, rancang pembelian dapur dan semak manfaat rasmi yang mungkin berkaitan.</p><span class="data-badge live">OpenDOSM live where available</span><span class="data-badge sample">PriceCatcher sample</span><span class="data-badge estimate">TenangKita estimate</span><span class="last-updated">Last updated: Demo cycle 26 May 2026</span></div><div class="grid" style="margin-top:18px"><div class="card span6 soft"><div class="kpi"><div><b>Bakul Dapur</b><div class="value">RM1,456</div><div class="change">+RM68 bulan ini</div></div><div class="icon">🧺</div></div><div class="source">PriceCatcher sample</div></div><div class="card span6 soft"><div class="kpi"><div><b>Kesan Minyak</b><div class="value">+RM54</div><div class="change">anggaran bulanan</div></div><div class="icon">⛽</div></div><div class="source">TenangKita estimate</div></div></div><div id="opendosmResult" class="disclaimer">OpenDOSM status: belum diuji dalam sesi ini.</div></div>
           <div class="card span12"><h3>Bagaimana rakyat guna TenangKita?</h3><div class="grid"><div class="card span3 soft"><b>1. Faham keadaan</b><p>Adakah keluarga masih okay?</p></div><div class="card span3 soft"><b>2. Lihat perubahan</b><p>Apa barang atau kos yang menekan?</p></div><div class="card span3 soft"><b>3. Cari peluang</b><p>Di mana pilihan harga dan sokongan?</p></div><div class="card span3 soft"><b>4. Buat tindakan</b><p>Apa langkah kecil minggu ini?</p></div></div></div>
         </div>
       </div><Footer></Footer>
     </section>
     <section id="basket"><div class="container"><span class="pill">PriceCatcher KPDN · Curated sample</span><h2>Apa Yang Berubah / Harga Berhampiran</h2><p>PriceCatcher membantu melihat pilihan harga berhampiran. Ia melengkapkan isyarat CPI rasmi, bukan menggantikannya.</p><div class="grid"><div class="card span4"><h3>Beras Putih Tempatan</h3><div class="value">RM26.00</div><p>10kg · stabil</p><div class="list"><div class="item"><span>Pasaraya Econsave Klang</span><b>RM25.50</b></div><div class="item"><span>Kedai Runcit Seksyen 7</span><b>RM26.00</b></div></div><div class="source">Pilihan harga setempat</div></div><div class="card span4"><h3>Ayam Standard</h3><div class="value">RM8.50/kg</div><p>+RM0.30 minggu ini</p><div class="list"><div class="item"><span>Pasar Besar Klang</span><b>RM8.00</b></div><div class="item"><span>Lotus's Setia Alam</span><b>RM8.20</b></div></div><div class="source">PriceCatcher sample</div></div><div class="card span4"><h3>Minyak Masak</h3><div class="value">RM7.10</div><p>Sample pack</p><div class="list"><div class="item"><span>Jualan Rahmah Shah Alam</span><b>diskaun</b></div><div class="item"><span>Pasaraya berhampiran</span><b>RM7.10</b></div></div><div class="source">Curated demo data</div></div><div class="card span12"><h3>Nota amanah data</h3><p>Untuk demo ini, harga setempat menggunakan data contoh terpilih. Sambungan penuh kepada dataset PriceCatcher perlu dinilai dari sudut kaedah akses data, kemaskini berkala dan tadbir urus.</p></div></div></div><Footer></Footer></section>
-    <section id="calculator"><div class="container"><span class="pill">Kalkulator Kesan Belanja</span><h2>Simulasi Kesan Minyak dan Belanja</h2><p>Kiraan ini membantu isi rumah memahami kesan perubahan harga. Ia bukan nasihat kewangan rasmi, jumlah bantuan rasmi atau keputusan kelayakan.</p><div class="grid"><div class="card span7"><div class="calc-row"><div class="calc-label"><span>Kenaikan harga minyak per liter</span><b id="fuelRiseLabel">RM0.30</b></div><input id="fuelRise" type="range" min="0" max="0.6" step="0.05" value="0.3"></div><div class="calc-row"><div class="calc-label"><span>Penggunaan minyak sebulan</span><b id="fuelUseLabel">180L</b></div><input id="fuelUse" type="range" min="80" max="260" step="20" value="180"></div><div class="calc-row"><div class="calc-label"><span>Bakul dapur bulanan</span><b id="basketLabel">RM1456</b></div><input id="basketAmount" type="range" min="900" max="1800" step="50" value="1456"></div><div class="calc-row"><div class="calc-label"><span>Lokasi</span><b>Sample</b></div><select><option>Shah Alam, Selangor</option><option>Klang, Selangor</option><option>Johor Bahru, Johor</option></select></div></div><div class="span5 result-box"><h3>Anggaran Impak</h3><p>Tambahan bulanan</p><div class="value" id="impactValue">RM54</div><p>Skor dikemas kini</p><div class="value" id="scoreValue">82 / 100</div><p><b id="scoreStatus">Stabil / Stable</b></p><div class="disclaimer" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.24);color:white" id="calcSummary">Tekanan masih terkawal. Semak harga berhampiran sebelum membeli.</div></div></div></div><Footer></Footer></section>
-    <section id="local"><div class="container"><span class="pill">Wawasan Setempat Shah Alam</span><h2>Wawasan Komuniti Kita di Shah Alam</h2><p>Maklumat ini membantu anda melihat peluang harga, sokongan komuniti dan tindakan mudah di kawasan Shah Alam. Sila semak sumber rasmi untuk pengesahan.</p><div class="grid"><div class="card span7"><div class="map"><div class="road a"></div><div class="road b"></div><div class="road c"></div><div class="road d"></div><div class="marker green" style="left:48%;top:50%">Anda di sini · Shah Alam</div><div class="marker" style="left:28%;top:35%">PriceCatcher KPDN</div><div class="marker gold" style="left:72%;top:64%">Jualan Rahmah</div><div class="marker red" style="left:64%;top:30%">Petrol hotspot</div></div><div class="legend"><span>DOSM/OpenDOSM</span><span>PriceCatcher KPDN</span><span>Portal Manfaat MOF</span><span>Jualan Rahmah</span></div></div><div class="card span5"><h3>Status Ekonomi Setempat: Stabil</h3><p>Harga asas di kawasan Shah Alam masih terkawal. Peluang tindakan minggu ini ialah menyemak harga sebelum membeli, merancang pembelian dapur dan menyemak manfaat rasmi.</p><div class="list"><div class="item"><span>Pilihan harga berhampiran</span><b>2 kedai sample</b></div><div class="item"><span>Jualan Rahmah berhampiran</span><b>diskaun barangan asas</b></div><div class="item"><span>Manfaat mungkin berkaitan</span><b>semak rasmi</b></div><div class="item"><span>Tindakan komuniti</span><b>rancang pembelian</b></div></div><div class="source-row"><span>Data rasmi ekonomi</span><span>Pilihan harga setempat</span><span>Sokongan komuniti</span></div></div></div></div><Footer></Footer></section>
+    <section id="calculator"><div class="container"><span class="pill">Kalkulator Kesan Belanja</span><h2>Simulasi Kesan Minyak dan Belanja</h2><p>Kiraan ini membantu isi rumah memahami kesan perubahan harga. Ia bukan nasihat kewangan rasmi, jumlah bantuan rasmi atau keputusan kelayakan.</p><div class="grid"><div class="card span7"><div class="calc-row"><div class="calc-label"><span>Kenaikan harga minyak per liter</span><b id="fuelRiseLabel">RM0.30</b></div><input id="fuelRise" type="range" min="0" max="0.6" step="0.05" value="0.3"></div><div class="calc-row"><div class="calc-label"><span>Penggunaan minyak sebulan</span><b id="fuelUseLabel">180L</b></div><input id="fuelUse" type="range" min="80" max="260" step="20" value="180"></div><div class="calc-row"><div class="calc-label"><span>Bakul dapur bulanan</span><b id="basketLabel">RM1456</b></div><input id="basketAmount" type="range" min="900" max="1800" step="50" value="1456"></div><div class="calc-row"><div class="calc-label"><span>Lokasi</span><b>Sample</b></div><select><option>Shah Alam, Selangor</option><option>Klang, Selangor</option><option>Johor Bahru, Johor</option></select></div></div><div class="span5 result-box"><h3>Anggaran Impak</h3><p>Tambahan bulanan</p><div class="value" id="impactValue">RM54</div><p>Skor dikemas kini</p><div class="value" id="scoreValue">82 / 100</div><p><b id="scoreStatus">Stabil / Stable</b></p><div class="disclaimer" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.24);color:white" id="calcSummary">Tekanan masih terkawal. Semak harga berhampiran sebelum membeli.</div><div class="decision-grid"><div class="decision-card"><b>Apa berubah?</b><span id="whatChanged">Kesan minyak dan bakul dapur meningkat sedikit.</span></div><div class="decision-card"><b>Apa tindakan?</b><span id="whatAction">Semak harga dan rancang perjalanan.</span></div><div class="decision-card"><b>Apa perlu disemak?</b><span>Manfaat rasmi dan pilihan harga setempat.</span></div></div></div></div></div><Footer></Footer></section>
+    <section id="local"><div class="container"><span class="pill">Wawasan Setempat Shah Alam</span><h2>Wawasan Komuniti Kita di Shah Alam</h2><p>Maklumat ini membantu anda melihat peluang harga, sokongan komuniti dan tindakan mudah di kawasan Shah Alam. Sila semak sumber rasmi untuk pengesahan.</p><div class="grid"><div class="card span7"><div class="map"><div class="road a"></div><div class="road b"></div><div class="road c"></div><div class="road d"></div><div class="marker green" style="left:48%;top:50%">Anda di sini · Shah Alam</div><div class="marker" style="left:28%;top:35%">PriceCatcher KPDN</div><div class="marker gold" style="left:72%;top:64%">Jualan Rahmah</div><div class="marker red" style="left:64%;top:30%">Petrol hotspot</div></div><div class="legend"><span>DOSM/OpenDOSM</span><span>PriceCatcher KPDN</span><span>Portal Manfaat MOF</span><span>Jualan Rahmah</span></div></div><div class="card span5"><h3>Status Ekonomi Setempat: Stabil</h3><span class="data-badge estimate">TenangKita estimate</span><span class="data-badge sample">Local sample</span><p>Harga asas di kawasan Shah Alam masih terkawal. Peluang tindakan minggu ini ialah menyemak harga sebelum membeli, merancang pembelian dapur dan menyemak manfaat rasmi.</p><div class="list"><div class="item"><span>Pilihan harga berhampiran</span><b>2 kedai sample</b></div><div class="item"><span>Jualan Rahmah berhampiran</span><b>diskaun barangan asas</b></div><div class="item"><span>Manfaat mungkin berkaitan</span><b>semak rasmi</b></div><div class="item"><span>Tindakan komuniti</span><b>rancang pembelian</b></div></div><div class="source-row"><span>Data rasmi ekonomi</span><span>Pilihan harga setempat</span><span>Sokongan komuniti</span></div></div></div></div><Footer></Footer></section>
     <section id="benefits"><div class="container"><span class="pill">Portal Manfaat MOF · sample catalogue</span><h2>Manfaat Yang Mungkin Berkaitan</h2><p>Cadangan ini membantu anda mengenal pasti manfaat yang mungkin berkaitan. Kelayakan sebenar perlu disemak melalui Portal Manfaat rasmi.</p><div class="grid"><div class="card span4"><h3>Sumbangan Tunai Rahmah</h3><p>Bantuan kewangan untuk meringankan kos sara hidup bagi kumpulan tertentu.</p><button class="btn secondary">Semak kelayakan rasmi</button><div class="source">Portal Manfaat reference</div></div><div class="card span4"><h3>Pas My50</h3><p>Berpotensi relevan jika pengguna kerap menggunakan pengangkutan awam sekitar Lembah Klang.</p><button class="btn secondary">Semak manfaat rasmi</button><div class="source">Manfaat mungkin berkaitan</div></div><div class="card span4"><h3>SARA</h3><p>Bantuan barangan asas melalui mekanisme rasmi. Tidak dianggap layak sehingga disahkan.</p><button class="btn secondary">Semak lanjut</button><div class="source">No eligibility claim</div></div><div class="card span12"><h3>3 Tindakan Minggu Ini</h3><div class="list"><div class="item"><span>Semak harga ayam dan beras sebelum membeli</span><b>Hari ini</b></div><div class="item"><span>Rancang penggunaan minyak untuk perjalanan utama</span><b>Minggu ini</b></div><div class="item"><span>Semak manfaat mungkin berkaitan melalui portal rasmi</span><b>Apabila lapang</b></div></div></div></div></div><Footer></Footer></section>
-    <section id="methodology"><div class="container"><span class="pill">Digital Trust · Cara TenangKita Mengira</span><h2>Cara TenangKita Mengira</h2><p>Skor ini ialah anggaran ringkas untuk membantu keluarga memahami tekanan belanja bulan ini. Ia bukan penilaian kewangan rasmi, bukan jumlah bantuan rasmi dan bukan keputusan kelayakan.</p><div class="grid"><div class="card span6"><h3>Model Skor Ketenangan Belanja</h3><div class="list"><div class="item"><span>Base score</span><b>100</b></div><div class="item"><span>Bakul Dapur pressure</span><b>-8</b></div><div class="item"><span>Kesan Minyak pressure</span><b>-7</b></div><div class="item"><span>Isyarat Ekonomi Rasmi</span><b>-4</b></div><div class="item"><span>Tekanan Setempat</span><b>-3</b></div><div class="item"><span>Peluang Harga</span><b>+2</b></div><div class="item"><span>Manfaat Berkaitan</span><b>+1</b></div><div class="item"><span>Tindakan Mingguan</span><b>+1</b></div><div class="item"><span><b>Final score</b></span><b>82 / 100</b></div></div></div><div class="card span6"><h3>Ekosistem Data</h3><p><b>Pantau Krisis DOSM</b><br/>Trigger and national monitoring benchmark.</p><p><b>DOSM / OpenDOSM</b><br/>Official economic signal and live API where available.</p><p><b>PriceCatcher KPDN</b><br/>Local price opportunity sample, dataset-ready.</p><p><b>Portal Manfaat MOF</b><br/>Support discovery reference, no eligibility claim.</p><p><b>TenangKita</b><br/>Household meaning and simple actions.</p></div><div class="card span12"><h3>Privasi & Ketelusan</h3><p>TenangKita menggunakan maklumat asas seperti lokasi, jenis isi rumah dan anggaran belanja untuk menjana panduan. Data ini digunakan untuk membantu pemahaman, bukan untuk menilai atau menghukum rakyat.</p></div></div></div><Footer></Footer></section>
+    <section id="methodology"><div class="container"><span class="pill">Digital Trust · Cara TenangKita Mengira</span><h2>Cara TenangKita Mengira</h2><p>Skor ini ialah anggaran ringkas untuk membantu keluarga memahami tekanan belanja bulan ini. Ia bukan penilaian kewangan rasmi, bukan jumlah bantuan rasmi dan bukan keputusan kelayakan.</p><div class="grid"><div class="card span6"><h3>Model Skor Ketenangan Belanja</h3><div class="list"><div class="item"><span>Base score</span><b>100</b></div><div class="item"><span>Bakul Dapur pressure</span><b>-8</b></div><div class="item"><span>Kesan Minyak pressure</span><b>-7</b></div><div class="item"><span>Isyarat Ekonomi Rasmi</span><b>-4</b></div><div class="item"><span>Tekanan Setempat</span><b>-3</b></div><div class="item"><span>Peluang Harga</span><b>+2</b></div><div class="item"><span>Manfaat Berkaitan</span><b>+1</b></div><div class="item"><span>Tindakan Mingguan</span><b>+1</b></div><div class="item"><span><b>Final score</b></span><b>82 / 100</b></div></div></div><div class="card span6"><h3>Ekosistem Data</h3><p><b>Pantau Krisis DOSM</b><br/>Trigger and national monitoring benchmark.</p><p><b>DOSM / OpenDOSM</b><br/>Official economic signal and live API where available.</p><p><b>PriceCatcher KPDN</b><br/>Local price opportunity sample, dataset-ready.</p><p><b>Portal Manfaat MOF</b><br/>Support discovery reference, no eligibility claim.</p><p><b>TenangKita</b><br/>Household meaning and simple actions.</p></div><div class="card span12"><h3>Privasi & Ketelusan</h3><p>TenangKita menggunakan maklumat asas seperti lokasi, jenis isi rumah dan anggaran belanja untuk menjana panduan. Data ini digunakan untuk membantu pemahaman, bukan untuk menilai atau menghukum rakyat.</p></div></div><div class="trust-section"><h3>Lapisan Amanah Digital</h3><p>Setiap insight perlu menyatakan sama ada ia datang daripada data rasmi, data contoh, anggaran TenangKita atau pautan semakan rasmi. Ini mengelakkan overclaiming dan membantu stakeholder memahami had prototaip.</p><span class="data-badge live">Live where available</span><span class="data-badge sample">Curated sample</span><span class="data-badge estimate">Household estimate</span><span class="data-badge official">Official check required</span></div></div><Footer></Footer></section>
     <section id="maya"><div class="container"><span class="pill amber">Tekanan Meningkat / Pressure Rising</span><h2>Maya · Single mother in Johor Bahru</h2><p>Tekanan belanja meningkat bulan ini. Kita fokus kepada pilihan harga berhampiran, manfaat yang mungkin berkaitan dan tindakan kecil yang boleh membantu minggu ini.</p><div class="grid"><div class="card span5 image-card"><img src="assets/maya-scenario.png" alt="Maya scenario artwork" onerror="this.style.background='#fff3e0';"></div><div class="card span7"><div class="score" style="background:conic-gradient(var(--amber) 0 62%, #edf0eb 62% 100%)"><div><b style="color:var(--amber)">62</b><small>Skor Ketenangan</small></div></div><p style="text-align:center"><span class="status watch">Tekanan Meningkat</span></p><div class="list"><div class="item"><span>Bakul Dapur</span><b>+12%</b></div><div class="item"><span>Kesan Petrol</span><b>+8%</b></div><div class="item"><span>Jualan Rahmah Pasir Gudang</span><b>diskaun barangan asas</b></div><div class="item"><span>Manfaat mungkin berkaitan</span><b>semak rasmi</b></div></div></div></div></div><Footer></Footer></section>
   </main>
 </div>
@@ -382,7 +526,7 @@
 function attachFooters(){document.querySelectorAll('Footer').forEach(el=>{el.outerHTML=document.getElementById('footerTemplate').innerHTML;});}
 function showSection(id){document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));const target=document.getElementById(id);if(target)target.classList.add('active');document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.target===id));window.scrollTo({top:0,behavior:'smooth'});}
 document.addEventListener('click',e=>{const t=e.target.closest('[data-target]');if(t)showSection(t.dataset.target);});
-function updateCalc(){const rise=parseFloat(document.getElementById('fuelRise').value);const use=parseFloat(document.getElementById('fuelUse').value);const basket=parseFloat(document.getElementById('basketAmount').value);const impact=Math.round(rise*use);const pressure=Math.max(0,Math.round((basket-1200)/40));let score=Math.max(45,Math.min(100,100-Math.round(impact/7)-pressure));let status=score>=80?'Stabil / Stable':score>=65?'Perlu Perhatian / Needs Attention':'Tekanan Meningkat / Pressure Rising';let summary=score>=80?'Tekanan masih terkawal. Semak harga berhampiran sebelum membeli.':score>=65?'Perlu perhatian. Rancang pembelian dapur dan perjalanan minyak minggu ini.':'Tekanan meningkat. Semak sokongan rasmi dan prioritikan belanja asas.';document.getElementById('fuelRiseLabel').textContent='RM'+rise.toFixed(2);document.getElementById('fuelUseLabel').textContent=use+'L';document.getElementById('basketLabel').textContent='RM'+basket;document.getElementById('impactValue').textContent='RM'+impact;document.getElementById('scoreValue').textContent=score+' / 100';document.getElementById('scoreStatus').textContent=status;document.getElementById('calcSummary').textContent=summary;}
+function updateCalc(){const rise=parseFloat(document.getElementById('fuelRise').value);const use=parseFloat(document.getElementById('fuelUse').value);const basket=parseFloat(document.getElementById('basketAmount').value);const impact=Math.round(rise*use);const pressure=Math.max(0,Math.round((basket-1200)/40));let score=Math.max(45,Math.min(100,100-Math.round(impact/7)-pressure));let status=score>=80?'Stabil / Stable':score>=65?'Perlu Perhatian / Needs Attention':'Tekanan Meningkat / Pressure Rising';let summary=score>=80?'Tekanan masih terkawal. Semak harga berhampiran sebelum membeli.':score>=65?'Perlu perhatian. Rancang pembelian dapur dan perjalanan minyak minggu ini.':'Tekanan meningkat. Semak sokongan rasmi dan prioritikan belanja asas.';document.getElementById('fuelRiseLabel').textContent='RM'+rise.toFixed(2);document.getElementById('fuelUseLabel').textContent=use+'L';document.getElementById('basketLabel').textContent='RM'+basket;document.getElementById('impactValue').textContent='RM'+impact;document.getElementById('scoreValue').textContent=score+' / 100';document.getElementById('scoreStatus').textContent=status;document.getElementById('calcSummary').textContent=summary;const wc=document.getElementById('whatChanged');const wa=document.getElementById('whatAction');if(wc&&wa){if(score>=80){wc.textContent='Kesan minyak dan bakul dapur meningkat sedikit.';wa.textContent='Semak harga sebelum membeli dan kekalkan belanja asas.';}else if(score>=65){wc.textContent='Tekanan belanja semakin terasa pada minyak dan dapur.';wa.textContent='Rancang pembelian, semak diskaun dan kurangkan perjalanan tidak perlu.';}else{wc.textContent='Tekanan belanja meningkat dengan ketara.';wa.textContent='Utamakan barang asas dan semak manfaat rasmi dengan segera.';}}}
 async function testOpenDOSM(){const box=document.getElementById('opendosmResult');box.innerHTML='<span class="live-warn">OpenDOSM status:</span> sedang cuba mendapatkan data langsung...';try{const res=await fetch('https://api.data.gov.my/opendosm?id=cpi_core&limit=1',{cache:'no-store'});if(!res.ok)throw new Error('HTTP '+res.status);const data=await res.json();box.innerHTML='<span class="live-ok">OpenDOSM status:</span> live API berjaya dicapai. Rekod diterima: '+(Array.isArray(data)?data.length:'tersedia')+'.';}catch(err){box.innerHTML='<span class="live-warn">OpenDOSM status:</span> fallback demo data digunakan. Live API belum disahkan dalam pelayar ini.';}}
 attachFooters();['fuelRise','fuelUse','basketAmount'].forEach(id=>{const el=document.getElementById(id);if(el)el.addEventListener('input',updateCalc);});const openBtn=document.getElementById('testOpenDOSM');if(openBtn)openBtn.addEventListener('click',testOpenDOSM);updateCalc();
 </script>
