@@ -1,16 +1,16 @@
-# TenangKita Demo v2.1
+# TenangKita Demo v2.2
 
 A zero-backend GitHub Pages prototype.
 
-## v2.1 focus
-- Bahasa Malaysia only by default
-- English available through a language toggle button
-- No mixed-language labels in compact UI
-- Cleaner text alignment
-- Cleaner map labels
-- Cleaner navigation
-- Keeps Pantau Krisis DOSM source story
-- Keeps checklist, calculator, Amanah Data and Wawasan Setempat intact
+## v2.2 focus
+- Cleaner score card hierarchy
+- Rating text no longer overlaps the score donut
+- Added next action under the score
+- Simplified Wawasan Setempat into a cleaner schematic
+- Removed clutter from the map
+- Moved map disclaimer below the visual
+- Keeps Bahasa Malaysia default and English toggle
+- Keeps checklist, calculator, Amanah Data and existing functions intact
 
 ## Files
 - index.html
