@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TenangKita Demo v1.2</title>
+  <title>TenangKita Demo v1.3</title>
   <meta name="description" content="TenangKita demo prototype: Data negara, ketenangan keluarga." />
   <style>
     :root{
@@ -95,6 +95,237 @@
     @media(max-width:940px){
       .app{display:block} aside{position:relative;width:100%;height:auto;border-right:0;border-bottom:1px solid var(--line)} main{margin-left:0;width:100%} section{padding:24px 18px}.hero{grid-template-columns:1fr;min-height:auto} h1{font-size:42px}h2{font-size:30px}.span3,.span4,.span5,.span6,.span7,.span8,.span12{grid-column:span 12}.topbar{flex-direction:column}.trust-panel{grid-template-columns:1fr}.floating{right:8px;top:8px;transform:scale(.9);transform-origin:top right}nav{grid-template-columns:1fr 1fr}nav button{font-size:13px}
     }
+  
+    /* v1.3 layout polish */
+    aside{
+      width:260px !important;
+      padding:22px 14px 20px 14px !important;
+      overflow-x:hidden !important;
+    }
+    main{
+      margin-left:260px !important;
+      width:calc(100% - 260px) !important;
+    }
+    .brand-row{
+      gap:8px !important;
+      align-items:center !important;
+      margin-left:0 !important;
+      padding-left:0 !important;
+    }
+    .leaf{
+      width:22px !important;
+      height:22px !important;
+      flex:0 0 22px !important;
+    }
+    .brand{
+      font-size:25px !important;
+      line-height:1.05 !important;
+      white-space:nowrap !important;
+    }
+    .tagline{
+      font-size:11px !important;
+      line-height:1.35 !important;
+      margin-bottom:16px !important;
+      max-width:220px !important;
+    }
+    .profile{
+      padding:11px !important;
+      border-radius:17px !important;
+      gap:10px !important;
+      margin-bottom:14px !important;
+    }
+    .profile img{
+      width:42px !important;
+      height:42px !important;
+    }
+    nav{
+      gap:3px !important;
+    }
+    nav button{
+      padding:10px 11px !important;
+      font-size:13px !important;
+      border-radius:13px !important;
+      gap:9px !important;
+      line-height:1.2 !important;
+    }
+    .side-note{
+      padding:12px !important;
+      border-radius:15px !important;
+      font-size:11px !important;
+      margin-top:14px !important;
+    }
+    .mini-badges{
+      gap:5px !important;
+    }
+    .mini-badges span{
+      font-size:9px !important;
+      padding:5px 7px !important;
+    }
+    section{
+      padding:34px 40px !important;
+    }
+    .container{
+      max-width:1120px !important;
+    }
+    .hero{
+      grid-template-columns:minmax(0, .98fr) minmax(360px, .92fr) !important;
+      gap:36px !important;
+      align-items:center !important;
+    }
+    h1{
+      font-size:50px !important;
+      line-height:1.04 !important;
+    }
+    h2{
+      font-size:32px !important;
+    }
+    h3{
+      font-size:19px !important;
+    }
+    .hero p{
+      font-size:16px !important;
+      max-width:600px !important;
+    }
+    .hero-img img{
+      border-radius:28px !important;
+      border-width:7px !important;
+    }
+    .floating{
+      right:-6px !important;
+      top:24px !important;
+      padding:12px 14px !important;
+      border-radius:17px !important;
+    }
+    .float-icon{
+      width:36px !important;
+      height:36px !important;
+      border-radius:14px !important;
+    }
+    .trust-panel{
+      gap:12px !important;
+      margin-top:18px !important;
+    }
+    .trust-panel div{
+      padding:13px !important;
+      border-radius:16px !important;
+    }
+    .trust-panel b{
+      font-size:12px !important;
+    }
+    .trust-panel span{
+      font-size:11px !important;
+    }
+    .card{
+      padding:20px !important;
+      border-radius:21px !important;
+    }
+    .grid{
+      gap:18px !important;
+    }
+    .score{
+      width:178px !important;
+      height:178px !important;
+    }
+    .score:before{
+      width:130px !important;
+      height:130px !important;
+    }
+    .score b{
+      font-size:48px !important;
+    }
+    .value{
+      font-size:27px !important;
+    }
+    .map{
+      height:390px !important;
+      border-radius:24px !important;
+      background:
+        radial-gradient(circle at 22% 25%,rgba(8,117,104,.12),transparent 25%),
+        radial-gradient(circle at 76% 62%,rgba(215,169,75,.18),transparent 27%),
+        linear-gradient(135deg,#f1f8f4,#fffaf0) !important;
+    }
+    .marker{
+      font-size:11px !important;
+      padding:8px 10px !important;
+      border-radius:15px !important;
+    }
+    .legend span,
+    .source-row span{
+      font-size:9.5px !important;
+    }
+    .footer{
+      font-size:11px !important;
+      padding:20px 0 !important;
+    }
+
+    @media(max-width:1180px){
+      aside{
+        width:238px !important;
+      }
+      main{
+        margin-left:238px !important;
+        width:calc(100% - 238px) !important;
+      }
+      section{
+        padding:28px 28px !important;
+      }
+      .container{
+        max-width:980px !important;
+      }
+      .hero{
+        grid-template-columns:1fr !important;
+        gap:28px !important;
+      }
+      .hero-img{
+        max-width:620px !important;
+      }
+      h1{
+        font-size:44px !important;
+      }
+      .trust-panel{
+        grid-template-columns:repeat(2,1fr) !important;
+      }
+    }
+
+    @media(max-width:940px){
+      aside{
+        width:100% !important;
+        position:relative !important;
+        padding:18px !important;
+      }
+      main{
+        margin-left:0 !important;
+        width:100% !important;
+      }
+      section{
+        padding:22px 16px !important;
+      }
+      nav{
+        grid-template-columns:repeat(2,1fr) !important;
+      }
+      .tagline{
+        max-width:none !important;
+      }
+      .hero{
+        grid-template-columns:1fr !important;
+      }
+      .span3,.span4,.span5,.span6,.span7,.span8,.span12{
+        grid-column:span 12 !important;
+      }
+      .trust-panel{
+        grid-template-columns:1fr !important;
+      }
+      .map{
+        height:330px !important;
+      }
+      h1{
+        font-size:38px !important;
+      }
+      h2{
+        font-size:28px !important;
+      }
+    }
+
   </style>
 </head>
 <body>
