@@ -1,15 +1,13 @@
-# TenangKita Demo v1.9
+# TenangKita Demo v2.0
 
 A zero-backend GitHub Pages prototype.
 
-## v1.9 focus
-- Bahasa Malaysia as primary language
-- English used only as secondary support
-- Ties TenangKita back to Pantau Krisis DOSM
-- Positions Pantau Krisis as national crisis monitoring reference
-- Positions TenangKita as rakyat-facing household interpretation and action layer
-- Improves source wording and professional alignment
-- Strengthens premium citizen UX and senior management positioning
+## v2.0 focus
+- Fixes v1.9 alignment issues
+- Keeps Bahasa Malaysia as primary language
+- Simplifies bilingual badges so they do not break layout
+- Improves navigation, card, checklist and Wawasan alignment
+- Keeps Pantau Krisis DOSM source story
 - Keeps checklist, calculator, reliability pack and map polish intact
 
 ## Files

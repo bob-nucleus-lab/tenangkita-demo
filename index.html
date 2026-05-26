@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TenangKita Demo v1.9</title>
+  <title>TenangKita Demo v2.0</title>
   <meta name="description" content="TenangKita demo prototype: Data negara, ketenangan keluarga." />
   <style>
     :root{
@@ -96,7 +96,7 @@
       .app{display:block} aside{position:relative;width:100%;height:auto;border-right:0;border-bottom:1px solid var(--line)} main{margin-left:0;width:100%} section{padding:24px 18px}.hero{grid-template-columns:1fr;min-height:auto} h1{font-size:42px}h2{font-size:30px}.span3,.span4,.span5,.span6,.span7,.span8,.span12{grid-column:span 12}.topbar{flex-direction:column}.trust-panel{grid-template-columns:1fr}.floating{right:8px;top:8px;transform:scale(.9);transform-origin:top right}nav{grid-template-columns:1fr 1fr}nav button{font-size:13px}
     }
   
-    /* v1.9 BM-first source polish
+    /* v2.0 alignment fix
     aside{
       width:260px !important;
       padding:22px 14px 20px 14px !important;
@@ -327,7 +327,7 @@
     }
 
   
-    /* v1.9 BM-first source polish
+    /* v2.0 alignment fix
     .value-journey{
       display:grid;
       grid-template-columns:repeat(4,1fr);
@@ -465,7 +465,7 @@
     }
 
   
-    /* v1.9 BM-first source polish
+    /* v2.0 alignment fix
     @keyframes fadeSlideUp{
       from{opacity:0; transform:translateY(14px);}
       to{opacity:1; transform:translateY(0);}
@@ -560,7 +560,7 @@
     }
 
   
-    /* v1.9 BM-first source polish
+    /* v2.0 alignment fix
     .checklist-card{
       background:linear-gradient(135deg,#ffffff,#fffdf8);
       border:1px solid var(--line);
@@ -663,7 +663,7 @@
     }
 
   
-    /* v1.9 BM-first source polish
+    /* v2.0 alignment fix
     .reliability-panel{
       background:linear-gradient(135deg,#ffffff,#fbfffc);
       border:1px solid var(--teal-line);
@@ -781,7 +781,7 @@
     }
 
   
-    /* v1.9 BM-first source polish
+    /* v2.0 alignment fix
     .schematic-map{
       min-height:420px;
       border-radius:28px;
@@ -943,7 +943,7 @@
     }
 
   
-    /* v1.9 BM-first copy and premium alignment polish */
+    /* v2.0 alignment fix
     .bi-label{
       display:block;
       line-height:1.25;
@@ -1053,6 +1053,239 @@
       }
     }
 
+  
+    /* v2.0 alignment and language governance fix */
+    body{
+      text-rendering:optimizeLegibility;
+    }
+    aside{
+      width:260px !important;
+      padding:22px 14px !important;
+    }
+    main{
+      margin-left:260px !important;
+      width:calc(100% - 260px) !important;
+    }
+    .brand{
+      font-size:25px !important;
+    }
+    .tagline{
+      font-size:11px !important;
+      line-height:1.35 !important;
+    }
+    nav{
+      gap:4px !important;
+    }
+    nav button{
+      font-size:13px !important;
+      padding:10px 11px !important;
+      line-height:1.25 !important;
+      white-space:nowrap !important;
+      overflow:hidden !important;
+      text-overflow:ellipsis !important;
+    }
+    section{
+      padding:34px 38px !important;
+    }
+    .container{
+      max-width:1120px !important;
+    }
+    h1{
+      font-size:50px !important;
+    }
+    h2{
+      font-size:32px !important;
+    }
+    h3{
+      font-size:19px !important;
+    }
+    p{
+      max-width:860px;
+    }
+    .pill{
+      max-width:100%;
+      white-space:normal !important;
+      line-height:1.25 !important;
+      align-items:center !important;
+    }
+    .data-badge{
+      display:inline-flex !important;
+      flex-direction:row !important;
+      align-items:center !important;
+      gap:6px !important;
+      padding:6px 9px !important;
+      line-height:1 !important;
+      white-space:nowrap !important;
+      font-size:10px !important;
+    }
+    .data-badge .en{
+      display:none !important;
+    }
+    .source-row{
+      align-items:center !important;
+      gap:7px !important;
+    }
+    .value-journey{
+      grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+    }
+    .journey-card{
+      min-height:136px !important;
+    }
+    .journey-card b,
+    .trust-chip b,
+    .reliability-item b,
+    .source-system-card b{
+      line-height:1.25 !important;
+    }
+    .trust-strip,
+    .source-system-grid,
+    .reliability-grid{
+      grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+      align-items:stretch !important;
+    }
+    .trust-chip,
+    .source-system-card,
+    .reliability-item{
+      min-height:122px !important;
+    }
+    .answer-card p,
+    .why-box li,
+    .premium-note,
+    .disclaimer{
+      font-size:12.5px !important;
+      line-height:1.55 !important;
+    }
+    .grid{
+      align-items:start !important;
+    }
+    .card{
+      overflow:hidden !important;
+    }
+    .item{
+      align-items:flex-start !important;
+      line-height:1.4 !important;
+    }
+    .item span{
+      flex:1 1 auto !important;
+    }
+    .item b{
+      flex:0 0 auto !important;
+      max-width:42% !important;
+    }
+    .checklist{
+      gap:10px !important;
+    }
+    .task{
+      align-items:flex-start !important;
+      padding:13px !important;
+    }
+    .task span{
+      display:block !important;
+    }
+    .task-title{
+      line-height:1.3 !important;
+    }
+    .task-desc{
+      line-height:1.45 !important;
+    }
+    .checklist-header{
+      align-items:flex-start !important;
+    }
+    .progress-pill{
+      flex:0 0 auto !important;
+    }
+    .schematic-map{
+      min-height:420px !important;
+    }
+    .pin{
+      white-space:nowrap !important;
+      font-size:10.5px !important;
+    }
+    .map-titlebar{
+      align-items:flex-start !important;
+    }
+    .map-titlebar b{
+      line-height:1.25 !important;
+    }
+    .map-titlebar span{
+      max-width:380px !important;
+    }
+    .map-badge{
+      flex:0 0 auto !important;
+    }
+    .local-source-stack div{
+      align-items:flex-start !important;
+      line-height:1.35 !important;
+    }
+    .safe-wording{
+      align-items:start !important;
+    }
+    .footer{
+      align-items:flex-start !important;
+      line-height:1.45 !important;
+    }
+
+    @media(max-width:1180px){
+      aside{
+        width:238px !important;
+      }
+      main{
+        margin-left:238px !important;
+        width:calc(100% - 238px) !important;
+      }
+      section{
+        padding:28px 28px !important;
+      }
+      .value-journey,
+      .trust-strip,
+      .source-system-grid,
+      .reliability-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+      }
+      .hero{
+        grid-template-columns:1fr !important;
+      }
+    }
+    @media(max-width:940px){
+      aside{
+        width:100% !important;
+        position:relative !important;
+      }
+      main{
+        margin-left:0 !important;
+        width:100% !important;
+      }
+      section{
+        padding:22px 16px !important;
+      }
+      nav{
+        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+      }
+      nav button{
+        white-space:normal !important;
+      }
+      .value-journey,
+      .trust-strip,
+      .source-system-grid,
+      .reliability-grid,
+      .decision-grid,
+      .safe-wording{
+        grid-template-columns:1fr !important;
+      }
+      .journey-card,
+      .trust-chip,
+      .source-system-card,
+      .reliability-item{
+        min-height:auto !important;
+      }
+      .topbar{
+        flex-direction:column !important;
+      }
+      .map-titlebar{
+        flex-direction:column !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1064,14 +1297,14 @@
     <nav id="nav">
       <button class="active" data-target="opening">🏠 Mula</button><button data-target="overview">🌿 Ringkasan</button><button data-target="basket">🧺 Bakul</button><button data-target="calculator">⛽ Kalkulator</button><button data-target="local">📍 Setempat</button><button data-target="benefits">🤝 Manfaat</button><button data-target="checklist">✅ Checklist</button><button data-target="reliability">🔎 Amanah Data</button><button data-target="methodology">🛡️ Metodologi</button><button data-target="maya">⚠️ Maya</button>
     </nav>
-    <div class="side-note"><b>Demo Data / Live API Ready</b><br/>OpenDOSM live jika tersedia. PriceCatcher, Manfaat, Jualan Rahmah dan PADU-style profile ialah data contoh untuk demo.</div>
-    <div class="mini-badges"><span>UX-first</span><span>Function-led</span><span>Digital trust</span></div>
+    <div class="side-note"><b>Data Demo / Sedia API Langsung</b><br/>OpenDOSM live jika tersedia. PriceCatcher, Manfaat, Jualan Rahmah dan PADU-style profile ialah data contoh untuk demo.</div>
+    <div class="mini-badges"><span>UX-first</span><span>Fungsi-led</span><span>Digital trust</span></div>
   </aside>
   <main>
     <section id="opening" class="active">
       <div class="container hero">
         <div>
-          <span class="pill"><span class="bi-label"><strong>Sahabat daya tahan ekonomi rakyat</strong><small>Rakyat-first economic resilience companion</small></span></span>
+          <span class="pill">Sahabat daya tahan ekonomi rakyat</span><p style="margin-top:0;color:var(--subtle);font-size:13px">Rakyat-first economic resilience companion</p>
           <h1>Data negara,<br/><span style="color:var(--teal)">ketenangan keluarga.</span></h1>
           <p>TenangKita membantu rakyat memahami tekanan kos sara hidup melalui data rasmi negara, pilihan harga setempat dan tindakan mingguan yang mudah, selamat dan boleh disemak.</p>
           <div class="btns"><button class="btn primary" data-target="overview">Mula Sekarang →</button><button class="btn secondary" data-target="methodology">Lihat Cara Mengira</button></div>
@@ -1083,19 +1316,19 @@
           </div>
           <div class="trust-strip">
             <div class="trust-chip"><b>UX</b>Bahasa mudah, tidak menakutkan, tidak menyalahkan rakyat.</div>
-            <div class="trust-chip"><b>Function</b>Skor, kalkulator, tindakan mingguan dan wawasan setempat.</div>
-            <div class="trust-chip"><b>Digital Trust</b>Sumber data, status data dan had penggunaan dinyatakan dengan jelas.</div>
-            <div class="trust-chip"><b>Governance</b>PADU dan kelayakan rasmi tidak diandaikan dalam demo ini.</div>
+            <div class="trust-chip"><b>Fungsi</b>Skor, kalkulator, tindakan mingguan dan wawasan setempat.</div>
+            <div class="trust-chip"><b>Amanah Digital</b>Sumber data, status data dan had penggunaan dinyatakan dengan jelas.</div>
+            <div class="trust-chip"><b>Tadbir Urus</b>PADU dan kelayakan rasmi tidak diandaikan dalam demo ini.</div>
           </div>
           <div class="disclaimer">Paparan ini menggunakan gabungan data langsung yang tersedia dan data contoh terpilih untuk tujuan prototaip. Integrasi penuh dengan PADU, PriceCatcher dan Portal Manfaat memerlukan kelulusan, tadbir urus data dan semakan keselamatan.</div>
           <div class="reliability-panel">
             <h3>Bagaimana TenangKita menjaga amanah data?</h3>
             <p>Setiap insight dilabel supaya rakyat dan stakeholder tahu sama ada ia data langsung, data contoh, anggaran, atau memerlukan semakan rasmi.</p>
             <div class="data-status-row">
-              <span class="data-badge live">Data langsung jika tersedia<span class="en">Live where available</span></span>
-              <span class="data-badge sample">Data contoh terpilih<span class="en">Curated sample</span></span>
-              <span class="data-badge estimate">Anggaran isi rumah<span class="en">Household estimate</span></span>
-              <span class="data-badge official">Semakan rasmi diperlukan<span class="en">Official check required</span></span>
+              <span class="data-badge live">Data langsung</span>
+              <span class="data-badge sample">Data contoh</span>
+              <span class="data-badge estimate">Anggaran</span>
+              <span class="data-badge official">Semakan rasmi</span>
             </div>
           </div>
         
@@ -1119,12 +1352,12 @@
         <div class="topbar"><div><span class="pill">Shah Alam, Selangor · Demo Data</span><h2>Ringkasan Untuk Saya</h2><p>Ismail, bulan ini keadaan keluarga anda masih stabil. Tekanan utama datang daripada minyak dan beberapa barang dapur seperti beras, ayam dan minyak masak.</p></div><button class="btn secondary" id="testOpenDOSM">Uji OpenDOSM Live</button></div>
         <div class="grid">
           <div class="card span5"><div class="score"><div><b>82</b><small>Skor Ketenangan Belanja</small></div></div><p style="text-align:center"><span class="status">Stabil / Stable</span></p><p style="text-align:center">Tekanan belanja meningkat sedikit, tetapi masih terkawal.</p></div>
-          <div class="card span7"><div class="answer-card"><h3>Adakah keluarga saya masih okay bulan ini?</h3><p><b>Ya, keluarga masih stabil bulan ini.</b> Namun, TenangKita mengesan tekanan kecil pada bakul dapur dan perjalanan minyak. Tindakan paling praktikal ialah semak pilihan harga berhampiran, rancang pembelian dapur dan semak manfaat rasmi yang mungkin berkaitan.</p><span class="data-badge live">OpenDOSM · data langsung jika tersedia</span><span class="data-badge sample">Contoh PriceCatcher</span><span class="data-badge estimate">Anggaran TenangKita<span class="en">TenangKita estimate</span></span><span class="last-updated">Kitaran demo: 26 Mei 2026</span></div><div class="why-box"><b>Kenapa ringkasan ini muncul?</b><ul><li>Profil isi rumah menggunakan persona demo Ismail, bukan PADU sebenar.</li><li>Tekanan belanja dikira melalui anggaran bakul dapur dan penggunaan minyak.</li><li>Data rasmi ekonomi diambil daripada OpenDOSM jika tersedia, dengan fallback demo data.</li></ul></div><div class="grid" style="margin-top:18px"><div class="card span6 soft"><div class="kpi"><div><b>Bakul Dapur</b><div class="value">RM1,456</div><div class="change">+RM68 bulan ini</div></div><div class="icon">🧺</div></div><div class="source">Contoh PriceCatcher</div></div><div class="card span6 soft"><div class="kpi"><div><b>Kesan Minyak</b><div class="value">+RM54</div><div class="change">anggaran bulanan</div></div><div class="icon">⛽</div></div><div class="source">Anggaran TenangKita<span class="en">TenangKita estimate</span></div></div></div><div id="opendosmResult" class="disclaimer">OpenDOSM status: belum diuji dalam sesi ini.</div></div>
+          <div class="card span7"><div class="answer-card"><h3>Adakah keluarga saya masih okay bulan ini?</h3><p><b>Ya, keluarga masih stabil bulan ini.</b> Namun, TenangKita mengesan tekanan kecil pada bakul dapur dan perjalanan minyak. Tindakan paling praktikal ialah semak pilihan harga berhampiran, rancang pembelian dapur dan semak manfaat rasmi yang mungkin berkaitan.</p><span class="data-badge live">OpenDOSM · data langsung jika tersedia</span><span class="data-badge sample">Contoh PriceCatcher</span><span class="data-badge estimate">Anggaran TenangKita</span><span class="last-updated">Kitaran demo: 26 Mei 2026</span></div><div class="why-box"><b>Kenapa ringkasan ini muncul?</b><ul><li>Profil isi rumah menggunakan persona demo Ismail, bukan PADU sebenar.</li><li>Tekanan belanja dikira melalui anggaran bakul dapur dan penggunaan minyak.</li><li>Data rasmi ekonomi diambil daripada OpenDOSM jika tersedia, dengan fallback demo data.</li></ul></div><div class="grid" style="margin-top:18px"><div class="card span6 soft"><div class="kpi"><div><b>Bakul Dapur</b><div class="value">RM1,456</div><div class="change">+RM68 bulan ini</div></div><div class="icon">🧺</div></div><div class="source">Contoh PriceCatcher</div></div><div class="card span6 soft"><div class="kpi"><div><b>Kesan Minyak</b><div class="value">+RM54</div><div class="change">anggaran bulanan</div></div><div class="icon">⛽</div></div><div class="source">Anggaran TenangKita</div></div></div><div id="opendosmResult" class="disclaimer">OpenDOSM status: belum diuji dalam sesi ini.</div></div>
           <div class="card span12"><h3>Bagaimana rakyat guna TenangKita?</h3><div class="grid"><div class="card span3 soft"><b>1. Faham keadaan</b><p>Adakah keluarga masih okay?</p></div><div class="card span3 soft"><b>2. Lihat perubahan</b><p>Apa barang atau kos yang menekan?</p></div><div class="card span3 soft"><b>3. Cari peluang</b><p>Di mana pilihan harga dan sokongan?</p></div><div class="card span3 soft"><b>4. Buat tindakan</b><p>Apa langkah kecil minggu ini?</p></div></div></div>
         </div>
       </div><Footer></Footer>
     </section>
-    <section id="basket"><div class="container"><span class="pill">PriceCatcher KPDN · Data contoh terpilih<span class="en">Curated sample</span></span><h2>Apa Yang Berubah / Harga Berhampiran</h2><p>PriceCatcher membantu melihat pilihan harga berhampiran. Ia melengkapkan isyarat CPI rasmi, bukan menggantikannya.</p><div class="grid"><div class="card span4"><h3>Beras Putih Tempatan</h3><div class="value">RM26.00</div><p>10kg · stabil</p><div class="list"><div class="item"><span>Pasaraya Econsave Klang</span><b>RM25.50</b></div><div class="item"><span>Kedai Runcit Seksyen 7</span><b>RM26.00</b></div></div><div class="source">Pilihan harga setempat</div></div><div class="card span4"><h3>Ayam Standard</h3><div class="value">RM8.50/kg</div><p>+RM0.30 minggu ini</p><div class="list"><div class="item"><span>Pasar Besar Klang</span><b>RM8.00</b></div><div class="item"><span>Lotus's Setia Alam</span><b>RM8.20</b></div></div><div class="source">Contoh PriceCatcher</div></div><div class="card span4"><h3>Minyak Masak</h3><div class="value">RM7.10</div><p>Sample pack</p><div class="list"><div class="item"><span>Jualan Rahmah Shah Alam</span><b>diskaun</b></div><div class="item"><span>Pasaraya berhampiran</span><b>RM7.10</b></div></div><div class="source">Data contoh terpilih</div></div><div class="card span12"><h3>Nota amanah data</h3><p>Untuk demo ini, harga setempat menggunakan data contoh terpilih. Sambungan penuh kepada dataset PriceCatcher perlu dinilai dari sudut kaedah akses data, kemaskini berkala dan tadbir urus.</p></div></div></div><Footer></Footer></section>
+    <section id="basket"><div class="container"><span class="pill">PriceCatcher KPDN · Data contoh</span><h2>Apa Yang Berubah / Harga Berhampiran</h2><p>PriceCatcher membantu melihat pilihan harga berhampiran. Ia melengkapkan isyarat CPI rasmi, bukan menggantikannya.</p><div class="grid"><div class="card span4"><h3>Beras Putih Tempatan</h3><div class="value">RM26.00</div><p>10kg · stabil</p><div class="list"><div class="item"><span>Pasaraya Econsave Klang</span><b>RM25.50</b></div><div class="item"><span>Kedai Runcit Seksyen 7</span><b>RM26.00</b></div></div><div class="source">Pilihan harga setempat</div></div><div class="card span4"><h3>Ayam Standard</h3><div class="value">RM8.50/kg</div><p>+RM0.30 minggu ini</p><div class="list"><div class="item"><span>Pasar Besar Klang</span><b>RM8.00</b></div><div class="item"><span>Lotus's Setia Alam</span><b>RM8.20</b></div></div><div class="source">Contoh PriceCatcher</div></div><div class="card span4"><h3>Minyak Masak</h3><div class="value">RM7.10</div><p>Sample pack</p><div class="list"><div class="item"><span>Jualan Rahmah Shah Alam</span><b>diskaun</b></div><div class="item"><span>Pasaraya berhampiran</span><b>RM7.10</b></div></div><div class="source">Data contoh terpilih</div></div><div class="card span12"><h3>Nota amanah data</h3><p>Untuk demo ini, harga setempat menggunakan data contoh terpilih. Sambungan penuh kepada dataset PriceCatcher perlu dinilai dari sudut kaedah akses data, kemaskini berkala dan tadbir urus.</p></div></div></div><Footer></Footer></section>
     <section id="calculator"><div class="container"><span class="pill">Kalkulator Kesan Belanja</span><h2>Simulasi Kesan Minyak dan Belanja</h2><p>Kiraan ini membantu isi rumah memahami kesan perubahan harga. Ia bukan nasihat kewangan rasmi, jumlah bantuan rasmi atau keputusan kelayakan.</p><div class="grid"><div class="card span7"><div class="calc-row"><div class="calc-label"><span>Kenaikan harga minyak per liter</span><b id="fuelRiseLabel">RM0.30</b></div><input id="fuelRise" type="range" min="0" max="0.6" step="0.05" value="0.3"></div><div class="calc-row"><div class="calc-label"><span>Penggunaan minyak sebulan</span><b id="fuelUseLabel">180L</b></div><input id="fuelUse" type="range" min="80" max="260" step="20" value="180"></div><div class="calc-row"><div class="calc-label"><span>Bakul dapur bulanan</span><b id="basketLabel">RM1456</b></div><input id="basketAmount" type="range" min="900" max="1800" step="50" value="1456"></div><div class="calc-row"><div class="calc-label"><span>Lokasi</span><b>Sample</b></div><select><option>Shah Alam, Selangor</option><option>Klang, Selangor</option><option>Johor Bahru, Johor</option></select></div></div><div class="span5 result-box"><h3>Anggaran Impak</h3><p>Tambahan bulanan</p><div class="value" id="impactValue">RM54</div><p>Skor dikemas kini</p><div class="value" id="scoreValue">82 / 100</div><p><b id="scoreStatus">Stabil / Stable</b></p><div class="disclaimer" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.24);color:white" id="calcSummary">Tekanan masih terkawal. Semak harga berhampiran sebelum membeli.</div><div class="decision-grid"><div class="decision-card"><b>Apa berubah?</b><span id="whatChanged">Kesan minyak dan bakul dapur meningkat sedikit.</span></div><div class="decision-card"><b>Apa tindakan?</b><span id="whatAction">Semak harga dan rancang perjalanan.</span></div><div class="decision-card"><b>Apa perlu disemak?</b><span>Manfaat rasmi dan pilihan harga setempat.</span></div></div></div></div></div><Footer></Footer></section>
     <section id="local"><div class="container"><span class="pill">Wawasan Setempat Shah Alam</span><h2>Wawasan Komuniti Kita di Shah Alam</h2><p>Maklumat ini membantu anda melihat peluang harga, sokongan komuniti dan tindakan mudah di kawasan Shah Alam. Sila semak sumber rasmi untuk pengesahan.</p><div class="grid"><div class="card span7"><div class="schematic-map">
               <div class="map-titlebar">
@@ -1150,8 +1383,8 @@
               <div class="map-footer-note">
                 Ini ialah lapisan wawasan setempat berbentuk ilustrasi untuk tujuan demo. Versi produksi perlu menggunakan data geospatial yang diluluskan, lokasi rasmi dan kemas kini sumber yang ditadbir.
               </div>
-            </div><div class="legend"><span>DOSM/OpenDOSM</span><span>PriceCatcher KPDN</span><span>Portal Manfaat MOF</span><span>Jualan Rahmah</span></div></div><div class="card span5"><h3>Status Ekonomi Setempat: Stabil</h3><span class="data-badge estimate">Anggaran TenangKita<span class="en">TenangKita estimate</span></span><span class="data-badge sample">Data setempat contoh<span class="en">Local sample</span></span><p>Paparan ini menunjukkan wawasan setempat secara skematik untuk Shah Alam. Ia membantu rakyat melihat peluang harga, sokongan komuniti dan tindakan berdekatan, namun lokasi dan nilai sebenar perlu disahkan melalui sumber rasmi.</p><div class="local-source-stack"><div><span>Pilihan harga berhampiran</span><b>sample PriceCatcher</b></div><div><span>Jualan Rahmah berhampiran</span><b>sample event</b></div><div><span>Manfaat mungkin berkaitan</span><b>semak rasmi</b></div><div><span>Tindakan komuniti</span><b>rancang pembelian</b></div></div><div class="why-box"><b>Kenapa paparan ini muncul?</b><ul><li>Lokasi persona ialah Shah Alam, Selangor.</li><li>Harga dan sokongan setempat dipaparkan sebagai sample demo.</li><li>TenangKita tidak mendakwa lokasi sebenar tanpa integrasi geospatial rasmi.</li></ul></div><div class="source-row"><span>Data rasmi ekonomi</span><span>Pilihan harga setempat</span><span>Sokongan komuniti</span></div></div></div></div><Footer></Footer></section>
-    <section id="benefits"><div class="container"><span class="pill">Portal Manfaat MOF · katalog contoh</span><h2>Manfaat Yang Mungkin Berkaitan</h2><p>Cadangan ini membantu anda mengenal pasti manfaat yang mungkin berkaitan. Kelayakan sebenar perlu disemak melalui Portal Manfaat rasmi.</p><div class="trust-warning"><b>Nota amanah:</b> TenangKita tidak menentukan kelayakan bantuan. Paparan manfaat adalah panduan awal sahaja dan mesti disahkan melalui portal rasmi kerajaan.</div><div class="grid"><div class="card span4"><h3>Sumbangan Tunai Rahmah</h3><p>Bantuan kewangan untuk meringankan kos sara hidup bagi kumpulan tertentu.</p><button class="btn secondary">Semak kelayakan rasmi</button><div class="source">Portal Manfaat reference</div></div><div class="card span4"><h3>Pas My50</h3><p>Berpotensi relevan jika pengguna kerap menggunakan pengangkutan awam sekitar Lembah Klang.</p><button class="btn secondary">Semak manfaat rasmi</button><div class="source">Manfaat mungkin berkaitan</div></div><div class="card span4"><h3>SARA</h3><p>Bantuan barangan asas melalui mekanisme rasmi. Tidak dianggap layak sehingga disahkan.</p><button class="btn secondary">Semak lanjut</button><div class="source">Tiada tuntutan kelayakan</div></div><div class="card span12"><h3>3 Tindakan Minggu Ini</h3><div class="list"><div class="item"><span>Semak harga ayam dan beras sebelum membeli</span><b>Hari ini</b></div><div class="item"><span>Rancang penggunaan minyak untuk perjalanan utama</span><b>Minggu ini</b></div><div class="item"><span>Semak manfaat mungkin berkaitan melalui portal rasmi</span><b>Apabila lapang</b></div></div><button class="btn soft" style="margin-top:16px" data-target="checklist">Buka Checklist Mingguan →</button></div></div></div><Footer></Footer></section>
+            </div><div class="legend"><span>DOSM/OpenDOSM</span><span>PriceCatcher KPDN</span><span>Portal Manfaat MOF</span><span>Jualan Rahmah</span></div></div><div class="card span5"><h3>Status Ekonomi Setempat: Stabil</h3><span class="data-badge estimate">Anggaran TenangKita</span><span class="data-badge sample">Data setempat contoh</span><p>Paparan ini menunjukkan wawasan setempat secara skematik untuk Shah Alam. Ia membantu rakyat melihat peluang harga, sokongan komuniti dan tindakan berdekatan, namun lokasi dan nilai sebenar perlu disahkan melalui sumber rasmi.</p><div class="local-source-stack"><div><span>Pilihan harga berhampiran</span><b>contoh PriceCatcher</b></div><div><span>Jualan Rahmah berhampiran</span><b>contoh acara</b></div><div><span>Manfaat mungkin berkaitan</span><b>semak rasmi</b></div><div><span>Tindakan komuniti</span><b>rancang pembelian</b></div></div><div class="why-box"><b>Kenapa paparan ini muncul?</b><ul><li>Lokasi persona ialah Shah Alam, Selangor.</li><li>Harga dan sokongan setempat dipaparkan sebagai sample demo.</li><li>TenangKita tidak mendakwa lokasi sebenar tanpa integrasi geospatial rasmi.</li></ul></div><div class="source-row"><span>Data rasmi ekonomi</span><span>Pilihan harga setempat</span><span>Sokongan komuniti</span></div></div></div></div><Footer></Footer></section>
+    <section id="benefits"><div class="container"><span class="pill">Portal Manfaat MOF · katalog contoh</span><h2>Manfaat Yang Mungkin Berkaitan</h2><p>Cadangan ini membantu anda mengenal pasti manfaat yang mungkin berkaitan. Kelayakan sebenar perlu disemak melalui Portal Manfaat rasmi.</p><div class="trust-warning"><b>Nota amanah:</b> TenangKita tidak menentukan kelayakan bantuan. Paparan manfaat adalah panduan awal sahaja dan mesti disahkan melalui portal rasmi kerajaan.</div><div class="grid"><div class="card span4"><h3>Sumbangan Tunai Rahmah</h3><p>Bantuan kewangan untuk meringankan kos sara hidup bagi kumpulan tertentu.</p><button class="btn secondary">Semak kelayakan rasmi</button><div class="source">Rujukan Portal Manfaat</div></div><div class="card span4"><h3>Pas My50</h3><p>Berpotensi relevan jika pengguna kerap menggunakan pengangkutan awam sekitar Lembah Klang.</p><button class="btn secondary">Semak manfaat rasmi</button><div class="source">Manfaat mungkin berkaitan</div></div><div class="card span4"><h3>SARA</h3><p>Bantuan barangan asas melalui mekanisme rasmi. Tidak dianggap layak sehingga disahkan.</p><button class="btn secondary">Semak lanjut</button><div class="source">Tiada tuntutan kelayakan</div></div><div class="card span12"><h3>3 Tindakan Minggu Ini</h3><div class="list"><div class="item"><span>Semak harga ayam dan beras sebelum membeli</span><b>Hari ini</b></div><div class="item"><span>Rancang penggunaan minyak untuk perjalanan utama</span><b>Minggu ini</b></div><div class="item"><span>Semak manfaat mungkin berkaitan melalui portal rasmi</span><b>Apabila lapang</b></div></div><button class="btn soft" style="margin-top:16px" data-target="checklist">Buka Checklist Mingguan →</button></div></div></div><Footer></Footer></section>
 
     <section id="checklist">
       <div class="container">
@@ -1223,11 +1456,11 @@
             <p>Dashboard hanya menunjukkan keadaan. Checklist membantu rakyat bergerak daripada “apa yang berlaku” kepada “apa yang boleh saya buat minggu ini”.</p>
             <div class="list">
               <div class="item"><span>UX</span><b>kurang beban fikiran</b></div>
-              <div class="item"><span>Function</span><b>tindakan boleh dibuat</b></div>
-              <div class="item"><span>Digital Trust</span><b>semak rasmi dinyatakan</b></div>
-              <div class="item"><span>Privacy</span><b>tiada data disimpan</b></div>
+              <div class="item"><span>Fungsi</span><b>tindakan boleh dibuat</b></div>
+              <div class="item"><span>Amanah Digital</span><b>semak rasmi dinyatakan</b></div>
+              <div class="item"><span>Privasi</span><b>tiada data disimpan</b></div>
             </div>
-            <div class="source-row"><span class="data-badge estimate">Anggaran TenangKita<span class="en">TenangKita estimate</span></span><span class="data-badge official">Semakan rasmi diperlukan<span class="en">Official check required</span></span></div>
+            <div class="source-row"><span class="data-badge estimate">Anggaran TenangKita</span><span class="data-badge official">Semakan rasmi</span></div>
           </div>
         </div>
       </div>
@@ -1246,23 +1479,23 @@
           <div class="reliability-grid">
             <div class="reliability-item">
               <b>OpenDOSM</b>
-              <span>Data langsung jika tersedia<span class="en">Live where available</span>. Digunakan sebagai isyarat ekonomi rasmi apabila API boleh dicapai.</span>
-              <div class="data-status-row"><span class="data-badge live">Data langsung jika tersedia<span class="en">Live where available</span></span></div>
+              <span>Data langsung. Digunakan sebagai isyarat ekonomi rasmi apabila API boleh dicapai.</span>
+              <div class="data-status-row"><span class="data-badge live">Data langsung</span></div>
             </div>
             <div class="reliability-item">
               <b>PriceCatcher</b>
               <span>Untuk demo, dipaparkan sebagai data contoh pilihan harga setempat. Integrasi penuh memerlukan kaedah akses dataset yang sah.</span>
-              <div class="data-status-row"><span class="data-badge sample">Data contoh terpilih<span class="en">Curated sample</span></span></div>
+              <div class="data-status-row"><span class="data-badge sample">Data contoh</span></div>
             </div>
             <div class="reliability-item">
               <b>Portal Manfaat</b>
               <span>Digunakan sebagai rujukan semakan manfaat. TenangKita tidak menentukan kelayakan pengguna.</span>
-              <div class="data-status-row"><span class="data-badge official">Semakan rasmi diperlukan<span class="en">Official check required</span></span></div>
+              <div class="data-status-row"><span class="data-badge official">Semakan rasmi</span></div>
             </div>
             <div class="reliability-item">
               <b>PADU-style profile</b>
               <span>Profil Ismail dan Maya ialah persona demo sahaja. Tiada sambungan kepada data PADU sebenar.</span>
-              <div class="data-status-row"><span class="data-badge estimate">Persona demo sahaja<span class="en">Demo persona only</span></span></div>
+              <div class="data-status-row"><span class="data-badge estimate">Persona demo</span></div>
             </div>
           </div>
         </div>
@@ -1309,10 +1542,10 @@
             <h3>Prinsip kepercayaan TenangKita</h3>
             <p>Untuk meyakinkan rakyat dan pengurusan tertinggi, TenangKita mesti menerangkan sumber, had penggunaan dan sebab sesuatu cadangan muncul. Rakyat tidak patut rasa dipantau, dinilai atau dihukum. Mereka harus rasa dibantu memahami keadaan dan diberi pilihan tindakan yang selamat.</p>
             <div class="source-row">
-              <span class="data-badge live">Data langsung jika tersedia<span class="en">Live where available</span></span>
-              <span class="data-badge sample">Data contoh terpilih<span class="en">Curated sample</span></span>
-              <span class="data-badge estimate">Anggaran isi rumah<span class="en">Household estimate</span></span>
-              <span class="data-badge official">Semakan rasmi diperlukan<span class="en">Official check required</span></span>
+              <span class="data-badge live">Data langsung</span>
+              <span class="data-badge sample">Data contoh</span>
+              <span class="data-badge estimate">Anggaran</span>
+              <span class="data-badge official">Semakan rasmi</span>
             </div>
           </div>
         </div>
@@ -1320,7 +1553,7 @@
       <Footer></Footer>
     </section>
 
-    <section id="methodology"><div class="container"><span class="pill">Digital Trust · Cara TenangKita Mengira</span><h2>Cara TenangKita Mengira</h2><p>Skor ini ialah anggaran ringkas untuk membantu keluarga memahami tekanan belanja bulan ini. Ia bukan penilaian kewangan rasmi, bukan jumlah bantuan rasmi dan bukan keputusan kelayakan.</p><div class="grid"><div class="card span6"><h3>Model Skor Ketenangan Belanja</h3><div class="list"><div class="item"><span>Base score</span><b>100</b></div><div class="item"><span>Bakul Dapur pressure</span><b>-8</b></div><div class="item"><span>Kesan Minyak pressure</span><b>-7</b></div><div class="item"><span>Isyarat Ekonomi Rasmi</span><b>-4</b></div><div class="item"><span>Tekanan Setempat</span><b>-3</b></div><div class="item"><span>Peluang Harga</span><b>+2</b></div><div class="item"><span>Manfaat Berkaitan</span><b>+1</b></div><div class="item"><span>Tindakan Mingguan</span><b>+1</b></div><div class="item"><span><b>Final score</b></span><b>82 / 100</b></div></div></div><div class="card span6"><h3>Ekosistem Data</h3><p><b>Pantau Krisis DOSM</b><br/>Rujukan pemantauan tekanan makro dan krisis bekalan negara.</p><p><b>DOSM / OpenDOSM</b><br/>Isyarat ekonomi rasmi dan API terbuka jika tersedia.</p><p><b>PriceCatcher KPDN</b><br/>Rujukan peluang harga setempat sebagai data contoh untuk demo.</p><p><b>Portal Manfaat MOF</b><br/>Rujukan penemuan manfaat tanpa tuntutan kelayakan automatik.</p><p><b>TenangKita</b><br/>Terjemahan kepada maksud isi rumah dan tindakan mudah.</p></div><div class="card span12"><h3>Privasi & Ketelusan</h3><p>TenangKita menggunakan maklumat asas seperti lokasi, jenis isi rumah dan anggaran belanja untuk menjana panduan. Data ini digunakan untuk membantu pemahaman, bukan untuk menilai atau menghukum rakyat.</p></div></div><div class="trust-section"><h3>Lapisan Amanah Digital</h3><p>Setiap insight perlu menyatakan sama ada ia datang daripada data rasmi, data contoh, anggaran TenangKita atau pautan semakan rasmi. Ini mengelakkan overclaiming dan membantu stakeholder memahami had prototaip.</p><span class="data-badge live">Data langsung jika tersedia<span class="en">Live where available</span></span><span class="data-badge sample">Data contoh terpilih<span class="en">Curated sample</span></span><span class="data-badge estimate">Anggaran isi rumah<span class="en">Household estimate</span></span><span class="data-badge official">Semakan rasmi diperlukan<span class="en">Official check required</span></span></div></div><Footer></Footer></section>
+    <section id="methodology"><div class="container"><span class="pill">Amanah Digital · Cara TenangKita Mengira</span><h2>Cara TenangKita Mengira</h2><p>Skor ini ialah anggaran ringkas untuk membantu keluarga memahami tekanan belanja bulan ini. Ia bukan penilaian kewangan rasmi, bukan jumlah bantuan rasmi dan bukan keputusan kelayakan.</p><div class="grid"><div class="card span6"><h3>Model Skor Ketenangan Belanja</h3><div class="list"><div class="item"><span>Base score</span><b>100</b></div><div class="item"><span>Bakul Dapur pressure</span><b>-8</b></div><div class="item"><span>Kesan Minyak pressure</span><b>-7</b></div><div class="item"><span>Isyarat Ekonomi Rasmi</span><b>-4</b></div><div class="item"><span>Tekanan Setempat</span><b>-3</b></div><div class="item"><span>Peluang Harga</span><b>+2</b></div><div class="item"><span>Manfaat Berkaitan</span><b>+1</b></div><div class="item"><span>Tindakan Mingguan</span><b>+1</b></div><div class="item"><span><b>Final score</b></span><b>82 / 100</b></div></div></div><div class="card span6"><h3>Ekosistem Data</h3><p><b>Pantau Krisis DOSM</b><br/>Rujukan pemantauan tekanan makro dan krisis bekalan negara.</p><p><b>DOSM / OpenDOSM</b><br/>Isyarat ekonomi rasmi dan API terbuka jika tersedia.</p><p><b>PriceCatcher KPDN</b><br/>Rujukan peluang harga setempat sebagai data contoh untuk demo.</p><p><b>Portal Manfaat MOF</b><br/>Rujukan penemuan manfaat tanpa tuntutan kelayakan automatik.</p><p><b>TenangKita</b><br/>Terjemahan kepada maksud isi rumah dan tindakan mudah.</p></div><div class="card span12"><h3>Privasi & Ketelusan</h3><p>TenangKita menggunakan maklumat asas seperti lokasi, jenis isi rumah dan anggaran belanja untuk menjana panduan. Data ini digunakan untuk membantu pemahaman, bukan untuk menilai atau menghukum rakyat.</p></div></div><div class="trust-section"><h3>Lapisan Amanah Digital</h3><p>Setiap insight perlu menyatakan sama ada ia datang daripada data rasmi, data contoh, anggaran TenangKita atau pautan semakan rasmi. Ini mengelakkan overclaiming dan membantu stakeholder memahami had prototaip.</p><span class="data-badge live">Data langsung</span><span class="data-badge sample">Data contoh</span><span class="data-badge estimate">Anggaran</span><span class="data-badge official">Semakan rasmi</span></div></div><Footer></Footer></section>
     <section id="maya"><div class="container"><span class="pill amber">Tekanan Meningkat / Pressure Rising</span><h2>Maya · Single mother in Johor Bahru</h2><p>Tekanan belanja meningkat bulan ini. Kita fokus kepada pilihan harga berhampiran, manfaat yang mungkin berkaitan dan tindakan kecil yang boleh membantu minggu ini.</p><div class="grid"><div class="card span5 image-card"><img src="assets/maya-scenario.png" alt="Maya scenario artwork" onerror="this.style.background='#fff3e0';"></div><div class="card span7"><div class="score" style="background:conic-gradient(var(--amber) 0 62%, #edf0eb 62% 100%)"><div><b style="color:var(--amber)">62</b><small>Skor Ketenangan</small></div></div><p style="text-align:center"><span class="status watch">Tekanan Meningkat</span></p><div class="list"><div class="item"><span>Bakul Dapur</span><b>+12%</b></div><div class="item"><span>Kesan Petrol</span><b>+8%</b></div><div class="item"><span>Jualan Rahmah Pasir Gudang</span><b>diskaun barangan asas</b></div><div class="item"><span>Manfaat mungkin berkaitan</span><b>semak rasmi</b></div></div></div></div></div><Footer></Footer></section>
   </main>
 </div>
