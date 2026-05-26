@@ -1,13 +1,16 @@
-# TenangKita Demo v1.8
+# TenangKita Demo v1.9
 
 A zero-backend GitHub Pages prototype.
 
-## v1.8 focus
-- Replaced weird Wawasan Setempat map with a credible schematic local insight layer
-- Added clear prototype map disclaimer
-- Improved source interpretation for Shah Alam local insights
-- Better distinction between sample points and real geospatial data
-- Keeps checklist, calculator, reliability pack and current UX intact
+## v1.9 focus
+- Bahasa Malaysia as primary language
+- English used only as secondary support
+- Ties TenangKita back to Pantau Krisis DOSM
+- Positions Pantau Krisis as national crisis monitoring reference
+- Positions TenangKita as rakyat-facing household interpretation and action layer
+- Improves source wording and professional alignment
+- Strengthens premium citizen UX and senior management positioning
+- Keeps checklist, calculator, reliability pack and map polish intact
 
 ## Files
 - index.html
