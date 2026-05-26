@@ -1,14 +1,16 @@
-# TenangKita Demo v1.6
+# TenangKita Demo v1.7
 
 A zero-backend GitHub Pages prototype.
 
-## v1.6 focus
-- Restored interactive weekly checklist
-- Progress counter and completion state
-- Rakyat-friendly action wording
-- Safe official-check wording
-- Keeps UX, function and digital trust intact
-- Still single index.html + assets folder only
+## v1.7 focus
+- Reliability Pack
+- Stronger data source clarity
+- Clear Live / Sample / Estimate / Official Check labels
+- Added Amanah Data section
+- Added Why this recommendation explanations
+- Strengthened Portal Manfaat and PADU boundary wording
+- Keeps checklist, calculator and current UX intact
+- Single index.html + assets folder only
 
 ## Files
 - index.html
