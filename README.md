@@ -1,18 +1,9 @@
-# TenangKita Demo v3.4
+# TenangKita Demo v4.0
 
-A zero-backend GitHub Pages prototype.
+Executive Family Companion Experience.
 
-## v3.4 focus
-- Nora rename and identity lock
-- Nora is Ismail's wife and part of the same family household
-- Nora wears hijab and baju kurung with premium pastel tone
-- Integrates approved premium family artworks
-- Adds fuel planning artwork for Kesan Minyak
-- Adds market artwork for Harga & Bakul
-- Adds Nora identity card in Family Story
-- Keeps BM default and English toggle
-- Keeps v3.3 daily companion, notifications, simulator, trust labels and production pathway
-
-## Files
-- index.html
-- assets/
+- Mod Rakyat + Mod Kerajaan
+- Family-first UX
+- Peluang Berhampiran list-first map-second
+- Standardised trust labels
+- BM default with English toggle
