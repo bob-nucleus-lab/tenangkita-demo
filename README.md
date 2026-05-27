@@ -1,20 +1,17 @@
-# TenangKita Demo v3.2
+# TenangKita Demo v3.3
 
 A zero-backend GitHub Pages prototype.
 
-## v3.2 focus
-- Open Data + Family Intelligence Upgrade
-- Adds Isyarat Negara Hari Ini
-- Adds Data yang digunakan by TenangKita
-- Adds Bakul Asas Keluarga Malaysia
-- Adds Family What If
-- Adds Keutamaan Keluarga Minggu Ini
-- Adds Explain This Recommendation
-- Adds Family Privacy Mode
-- Adds Production Pathway
-- Adds premium artwork-style journey cards
-- Keeps Bahasa Malaysia default and English toggle
-- Keeps calculator, checklist, OpenDOSM test and family branch story
+## v3.3 focus
+- Daily Companion + Notification Readiness Update
+- Adds Hari Ini Untuk Keluarga Ismail & Maya
+- Adds Notifikasi Keluarga
+- Adds Scenario Simulator
+- Adds Rakyat Trust Labels
+- Adds Integration Readiness
+- Adds premium artwork-style journey placeholders
+- Keeps BM default and English toggle
+- Keeps calculator, checklist, OpenDOSM test, family branch story and trust layers
 
 ## Files
 - index.html

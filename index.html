@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TenangKita Demo v3.2</title>
+  <title>TenangKita Demo v3.3</title>
   <style>
     :root{
       --bg:#fbf7ef;
@@ -957,7 +957,33 @@
       .signal-grid,.family-basket,.privacy-grid,.source-matrix,.art-grid{grid-template-columns:1fr}
     }
 
-  </style>
+  
+/* v3.3 Daily Companion + Notification Readiness */
+.today-brief,.notif-panel,.sim-panel,.readiness-panel{margin-top:22px;background:linear-gradient(135deg,#fff,#fbfffc);border:1px solid var(--green-line);border-radius:28px;padding:24px;box-shadow:var(--shadow-soft)}
+.today-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin-top:16px}
+.today-card,.notif-card,.scenario-result,.trust-label,.integration-card,.gov-value-card,.art-mini{background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px}
+.today-point{display:flex;gap:12px;align-items:flex-start;background:#fffdf8;border:1px solid var(--line);border-radius:16px;padding:12px;margin-top:10px}
+.today-point i{font-style:normal;width:34px;height:34px;border-radius:13px;background:var(--green-soft);display:grid;place-items:center}
+.daily-score{background:linear-gradient(135deg,var(--green),#0b927e);color:#fff;border-radius:24px;padding:22px}
+.daily-score p{color:rgba(255,255,255,.82)}.daily-score .big{font-size:54px;font-weight:950;line-height:1;letter-spacing:-.05em;margin:10px 0}
+.notif-list{display:grid;gap:14px;margin-top:16px}.notif-card{display:grid;grid-template-columns:46px 1fr auto;gap:14px;align-items:center}
+.notif-icon{width:46px;height:46px;border-radius:17px;background:var(--green-soft);display:grid;place-items:center;font-size:22px}
+.notif-status{border-radius:999px;background:var(--gold-soft);border:1px solid #ecd28e;color:#745011;padding:7px 10px;font-size:10px;font-weight:950;text-transform:uppercase;white-space:nowrap}
+.scenario-controls{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+.scenario-btn{border:1px solid var(--line);background:#fff;border-radius:18px;padding:15px;min-height:118px;text-align:left}.scenario-btn.active,.scenario-btn:hover{background:var(--green-soft);border-color:var(--green-line)}
+.scenario-btn em{display:block;font-style:normal;font-size:24px;margin-bottom:8px}.scenario-btn span{display:block;color:var(--muted);font-size:12.5px;line-height:1.4}
+.scenario-grid,.trust-labels,.integration-grid,.gov-value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.trust-labels,.integration-grid,.gov-value-grid{grid-template-columns:repeat(5,1fr)}
+.trust-label strong{display:inline-flex;border-radius:999px;padding:7px 10px;font-size:10px;font-weight:950;text-transform:uppercase;margin-bottom:10px}
+.trust-label b,.integration-card b,.gov-value-card b{display:block;color:var(--green);margin-bottom:7px}.trust-label span,.integration-card span,.gov-value-card span{display:block;color:var(--muted);font-size:12.5px;line-height:1.45}
+.art-showcase{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:16px}.art-mini{position:relative;overflow:hidden;min-height:145px;background:linear-gradient(135deg,#fff,#fffaf0)}
+.art-mini:before{content:"";position:absolute;width:110px;height:110px;border-radius:50%;right:-44px;top:-40px;background:rgba(8,117,104,.10)}
+.art-mini em{position:relative;z-index:1;width:46px;height:46px;border-radius:16px;background:var(--green-soft);display:grid;place-items:center;font-style:normal;font-size:24px;margin-bottom:12px}
+.art-mini b,.art-mini span{position:relative;z-index:1;display:block}.art-mini span{color:var(--muted);font-size:12px;line-height:1.4}
+@media(max-width:1200px){.today-grid,.scenario-grid{grid-template-columns:1fr}.scenario-controls,.trust-labels,.integration-grid,.gov-value-grid{grid-template-columns:repeat(2,1fr)}.art-showcase{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:920px){.scenario-controls,.trust-labels,.integration-grid,.gov-value-grid,.art-showcase{grid-template-columns:1fr}.notif-card{grid-template-columns:46px 1fr}.notif-status{grid-column:2;justify-self:start}}
+
+</style>
 </head>
 
 <body>
@@ -976,8 +1002,11 @@
       <button class="active" data-target="opening" data-ms="🏠 Mula" data-en="🏠 Start">🏠 Mula</button>
       <button data-target="overview" data-ms="🌿 Ringkasan" data-en="🌿 Summary">🌿 Ringkasan</button>
       <button data-target="signals" data-ms="📊 Isyarat Data" data-en="📊 Data Signals">📊 Isyarat Data</button>
+      <button data-target="today" data-ms="☀️ Hari Ini" data-en="☀️ Today">☀️ Hari Ini</button>
+      <button data-target="notifications" data-ms="🔔 Notifikasi" data-en="🔔 Notifications">🔔 Notifikasi</button>
       <button data-target="basket" data-ms="🧺 Harga & Bakul" data-en="🧺 Prices & Basket">🧺 Harga & Bakul</button>
       <button data-target="calculator" data-ms="⛽ Kalkulator" data-en="⛽ Calculator">⛽ Kalkulator</button>
+      <button data-target="simulator" data-ms="🧪 Simulator" data-en="🧪 Simulator">🧪 Simulator</button>
       <button data-target="local" data-ms="📍 Wawasan Setempat" data-en="📍 Local Insights">📍 Wawasan Setempat</button>
       <button data-target="family-story" data-ms="👨‍👩‍👧 Cerita Keluarga" data-en="👨‍👩‍👧 Family Story">👨‍👩‍👧 Cerita Keluarga</button>
       <button data-target="benefits" data-ms="🤝 Manfaat" data-en="🤝 Support">🤝 Manfaat</button>
@@ -1092,6 +1121,36 @@
     </section>
 
 
+
+    <section id="today">
+      <div class="container">
+        <span class="pill" data-ms="Harian Keluarga" data-en="Daily Family Brief">Harian Keluarga</span>
+        <h2 data-ms="Hari Ini Untuk Keluarga Ismail & Maya" data-en="Today for Ismail & Maya’s Family">Hari Ini Untuk Keluarga Ismail & Maya</h2>
+        <p class="subtitle" data-ms="Satu paparan ringkas untuk membantu keluarga faham keadaan hari ini dan memilih tindakan paling mudah." data-en="A simple daily view to help the family understand today’s situation and choose the easiest action.">Satu paparan ringkas untuk membantu keluarga faham keadaan hari ini dan memilih tindakan paling mudah.</p>
+        <div class="today-brief"><div class="today-grid">
+          <div class="today-card"><h3 data-ms="Ringkasan hari ini" data-en="Today’s brief">Ringkasan hari ini</h3><p data-ms="Keluarga masih stabil. Tekanan utama datang daripada minyak dan bakul dapur. Tindakan paling mudah ialah semak harga sebelum membeli." data-en="The household remains stable. The main pressure comes from fuel and groceries. The easiest action is to check prices before buying.">Keluarga masih stabil. Tekanan utama datang daripada minyak dan bakul dapur. Tindakan paling mudah ialah semak harga sebelum membeli.</p>
+            <div class="today-point"><i>⛽</i><div><b data-ms="Perlu perhatian" data-en="Needs attention">Perlu perhatian</b><span data-ms="Minyak dan perjalanan bulanan memberi kesan kecil kepada belanja." data-en="Fuel and monthly travel have a small impact on spending.">Minyak dan perjalanan bulanan memberi kesan kecil kepada belanja.</span></div></div>
+            <div class="today-point"><i>🧺</i><div><b data-ms="Semak sebelum beli" data-en="Check before buying">Semak sebelum beli</b><span data-ms="Beras, ayam dan minyak masak ialah item contoh yang perlu diperhatikan." data-en="Rice, chicken and cooking oil are sample items to monitor.">Beras, ayam dan minyak masak ialah item contoh yang perlu diperhatikan.</span></div></div>
+            <div class="today-point"><i>🤝</i><div><b data-ms="Semakan rasmi" data-en="Official check">Semakan rasmi</b><span data-ms="Manfaat yang mungkin berkaitan perlu disemak melalui portal rasmi." data-en="Potentially relevant support must be checked through official portals.">Manfaat yang mungkin berkaitan perlu disemak melalui portal rasmi.</span></div></div>
+          </div>
+          <div class="daily-score"><h3 data-ms="Status keluarga" data-en="Family status">Status keluarga</h3><div class="big">82</div><p data-ms="Stabil · teruskan kawalan belanja asas dan rancang perjalanan." data-en="Stable · continue managing essential spending and plan travel.">Stabil · teruskan kawalan belanja asas dan rancang perjalanan.</p><span class="badge live" data-ms="OpenDOSM jika tersedia" data-en="OpenDOSM where available">OpenDOSM jika tersedia</span></div>
+        </div></div>
+      </div><Footer></Footer>
+    </section>
+
+    <section id="notifications">
+      <div class="container">
+        <span class="pill" data-ms="Kesediaan MyNotifikasi" data-en="MyNotifikasi Readiness">Kesediaan MyNotifikasi</span>
+        <h2 data-ms="Notifikasi Keluarga" data-en="Family Notifications">Notifikasi Keluarga</h2>
+        <p class="subtitle" data-ms="Contoh lapisan notifikasi yang boleh disambungkan kepada MyGOV / MyNotifikasi pada fasa seterusnya." data-en="A sample notification layer that can later connect to MyGOV / MyNotifikasi.">Contoh lapisan notifikasi yang boleh disambungkan kepada MyGOV / MyNotifikasi pada fasa seterusnya.</p>
+        <div class="notif-panel"><div class="notif-list">
+          <div class="notif-card"><div class="notif-icon">🧺</div><div><b data-ms="Harga barang asas perlu disemak" data-en="Essential prices need checking">Harga barang asas perlu disemak</b><span data-ms="Harga ayam meningkat sedikit dalam data contoh. Semak pilihan harga sebelum membeli minggu ini." data-en="Chicken price increased slightly in sample data. Check price options before buying this week.">Harga ayam meningkat sedikit dalam data contoh. Semak pilihan harga sebelum membeli minggu ini.</span></div><div class="notif-status" data-ms="Data contoh" data-en="Sample data">Data contoh</div></div>
+          <div class="notif-card"><div class="notif-icon">🤝</div><div><b>Jualan Rahmah</b><span data-ms="Program mungkin berlangsung berhampiran Shah Alam. Sahkan lokasi dan tarikh melalui sumber rasmi." data-en="A programme may be available near Shah Alam. Confirm location and date through official sources.">Program mungkin berlangsung berhampiran Shah Alam. Sahkan lokasi dan tarikh melalui sumber rasmi.</span></div><div class="notif-status" data-ms="Semak rasmi" data-en="Official check">Semak rasmi</div></div>
+          <div class="notif-card"><div class="notif-icon">⛽</div><div><b data-ms="Kesan perjalanan" data-en="Travel impact">Kesan perjalanan</b><span data-ms="Jika perjalanan bertambah minggu ini, kira semula anggaran kesan minyak." data-en="If travel increases this week, recalculate estimated fuel impact.">Jika perjalanan bertambah minggu ini, kira semula anggaran kesan minyak.</span></div><div class="notif-status" data-ms="Anggaran" data-en="Estimate">Anggaran</div></div>
+        </div></div>
+      </div><Footer></Footer>
+    </section>
+
     <section id="overview">
       <div class="container">
         <span class="pill">Shah Alam, Selangor</span>
@@ -1176,6 +1235,28 @@
         </div>
       </div>
       <Footer></Footer>
+    </section>
+
+
+    <section id="simulator">
+      <div class="container">
+        <span class="pill">Scenario Simulator</span>
+        <h2 data-ms="Uji Senario Keluarga" data-en="Test Family Scenarios">Uji Senario Keluarga</h2>
+        <p class="subtitle" data-ms="Simulator ini membantu keluarga melihat maksud perubahan harga atau perjalanan sebelum membuat keputusan." data-en="This simulator helps the family understand the meaning of price or travel changes before deciding.">Simulator ini membantu keluarga melihat maksud perubahan harga atau perjalanan sebelum membuat keputusan.</p>
+        <div class="scenario-controls">
+          <button class="scenario-btn active" data-scenario="fuel"><em>⛽</em><b data-ms="Minyak naik" data-en="Fuel increases">Minyak naik</b><span data-ms="Lihat kesan kepada perjalanan keluarga." data-en="See the impact on family travel.">Lihat kesan kepada perjalanan keluarga.</span></button>
+          <button class="scenario-btn" data-scenario="basket"><em>🧺</em><b data-ms="Bakul naik" data-en="Basket increases">Bakul naik</b><span data-ms="Lihat kesan kepada barang asas." data-en="See the impact on essentials.">Lihat kesan kepada barang asas.</span></button>
+          <button class="scenario-btn" data-scenario="travel"><em>🚗</em><b data-ms="Perjalanan bertambah" data-en="Travel increases">Perjalanan bertambah</b><span data-ms="Rancang perjalanan dan urusan keluarga." data-en="Plan family travel and errands.">Rancang perjalanan dan urusan keluarga.</span></button>
+          <button class="scenario-btn" data-scenario="support"><em>🤝</em><b data-ms="Sokongan berhampiran" data-en="Nearby support">Sokongan berhampiran</b><span data-ms="Semak Jualan Rahmah dan manfaat rasmi." data-en="Check Jualan Rahmah and official support.">Semak Jualan Rahmah dan manfaat rasmi.</span></button>
+        </div>
+        <div class="sim-panel"><h3 id="scenarioTitle">Minyak naik</h3><p id="scenarioIntro">Jika harga minyak atau penggunaan perjalanan meningkat, tekanan belanja boleh bertambah sedikit.</p>
+          <div class="scenario-grid">
+            <div class="scenario-result"><b data-ms="Kesan skor" data-en="Score impact">Kesan skor</b><span id="scenarioScore">Skor mungkin turun 3 hingga 6 mata.</span></div>
+            <div class="scenario-result"><b data-ms="Maksud keluarga" data-en="Family meaning">Maksud keluarga</b><span id="scenarioMeaning">Perjalanan perlu dirancang dan urusan kecil boleh digabungkan.</span></div>
+            <div class="scenario-result"><b data-ms="Tindakan" data-en="Action">Tindakan</b><span id="scenarioAction">Gunakan kalkulator dan semak pelan mingguan keluarga.</span></div>
+          </div>
+        </div>
+      </div><Footer></Footer>
     </section>
 
     <section id="calculator">
@@ -1327,6 +1408,19 @@
         <span class="pill" data-ms="Amanah Data" data-en="Data Trust">Amanah Data</span>
         <h2 data-ms="Kenapa rakyat boleh percaya?" data-en="Why citizens can trust it">Kenapa rakyat boleh percaya?</h2>
         <p class="subtitle" data-ms="TenangKita direka untuk menerangkan sumber, had penggunaan dan sebab sesuatu cadangan muncul." data-en="TenangKita is designed to explain its sources, usage limits and why recommendations appear.">TenangKita direka untuk menerangkan sumber, had penggunaan dan sebab sesuatu cadangan muncul.</p>
+        
+        <div class="readiness-panel">
+          <h3>Rakyat Trust Labels</h3>
+          <p data-ms="Label ini memastikan rakyat faham status setiap maklumat yang dipaparkan." data-en="These labels help citizens understand the status of every insight shown.">Label ini memastikan rakyat faham status setiap maklumat yang dipaparkan.</p>
+          <div class="trust-labels">
+            <div class="trust-label"><strong class="live" data-ms="Data langsung" data-en="Live data">Data langsung</strong><b>OpenDOSM</b><span data-ms="Digunakan jika API boleh dicapai." data-en="Used if the API can be reached.">Digunakan jika API boleh dicapai.</span></div>
+            <div class="trust-label"><strong class="sample" data-ms="Data contoh" data-en="Sample data">Data contoh</strong><b>PriceCatcher</b><span data-ms="Digunakan sebagai contoh dalam demo." data-en="Used as sample in the demo.">Digunakan sebagai contoh dalam demo.</span></div>
+            <div class="trust-label"><strong class="estimate" data-ms="Anggaran keluarga" data-en="Family estimate">Anggaran keluarga</strong><b>TenangKita</b><span data-ms="Kiraan panduan, bukan keputusan rasmi." data-en="Guidance calculation, not official decision.">Kiraan panduan, bukan keputusan rasmi.</span></div>
+            <div class="trust-label"><strong class="official" data-ms="Semakan rasmi" data-en="Official check">Semakan rasmi</strong><b>Portal Manfaat</b><span data-ms="Kelayakan perlu disahkan melalui portal rasmi." data-en="Eligibility must be verified through official portals.">Kelayakan perlu disahkan melalui portal rasmi.</span></div>
+            <div class="trust-label"><strong class="sample" data-ms="Perlu integrasi" data-en="Needs integration">Perlu integrasi</strong><b>MyGDX / MyGOV</b><span data-ms="Untuk fasa produksi yang ditadbir." data-en="For governed production phase.">Untuk fasa produksi yang ditadbir.</span></div>
+          </div>
+        </div>
+
         <div class="trust-grid">
           <div class="trust-card"><b data-ms="Sumber rasmi jelas" data-en="Clear official sources">Sumber rasmi jelas</b><span data-ms="DOSM, KPDN, MOF dan rujukan berkaitan dilabel dengan jelas." data-en="DOSM, KPDN, MOF and related references are clearly labelled.">DOSM, KPDN, MOF dan rujukan berkaitan dilabel dengan jelas.</span></div>
           <div class="trust-card"><b data-ms="Data demo tidak disamar" data-en="Demo data is not disguised">Data demo tidak disamar</b><span data-ms="Data contoh ditanda supaya tidak dianggap sebagai data sebenar produksi." data-en="Sample data is marked so it is not mistaken for production data.">Data contoh ditanda supaya tidak dianggap sebagai data sebenar produksi.</span></div>
@@ -1370,6 +1464,19 @@
         <span class="pill" data-ms="Laluan Produksi" data-en="Production Pathway">Laluan Produksi</span>
         <h2 data-ms="Daripada Demo kepada MVP" data-en="From Demo to MVP">Daripada Demo kepada MVP</h2>
         <p class="subtitle" data-ms="Laluan ini menunjukkan bagaimana TenangKita boleh bergerak daripada prototaip GitHub Pages kepada produk rakyat yang ditadbir dengan selamat." data-en="This pathway shows how TenangKita can move from a GitHub Pages prototype into a safely governed citizen product.">Laluan ini menunjukkan bagaimana TenangKita boleh bergerak daripada prototaip GitHub Pages kepada produk rakyat yang ditadbir dengan selamat.</p>
+        
+        <div class="readiness-panel">
+          <h3>Integration Readiness</h3>
+          <p data-ms="Paparan ini menunjukkan apa yang boleh digunakan sekarang dan apa yang perlu disambungkan melalui integrasi rasmi." data-en="This shows what can be used now and what needs official integration.">Paparan ini menunjukkan apa yang boleh digunakan sekarang dan apa yang perlu disambungkan melalui integrasi rasmi.</p>
+          <div class="integration-grid">
+            <div class="integration-card"><b data-ms="Open sekarang" data-en="Open now">Open sekarang</b><span>OpenDOSM API</span></div>
+            <div class="integration-card"><b data-ms="Dataset / batch" data-en="Dataset / batch">Dataset / batch</b><span>PriceCatcher KPDN</span></div>
+            <div class="integration-card"><b data-ms="Semakan rasmi" data-en="Official check">Semakan rasmi</b><span>Portal Manfaat MOF</span></div>
+            <div class="integration-card"><b data-ms="Integrasi masa depan" data-en="Future integration">Integrasi masa depan</b><span>MyGDX, MyGOV, MyNotifikasi</span></div>
+            <div class="integration-card"><b data-ms="Lapisan lanjut" data-en="Advanced layer">Lapisan lanjut</b><span data-ms="Geospatial, notifikasi dan tadbir urus data." data-en="Geospatial, notifications and data governance.">Geospatial, notifikasi dan tadbir urus data.</span></div>
+          </div>
+        </div>
+
         <div class="pathway">
           <div class="phase-card"><span class="phase" data-ms="Fasa 1" data-en="Phase 1">Fasa 1</span><b data-ms="Demo" data-en="Demo">Demo</b><ul><li data-ms="GitHub Pages" data-en="GitHub Pages">GitHub Pages</li><li data-ms="Data contoh dan persona keluarga" data-en="Sample data and family persona">Data contoh dan persona keluarga</li><li data-ms="Ujian OpenDOSM" data-en="OpenDOSM test">Ujian OpenDOSM</li><li data-ms="Checklist dan kalkulator" data-en="Checklist and calculator">Checklist dan kalkulator</li></ul></div>
           <div class="phase-card"><span class="phase" data-ms="Fasa 2" data-en="Phase 2">Fasa 2</span><b data-ms="MVP" data-en="MVP">MVP</b><ul><li data-ms="Integrasi OpenDOSM" data-en="OpenDOSM integration">Integrasi OpenDOSM</li><li data-ms="PriceCatcher batch dataset" data-en="PriceCatcher batch dataset">PriceCatcher batch dataset</li><li data-ms="Jadual kemas kini sumber" data-en="Source update schedule">Jadual kemas kini sumber</li><li data-ms="Maklum balas tanpa analitik invasif" data-en="Feedback without invasive analytics">Maklum balas tanpa analitik invasif</li></ul></div>
@@ -1416,6 +1523,17 @@
 </template>
 
 <script>
+
+const scenarios = {
+  fuel:{ms:['Minyak naik','Jika harga minyak atau penggunaan perjalanan meningkat, tekanan belanja boleh bertambah sedikit.','Skor mungkin turun 3 hingga 6 mata.','Perjalanan perlu dirancang dan urusan kecil boleh digabungkan.','Gunakan kalkulator dan semak pelan mingguan keluarga.'],en:['Fuel increases','If fuel price or travel usage increases, spending pressure may rise slightly.','Score may decrease by 3 to 6 points.','Travel should be planned and small errands can be combined.','Use the calculator and check the family weekly plan.']},
+  basket:{ms:['Bakul naik','Jika barang asas meningkat, belanja dapur perlu dirancang lebih awal.','Skor mungkin turun 4 hingga 8 mata.','Beras, ayam dan minyak masak perlu diberi keutamaan.','Semak harga, rancang pembelian 7 hari dan elakkan pembelian berulang.'],en:['Basket increases','If essentials increase, groceries should be planned earlier.','Score may decrease by 4 to 8 points.','Rice, chicken and cooking oil should be prioritised.','Check prices, plan 7-day purchases and avoid repeated buying.']},
+  travel:{ms:['Perjalanan bertambah','Jika perjalanan keluarga bertambah, kesan minyak boleh meningkat.','Skor mungkin turun 2 hingga 5 mata.','Gabungkan urusan dan rancang perjalanan utama.','Kira semula kesan minyak di kalkulator.'],en:['Travel increases','If family travel increases, fuel impact may rise.','Score may decrease by 2 to 5 points.','Combine errands and plan key trips.','Recalculate fuel impact in the calculator.']},
+  support:{ms:['Sokongan berhampiran','Jika ada program setempat, keluarga boleh menyemak pilihan rasmi.','Skor boleh menjadi lebih stabil jika tindakan dibuat.','Manfaat dan sokongan tidak dianggap layak sehingga disahkan.','Semak lokasi, tarikh dan kelayakan melalui portal rasmi.'],en:['Nearby support','If local support exists, the family can check official options.','Score may become more stable if action is taken.','Support is not treated as eligible until verified.','Check location, date and eligibility through official portals.']}
+};
+let activeScenario='fuel';
+function updateScenario(){let s=(scenarios[activeScenario]||scenarios.fuel)[lang];['scenarioTitle','scenarioIntro','scenarioScore','scenarioMeaning','scenarioAction'].forEach((id,i)=>{let el=document.getElementById(id);if(el)el.textContent=s[i];});document.querySelectorAll('.scenario-btn').forEach(b=>b.classList.toggle('active',b.dataset.scenario===activeScenario));}
+document.addEventListener('click',e=>{let b=e.target.closest('.scenario-btn');if(b){activeScenario=b.dataset.scenario;updateScenario();}});
+
 let lang='ms';
 
 function setLang(next){
@@ -1427,6 +1545,7 @@ function setLang(next){
   document.getElementById('langToggle').textContent = lang === 'ms' ? '🌐 BM / EN' : '🌐 EN / BM';
   updateCalc();
   updateChecklist();
+  updateScenario();
 }
 
 function showSection(id){
