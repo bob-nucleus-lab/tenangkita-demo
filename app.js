@@ -1,141 +1,141 @@
-const html = document.documentElement;
-const phoneFrame = document.getElementById('phoneFrame');
-const sections = [...document.querySelectorAll('.app-section')];
-const navButtons = [...document.querySelectorAll('[data-nav]')];
-const languageButton = document.getElementById('languageButton');
-const trustButton = document.getElementById('trustButton');
-const trustSheet = document.getElementById('trustSheet');
-const sheetScrim = document.getElementById('sheetScrim');
-const closeSheet = document.getElementById('closeSheet');
-let currentLang = 'ms';
-let currentFilter = 'all';
-
-const priceData = {
-  shahalam: [
-    { item: 'beras', title: 'Beras Tempatan 5kg', place: 'Pasar Seksyen 6 Shah Alam', price: 'RM18.90', note: 'Perlu semak stok dan tarikh hari ini' },
-    { item: 'ayam', title: 'Ayam standard / kg', place: 'Pasar Awam Seksyen 16', price: 'RM9.40', note: 'Harga contoh untuk paparan prototaip' },
-    { item: 'minyak', title: 'Minyak masak botol 5kg', place: 'Kedai runcit berhampiran', price: 'RM29.90', note: 'Semak rasmi sebelum membeli' },
-    { item: 'sayur', title: 'Sayur hijau pilihan', place: 'Pasar tani berhampiran', price: 'RM3.80', note: 'Harga berubah mengikut musim dan lokasi' }
-  ],
-  putrajaya: [
-    { item: 'beras', title: 'Beras Tempatan 5kg', place: 'Presint 8 Putrajaya', price: 'RM19.20', note: 'Data contoh untuk reka bentuk keputusan' },
-    { item: 'ayam', title: 'Ayam standard / kg', place: 'Presint 9', price: 'RM9.60', note: 'Sahkan harga di sumber rasmi' },
-    { item: 'minyak', title: 'Minyak masak botol 5kg', place: 'Kedai runcit Presint 11', price: 'RM30.10', note: 'Bukan jaminan harga' }
-  ],
-  kl: [
-    { item: 'beras', title: 'Beras Tempatan 5kg', place: 'Kuala Lumpur', price: 'RM19.50', note: 'Contoh lokasi bandar' },
-    { item: 'ayam', title: 'Ayam standard / kg', place: 'Kuala Lumpur', price: 'RM9.90', note: 'Perlu semakan rasmi' },
-    { item: 'sayur', title: 'Sayur hijau pilihan', place: 'Kuala Lumpur', price: 'RM4.20', note: 'Harga boleh berubah' }
-  ]
+const screens = {
+  today: document.getElementById('screen-today'),
+  prices: document.getElementById('screen-prices'),
+  fuel: document.getElementById('screen-fuel'),
+  plan: document.getElementById('screen-plan'),
+  check: document.getElementById('screen-check')
 };
+const navButtons = Array.from(document.querySelectorAll('.bottom-nav button'));
+const appScroll = document.getElementById('appScroll');
 
-function showScreen(id) {
-  sections.forEach(section => section.classList.toggle('active', section.id === id));
-  navButtons.forEach(button => button.classList.toggle('active', button.dataset.nav === id));
-  const main = document.getElementById('app-main');
-  if (main) main.scrollTo({ top: 0, behavior: 'smooth' });
+function showScreen(name) {
+  Object.entries(screens).forEach(([key, screen]) => {
+    screen.classList.toggle('active', key === name);
+  });
+  navButtons.forEach(button => {
+    button.classList.toggle('active', button.dataset.target === name);
+    button.setAttribute('aria-current', button.dataset.target === name ? 'page' : 'false');
+  });
+  appScroll.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function setLanguage(lang) {
-  currentLang = lang;
-  html.dataset.lang = lang;
-  html.lang = lang === 'ms' ? 'ms' : 'en';
-  languageButton.textContent = lang === 'ms' ? 'BM' : 'EN';
-  languageButton.setAttribute('aria-label', lang === 'ms' ? 'Switch to English' : 'Tukar ke Bahasa Malaysia');
-  updatePlanProgress();
-  updateCalculator();
-}
+navButtons.forEach(button => {
+  button.addEventListener('click', () => showScreen(button.dataset.target));
+});
+
+const priceData = [
+  { item: 'Beras', area: 'Shah Alam', place: 'Pasar Seksyen 13', price: 'RM26.90', distance: '2.1 km', icon: '🌾' },
+  { item: 'Ayam', area: 'Shah Alam', place: 'Pasar Tani Stadium', price: 'RM9.40/kg', distance: '3.4 km', icon: '🍗' },
+  { item: 'Minyak masak', area: 'Shah Alam', place: 'Kedai Runcit Seksyen 9', price: 'RM6.90', distance: '1.8 km', icon: '🛢️' },
+  { item: 'Telur', area: 'Shah Alam', place: 'Pasar Moden', price: 'RM13.20', distance: '2.8 km', icon: '🥚' },
+  { item: 'Beras', area: 'Kuala Lumpur', place: 'Pasar Chow Kit', price: 'RM27.50', distance: '4.1 km', icon: '🌾' },
+  { item: 'Ayam', area: 'Kuala Lumpur', place: 'Kedai Komuniti', price: 'RM9.70/kg', distance: '2.2 km', icon: '🍗' },
+  { item: 'Minyak masak', area: 'Kuala Lumpur', place: 'Pasar Keramat', price: 'RM7.10', distance: '3.1 km', icon: '🛢️' },
+  { item: 'Beras', area: 'Johor Bahru', place: 'Pasar Larkin', price: 'RM26.50', distance: '3.9 km', icon: '🌾' },
+  { item: 'Ayam', area: 'Johor Bahru', place: 'Pasar Taman Daya', price: 'RM9.30/kg', distance: '5.1 km', icon: '🍗' },
+  { item: 'Telur', area: 'Johor Bahru', place: 'Kedai Komuniti', price: 'RM12.90', distance: '2.7 km', icon: '🥚' }
+];
+
+const areaSelect = document.getElementById('areaSelect');
+const itemSelect = document.getElementById('itemSelect');
+const priceList = document.getElementById('priceList');
+const savingHint = document.getElementById('savingHint');
 
 function renderPrices() {
-  const area = document.getElementById('areaSelect')?.value || 'shahalam';
-  const list = document.getElementById('priceList');
-  if (!list) return;
-  const rows = (priceData[area] || []).filter(row => currentFilter === 'all' || row.item === currentFilter);
-  list.innerHTML = rows.map(row => `
-    <article class="list-item">
-      <header>
-        <div><b>${row.title}</b><small>${row.place}</small></div>
-        <div class="price">${row.price}</div>
-      </header>
-      <div class="item-meta"><span>${row.note}</span><span>Semak rasmi</span></div>
+  const area = areaSelect.value;
+  const item = itemSelect.value;
+  const filtered = priceData.filter(row => row.area === area && (item === 'all' || row.item === item));
+  priceList.innerHTML = filtered.map(row => `
+    <article class="price-item">
+      <span class="price-icon" aria-hidden="true">${row.icon}</span>
+      <div>
+        <h3>${row.item}</h3>
+        <p>${row.place} • ${row.distance}</p>
+      </div>
+      <strong>${row.price}</strong>
     </article>
-  `).join('') || `<div class="list-item"><b>Tiada paparan</b><small>Sila pilih kategori lain.</small></div>`;
+  `).join('') || '<article class="price-item"><span class="price-icon" aria-hidden="true">🔎</span><div><h3>Tiada data contoh</h3><p>Cuba pilih barang atau kawasan lain.</p></div><strong>—</strong></article>';
+  savingHint.textContent = filtered.length >= 3 ? 'RM18 hingga RM42' : 'RM8 hingga RM24';
 }
 
-function updateCalculator() {
-  const rise = Number(document.getElementById('fuelRise')?.value || 0.3);
-  const use = Number(document.getElementById('fuelUse')?.value || 180);
-  const basket = Number(document.getElementById('basketSpend')?.value || 1456);
-  const impact = Math.round(rise * use);
-  const pressure = Math.max(0, Math.round((basket - 1200) / 40));
-  const score = Math.max(45, Math.min(100, 100 - Math.round(impact / 7) - pressure));
+[areaSelect, itemSelect].forEach(control => control.addEventListener('change', renderPrices));
+renderPrices();
 
-  document.getElementById('fuelRiseValue').textContent = `RM${rise.toFixed(2)}`;
-  document.getElementById('fuelUseValue').textContent = `${use}L`;
-  document.getElementById('basketSpendValue').textContent = `RM${basket}`;
-  document.getElementById('fuelImpact').textContent = `RM${impact}`;
-  document.getElementById('familyScore').textContent = score;
+const distanceInput = document.getElementById('distanceInput');
+const daysInput = document.getElementById('daysInput');
+const daysValue = document.getElementById('daysValue');
+const efficiencyInput = document.getElementById('efficiencyInput');
+const fuelPriceInput = document.getElementById('fuelPriceInput');
+const fuelCost = document.getElementById('fuelCost');
+const fuelMeaning = document.getElementById('fuelMeaning');
 
-  const ms = document.getElementById('fuelSummary');
-  const en = document.getElementById('fuelSummaryEn');
-  if (score >= 80) {
-    ms.textContent = 'Tekanan masih terkawal. Rancang pembelian dan perjalanan untuk 7 hari akan datang.';
-    en.textContent = 'Pressure remains manageable. Plan purchases and travel for the next 7 days.';
-  } else if (score >= 65) {
-    ms.textContent = 'Perlu perhatian. Kurangkan perjalanan tidak mendesak dan semak harga berhampiran sebelum membeli.';
-    en.textContent = 'Attention needed. Reduce non-urgent travel and check nearby prices before buying.';
-  } else {
-    ms.textContent = 'Tekanan meningkat. Utamakan barang asas dan semak sokongan rasmi yang mungkin berkaitan.';
-    en.textContent = 'Pressure is rising. Prioritise essentials and check official support that may be relevant.';
-  }
+function calculateFuel() {
+  const distance = Math.max(Number(distanceInput.value) || 0, 0);
+  const days = Math.max(Number(daysInput.value) || 0, 0);
+  const efficiency = Math.max(Number(efficiencyInput.value) || 1, 1);
+  const price = Math.max(Number(fuelPriceInput.value) || 0, 0);
+  const monthlyKm = distance * days * 4.33;
+  const litres = monthlyKm / efficiency;
+  const cost = litres * price;
+  daysValue.textContent = days;
+  fuelCost.textContent = `RM${cost.toFixed(2)}`;
+  fuelMeaning.textContent = cost > 160
+    ? 'Perjalanan agak tinggi. Cuba gabungkan urusan pasar, sekolah dan pembayaran dalam satu laluan.'
+    : 'Gabungkan urusan kecil untuk mengurangkan perjalanan berulang.';
 }
 
-function updatePlanProgress() {
-  const checks = [...document.querySelectorAll('#weeklyPlan input[type="checkbox"]')];
-  const done = checks.filter(check => check.checked).length;
+[distanceInput, daysInput, efficiencyInput, fuelPriceInput].forEach(control => control.addEventListener('input', calculateFuel));
+calculateFuel();
+
+const weeklyChecklist = document.getElementById('weeklyChecklist');
+const checkedCount = document.getElementById('checkedCount');
+const progressBar = document.getElementById('progressBar');
+
+function updateChecklist() {
+  const checks = Array.from(weeklyChecklist.querySelectorAll('input[type="checkbox"]'));
   const total = checks.length;
-  document.querySelectorAll('.check-item').forEach(item => {
-    const input = item.querySelector('input');
-    item.classList.toggle('done', Boolean(input?.checked));
-  });
-  document.getElementById('planProgress').style.width = `${total ? done / total * 100 : 0}%`;
-  document.getElementById('planProgressText').textContent = currentLang === 'ms' ? `${done} / ${total} selesai` : `${done} / ${total} done`;
+  const done = checks.filter(check => check.checked).length;
+  checkedCount.textContent = done;
+  progressBar.style.width = `${Math.round((done / total) * 100)}%`;
 }
+weeklyChecklist.addEventListener('change', updateChecklist);
+updateChecklist();
+
+const sheet = document.getElementById('trustSheet');
+const backdrop = document.getElementById('sheetBackdrop');
+const closeSheetButton = document.getElementById('closeSheet');
+let lastFocus = null;
 
 function openSheet() {
-  phoneFrame.classList.add('sheet-open');
-  trustSheet.setAttribute('aria-hidden', 'false');
-  document.body.classList.add('app-lock');
-  closeSheet.focus();
-}
-function closeTrustSheet() {
-  phoneFrame.classList.remove('sheet-open');
-  trustSheet.setAttribute('aria-hidden', 'true');
-  document.body.classList.remove('app-lock');
-  trustButton.focus();
+  lastFocus = document.activeElement;
+  sheet.hidden = false;
+  backdrop.hidden = false;
+  document.body.style.overflow = 'hidden';
+  closeSheetButton.focus();
 }
 
-navButtons.forEach(button => button.addEventListener('click', () => showScreen(button.dataset.nav)));
-languageButton.addEventListener('click', () => setLanguage(currentLang === 'ms' ? 'en' : 'ms'));
-trustButton.addEventListener('click', openSheet);
-closeSheet.addEventListener('click', closeTrustSheet);
-sheetScrim.addEventListener('click', closeTrustSheet);
-document.addEventListener('keydown', event => { if (event.key === 'Escape' && phoneFrame.classList.contains('sheet-open')) closeTrustSheet(); });
-document.getElementById('areaSelect')?.addEventListener('change', renderPrices);
-document.querySelectorAll('[data-filter]').forEach(button => {
-  button.addEventListener('click', () => {
-    currentFilter = button.dataset.filter;
-    document.querySelectorAll('[data-filter]').forEach(btn => btn.classList.toggle('active', btn === button));
-    renderPrices();
-  });
+function closeSheet() {
+  sheet.hidden = true;
+  backdrop.hidden = true;
+  document.body.style.overflow = '';
+  if (lastFocus) lastFocus.focus();
+}
+
+document.querySelectorAll('[data-open="trustSheet"]').forEach(button => button.addEventListener('click', openSheet));
+closeSheetButton.addEventListener('click', closeSheet);
+backdrop.addEventListener('click', closeSheet);
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && !sheet.hidden) closeSheet();
 });
-['fuelRise', 'fuelUse', 'basketSpend'].forEach(id => document.getElementById(id)?.addEventListener('input', updateCalculator));
-document.getElementById('weeklyPlan')?.addEventListener('change', updatePlanProgress);
 
-renderPrices();
-updateCalculator();
-updatePlanProgress();
+const languageBtn = document.getElementById('languageBtn');
+languageBtn.addEventListener('click', () => {
+  languageBtn.textContent = languageBtn.textContent === 'BM' ? 'EN' : 'BM';
+  languageBtn.setAttribute('aria-label', languageBtn.textContent === 'BM' ? 'Tukar bahasa' : 'Switch language');
+});
 
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js').catch(() => {}));
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js').catch(() => {});
+  });
 }

@@ -1,28 +1,35 @@
-# TenangKITA Portal v4.2 Clean MYDS Service Layout
+# TenangKITA Mobile App v0.1
 
-Static GitHub Pages package for TenangKITA.
+Mobile-first working prototype for TenangKITA, aligned to MYDS principles and designed as a rakyat economic family companion.
 
-## What changed
+## Purpose
 
-1. Removed the old sidebar app layout.
-2. Removed Mod Rakyat and Mod Kerajaan.
-3. Removed all artwork and image dependencies from the page.
-4. Rebuilt as a practical working portal first.
-5. Kept mobile app direction as the next platform, not the current layout.
-6. Added MYDS aligned service components: masthead, phase banner, navbar, callout, cards, tags, summary list, table, task list, form labels, skip link and footer.
-7. Added working static interactions for family score, price filter, fuel estimate, location permission status, language toggle and benefit checklist.
-8. Preserved safe wording: pilihan harga berhampiran, mungkin berkaitan, semak rasmi, bukan kelayakan.
-9. Preserved data trust labels: Data Rasmi, Data Langsung, Data Contoh, Anggaran, Semak Rasmi, Perlu Integrasi.
+TenangKITA helps families understand what national economic signals mean for daily household decisions. It is not a finance app, not a dashboard, and not an eligibility engine.
 
-## Files
+It supports:
 
-1. index.html
-2. CNAME
-3. .nojekyll
-4. README.md
+- Hari Ini: family situation summary and advisor actions
+- Belanja: nearby price options, list-first and verification-first
+- Minyak: travel and fuel estimate
+- Pelan: weekly family action checklist
+- Semakan: official benefit checking guidance
+- Amanah Data: source, trust and limitation labels
 
 ## Deployment
 
-Upload all extracted files to the GitHub Pages repository root for tenangkita.malaysiaprototype.site.
+Upload the contents of this folder to the GitHub Pages repository root.
 
-Important: replace the existing index.html in the repository root. The live site may still show the older v4.0.2.2.1 build if the old file remains cached or was not overwritten.
+Required files:
+
+- index.html
+- styles.css
+- app.js
+- manifest.json
+- service-worker.js
+- assets/
+- CNAME
+- .nojekyll
+
+## Notes
+
+This v0.1 uses static sample data and original artwork assets to validate UX direction before official integrations with OpenDOSM, PriceCatcher KPDN, Portal Manfaat MOF and related government platforms.

@@ -1,239 +1,325 @@
 <!doctype html>
-<html lang="ms" data-lang="ms">
+<html lang="ms">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#075E54" />
-  <meta name="description" content="TenangKITA Mobile App v0.1, a rakyat-first economic resilience companion prototype aligned to MYDS service design standards." />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b8f7a">
+  <meta name="description" content="TenangKITA Mobile App v0.1 ialah prototaip companion ekonomi keluarga berasaskan data rasmi, harga berhampiran dan semakan manfaat rasmi.">
   <title>TenangKITA Mobile App v0.1</title>
-  <link rel="manifest" href="manifest.json" />
-  <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a class="skip-link" href="#app-main">Langkau ke kandungan utama</a>
-  <div class="page-shell">
-    <div class="prototype-stage">
-      <aside class="desktop-brief" aria-label="Ringkasan prototaip">
-        <div class="eyebrow">MYDS aligned prototype • Mobile first • v0.1</div>
-        <h1>TenangKITA sebagai aplikasi mudah alih yang praktikal.</h1>
-        <p>Versi ini mengembalikan artwork asal, tetapi dalam susun atur mobile app yang lebih kemas, ringkas, boleh digunakan dan lebih dekat dengan standard MYDS untuk perkhidmatan digital kerajaan.</p>
-        <div class="brief-grid">
-          <div class="brief-card"><b>Rakyat dahulu</b><span>Aliran utama bermula dengan keadaan keluarga hari ini, bukan dashboard teknikal.</span></div>
-          <div class="brief-card"><b>Data amanah</b><span>Setiap cadangan dilabel sebagai data contoh, anggaran atau semak rasmi.</span></div>
-          <div class="brief-card"><b>MVP ready</b><span>Struktur PWA disediakan untuk evolusi portal dan app sebenar.</span></div>
-        </div>
-      </aside>
+  <a class="skip-link" href="#main">Langkau ke kandungan utama</a>
 
-      <div class="phone-frame" id="phoneFrame">
-        <header class="app-topbar">
-          <div class="gov-masthead">
-            <div class="left"><span class="malaysia-dot" aria-hidden="true"></span><span class="ms-only">Perkhidmatan digital Kerajaan Malaysia</span><span class="en-only">Government of Malaysia digital service</span></div>
-            <span class="beta-tag">BETA v0.1</span>
-          </div>
-          <div class="brand-row">
-            <div class="brand-lockup" aria-label="TenangKITA">
-              <div class="brand-mark" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M18.3 5.2c-5.4.5-9.9 4.5-10.5 9.9-.1 1.2.9 2.2 2.1 2 5.3-.8 9-4.8 9.6-10.1.1-1.1-.4-1.9-1.2-1.8Z" fill="#fff"/><path d="M9 17c2.8-4.1 5.8-6.6 9-8.7" stroke="#075E54" stroke-width="1.8" stroke-linecap="round"/></svg>
-              </div>
-              <div class="brand-copy">
-                <b>TenangKITA</b>
-                <span class="ms-only">Data negara, ketenangan keluarga.</span>
-                <span class="en-only">National data, family peace of mind.</span>
-              </div>
-            </div>
-            <div class="header-actions">
-              <button class="language-button" id="languageButton" type="button" aria-label="Tukar bahasa">BM</button>
-              <button class="icon-button" id="trustButton" type="button" aria-label="Buka Amanah Data">ⓘ</button>
-            </div>
-          </div>
-        </header>
-
-        <main class="app-content" id="app-main">
-          <section class="app-section active" id="screen-today" aria-labelledby="today-title">
-            <article class="hero-card" aria-label="Ringkasan keluarga hari ini">
-              <img src="assets/hero-family.png" alt="Ilustrasi keluarga Malaysia membeli barang asas di pasar" />
-              <div class="hero-content">
-                <div class="eyebrow-white ms-only">Hari ini • Keluarga Ismail & Nora</div>
-                <div class="eyebrow-white en-only">Today • Ismail & Nora family</div>
-                <h2 id="today-title" class="ms-only">Keadaan keluarga masih stabil.</h2>
-                <h2 class="en-only">Family situation remains stable.</h2>
-                <p class="ms-only">Tekanan belanja meningkat sedikit, tetapi masih terkawal jika pembelian dan perjalanan minggu ini dirancang.</p>
-                <p class="en-only">Spending pressure is rising slightly, but remains manageable with weekly purchase and travel planning.</p>
-              </div>
-            </article>
-
-            <div class="card success">
-              <div class="score-summary">
-                <div class="score-ring" aria-label="Skor keluarga 82 daripada 100"><strong>82</strong></div>
-                <div class="score-meta">
-                  <b class="ms-only">Status: Stabil</b><b class="en-only">Status: Stable</b>
-                  <p class="ms-only">TenangKITA membantu keluarga memahami keadaan, bukan menilai keluarga atau menentukan kelayakan bantuan.</p>
-                  <p class="en-only">TenangKITA helps families understand their situation, not judge families or determine eligibility.</p>
-                  <div class="chip-row">
-                    <span class="chip data">Data contoh</span>
-                    <span class="chip estimate">Anggaran</span>
-                    <span class="chip check">Semak rasmi</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="quick-grid">
-              <button class="quick-card" type="button" data-nav="screen-spend"><span>🧺</span><b class="ms-only">Belanja asas</b><b class="en-only">Essentials</b><p class="ms-only">Semak pilihan harga berhampiran.</p><p class="en-only">Check nearby price options.</p></button>
-              <button class="quick-card" type="button" data-nav="screen-fuel"><span>⛽</span><b class="ms-only">Minyak</b><b class="en-only">Fuel</b><p class="ms-only">Anggar kesan perjalanan minggu ini.</p><p class="en-only">Estimate weekly travel impact.</p></button>
-              <button class="quick-card" type="button" data-nav="screen-plan"><span>✅</span><b class="ms-only">Pelan</b><b class="en-only">Plan</b><p class="ms-only">Tindakan kecil untuk keluarga.</p><p class="en-only">Small actions for the family.</p></button>
-              <button class="quick-card" type="button" data-nav="screen-check"><span>🔎</span><b class="ms-only">Semakan</b><b class="en-only">Checks</b><p class="ms-only">Rujuk portal rasmi sahaja.</p><p class="en-only">Use official portals only.</p></button>
-            </div>
-
-            <div class="art-strip">
-              <img src="assets/family-today.png" alt="Ilustrasi keluarga melihat perancangan harian" />
-              <div><b class="ms-only">Apa maksudnya hari ini?</b><b class="en-only">What this means today</b><p class="ms-only">Beli barang asas ikut keperluan 7 hari, semak harga sebelum bergerak dan elakkan membuat keputusan tergesa-gesa.</p><p class="en-only">Buy essentials based on 7-day needs, check prices before travelling and avoid rushed decisions.</p></div>
-            </div>
-          </section>
-
-          <section class="app-section" id="screen-spend" aria-labelledby="spend-title">
-            <div class="section-header">
-              <div class="kicker">🧺 <span class="ms-only">Harga & peluang berhampiran</span><span class="en-only">Nearby price options</span></div>
-              <h2 id="spend-title" class="ms-only">Belanja asas keluarga.</h2>
-              <h2 class="en-only">Family essentials.</h2>
-              <p class="ms-only">Senarai dahulu, peta kemudian. Harga, lokasi dan tarikh mesti disahkan melalui sumber rasmi sebelum membeli.</p>
-              <p class="en-only">List first, map second. Price, location and date must be verified through official sources before purchase.</p>
-            </div>
-
-            <div class="art-strip">
-              <img src="assets/family-market.png" alt="Ilustrasi keluarga Malaysia di pasar" />
-              <div><b class="ms-only">Pilihan harga berhampiran</b><b class="en-only">Nearby price options</b><p class="ms-only">Gunakan kawasan manual dahulu. GPS hanya pilihan tambahan, bukan asas kelayakan.</p><p class="en-only">Use manual area first. GPS is optional and not a basis for eligibility.</p></div>
-            </div>
-
-            <div class="card">
-              <label class="field-group" for="areaSelect"><span class="field-label ms-only">Kawasan</span><span class="field-label en-only">Area</span><select id="areaSelect"><option value="shahalam">Shah Alam</option><option value="putrajaya">Putrajaya</option><option value="kl">Kuala Lumpur</option></select></label>
-              <div class="segmented" role="tablist" aria-label="Penapis barang">
-                <button type="button" class="active" data-filter="all">Semua</button>
-                <button type="button" data-filter="beras">Beras</button>
-                <button type="button" data-filter="ayam">Ayam</button>
-                <button type="button" data-filter="minyak">Minyak</button>
-                <button type="button" data-filter="sayur">Sayur</button>
-              </div>
-              <div class="list" id="priceList"></div>
-            </div>
-          </section>
-
-          <section class="app-section" id="screen-fuel" aria-labelledby="fuel-title">
-            <div class="section-header">
-              <div class="kicker">⛽ <span class="ms-only">Minyak & perjalanan</span><span class="en-only">Fuel & travel</span></div>
-              <h2 id="fuel-title" class="ms-only">Anggar kesan minyak.</h2>
-              <h2 class="en-only">Estimate fuel impact.</h2>
-              <p class="ms-only">Kalkulator ini menggunakan anggaran mudah untuk membantu keluarga merancang perjalanan, bukan angka rasmi.</p>
-              <p class="en-only">This calculator uses a simple estimate to support travel planning, not an official figure.</p>
-            </div>
-
-            <div class="art-strip">
-              <img src="assets/family-fuel-planning.png" alt="Ilustrasi keluarga merancang perjalanan dan penggunaan minyak" />
-              <div><b class="ms-only">Rancang sebelum bergerak</b><b class="en-only">Plan before travelling</b><p class="ms-only">Gabungkan urusan kecil dan semak semula perjalanan yang tidak mendesak.</p><p class="en-only">Combine small errands and review non-urgent travel.</p></div>
-            </div>
-
-            <div class="card">
-              <div class="field-group"><span class="field-label ms-only">Kenaikan harga minyak per liter</span><span class="field-label en-only">Fuel increase per litre</span><div class="range-row"><input id="fuelRise" type="range" min="0" max="1.2" value="0.3" step="0.05" /><span class="range-value" id="fuelRiseValue">RM0.30</span></div></div>
-              <div class="field-group"><span class="field-label ms-only">Anggaran penggunaan bulanan</span><span class="field-label en-only">Estimated monthly usage</span><div class="range-row"><input id="fuelUse" type="range" min="40" max="360" value="180" step="10" /><span class="range-value" id="fuelUseValue">180L</span></div></div>
-              <div class="field-group"><span class="field-label ms-only">Belanja asas bulanan</span><span class="field-label en-only">Monthly essentials spend</span><div class="range-row"><input id="basketSpend" type="range" min="700" max="2600" value="1456" step="20" /><span class="range-value" id="basketSpendValue">RM1456</span></div></div>
-              <div class="calc-output">
-                <div class="metric-card"><span class="ms-only">Kesan minyak</span><span class="en-only">Fuel impact</span><strong id="fuelImpact">RM54</strong></div>
-                <div class="metric-card"><span class="ms-only">Skor anggaran</span><span class="en-only">Estimated score</span><strong id="familyScore">82</strong></div>
-              </div>
-              <div class="divider"></div>
-              <p id="fuelSummary" class="ms-only">Tekanan masih terkawal. Rancang pembelian dan perjalanan untuk 7 hari akan datang.</p>
-              <p id="fuelSummaryEn" class="en-only">Pressure remains manageable. Plan purchases and travel for the next 7 days.</p>
-            </div>
-          </section>
-
-          <section class="app-section" id="screen-plan" aria-labelledby="plan-title">
-            <div class="section-header">
-              <div class="kicker">✅ <span class="ms-only">Pelan keluarga</span><span class="en-only">Family plan</span></div>
-              <h2 id="plan-title" class="ms-only">Tindakan minggu ini.</h2>
-              <h2 class="en-only">This week’s actions.</h2>
-              <p class="ms-only">TenangKITA menukar data kepada tindakan kecil yang boleh dibuat oleh keluarga.</p>
-              <p class="en-only">TenangKITA turns data into small actions a family can take.</p>
-            </div>
-
-            <div class="art-strip">
-              <img src="assets/family-checklist.png" alt="Ilustrasi keluarga membuat senarai semak mingguan" />
-              <div><b class="ms-only">Mulakan dengan satu tindakan</b><b class="en-only">Start with one action</b><p class="ms-only">Bukan semua perkara perlu diselesaikan hari ini. Yang penting, keluarga tahu langkah seterusnya.</p><p class="en-only">Not everything needs to be solved today. What matters is knowing the next step.</p></div>
-            </div>
-
-            <div class="card">
-              <h3 class="ms-only">Senarai semak 7 hari</h3><h3 class="en-only">7-day checklist</h3>
-              <p id="planProgressText">0 / 5 selesai</p>
-              <div class="progress-bar" aria-hidden="true"><div class="progress-fill" id="planProgress"></div></div>
-              <div class="divider"></div>
-              <div class="check-list" id="weeklyPlan">
-                <label class="check-item"><input type="checkbox" /><span><b class="ms-only">Semak harga beras dan ayam</b><b class="en-only">Check rice and chicken prices</b><span class="ms-only">Bandingkan pilihan berhampiran sebelum membeli.</span><span class="en-only">Compare nearby options before purchasing.</span></span></label>
-                <label class="check-item"><input type="checkbox" /><span><b class="ms-only">Rancang menu 7 hari</b><b class="en-only">Plan a 7-day menu</b><span class="ms-only">Kurangkan pembelian berulang dan pembaziran.</span><span class="en-only">Reduce repeat purchases and waste.</span></span></label>
-                <label class="check-item"><input type="checkbox" /><span><b class="ms-only">Gabungkan perjalanan kecil</b><b class="en-only">Combine small trips</b><span class="ms-only">Kurangkan penggunaan minyak yang tidak perlu.</span><span class="en-only">Reduce unnecessary fuel use.</span></span></label>
-                <label class="check-item"><input type="checkbox" /><span><b class="ms-only">Semak manfaat berkaitan</b><b class="en-only">Check relevant support</b><span class="ms-only">Gunakan portal rasmi untuk semakan sebenar.</span><span class="en-only">Use official portals for actual checks.</span></span></label>
-                <label class="check-item"><input type="checkbox" /><span><b class="ms-only">Kemas kini keadaan keluarga</b><b class="en-only">Update family situation</b><span class="ms-only">Semak semula jika harga atau jadual berubah.</span><span class="en-only">Review again when prices or schedules change.</span></span></label>
-              </div>
-            </div>
-          </section>
-
-          <section class="app-section" id="screen-check" aria-labelledby="check-title">
-            <div class="section-header">
-              <div class="kicker">🔎 <span class="ms-only">Manfaat & semakan rasmi</span><span class="en-only">Support & official checks</span></div>
-              <h2 id="check-title" class="ms-only">Semak melalui sumber rasmi.</h2>
-              <h2 class="en-only">Check through official sources.</h2>
-              <p class="ms-only">Aplikasi ini hanya menunjukkan perkara yang mungkin berkaitan. Ia tidak menentukan kelayakan.</p>
-              <p class="en-only">This app only shows what may be relevant. It does not determine eligibility.</p>
-            </div>
-
-            <div class="art-strip">
-              <img src="assets/family-tablet-planning.png" alt="Ilustrasi keluarga menyemak maklumat rasmi melalui tablet" />
-              <div><b class="ms-only">Bukan aplikasi manfaat</b><b class="en-only">Not a benefits app</b><p class="ms-only">TenangKITA ialah lapisan kefahaman data rakyat yang melengkapkan ekosistem sedia ada.</p><p class="en-only">TenangKITA is a citizen data understanding layer that complements the existing ecosystem.</p></div>
-            </div>
-
-            <div class="list">
-              <a class="official-link" href="#" aria-label="Portal Manfaat MOF"><span><b>Portal Manfaat MOF</b><span class="ms-only">Semakan manfaat dan sokongan berkaitan.</span><span class="en-only">Check relevant benefits and support.</span></span><em>↗</em></a>
-              <a class="official-link" href="#" aria-label="PriceCatcher KPDN"><span><b>PriceCatcher KPDN</b><span class="ms-only">Rujukan harga dan lokasi rasmi.</span><span class="en-only">Official price and location reference.</span></span><em>↗</em></a>
-              <a class="official-link" href="#" aria-label="OpenDOSM"><span><b>OpenDOSM / DOSM</b><span class="ms-only">Isyarat ekonomi rasmi negara.</span><span class="en-only">Official national economic signals.</span></span><em>↗</em></a>
-            </div>
-
-            <div class="card warning">
-              <h3 class="ms-only">Prinsip selamat</h3><h3 class="en-only">Safe principle</h3>
-              <p class="ms-only">Gunakan “mungkin berkaitan”, “semak rasmi” dan “anggaran”. Elakkan “anda layak”, “termurah” atau “dijamin jimat”.</p>
-              <p class="en-only">Use “may be relevant”, “official check” and “estimate”. Avoid “you are eligible”, “cheapest” or “guaranteed savings”.</p>
-            </div>
-          </section>
-
-          <p class="footer-note">TenangKITA Mobile App v0.1 • Prototype for GovTech Malaysia discussion • © 2026</p>
-        </main>
-
-        <nav class="bottom-nav" aria-label="Navigasi utama aplikasi">
-          <button class="nav-button active" type="button" data-nav="screen-today"><span>☀️</span><span class="ms-only">Hari Ini</span><span class="en-only">Today</span></button>
-          <button class="nav-button" type="button" data-nav="screen-spend"><span>🧺</span><span class="ms-only">Belanja</span><span class="en-only">Spend</span></button>
-          <button class="nav-button" type="button" data-nav="screen-fuel"><span>⛽</span><span class="ms-only">Minyak</span><span class="en-only">Fuel</span></button>
-          <button class="nav-button" type="button" data-nav="screen-plan"><span>✅</span><span class="ms-only">Pelan</span><span class="en-only">Plan</span></button>
-          <button class="nav-button" type="button" data-nav="screen-check"><span>🔎</span><span class="ms-only">Semakan</span><span class="en-only">Check</span></button>
-        </nav>
-
-        <div class="sheet-scrim" id="sheetScrim"></div>
-        <aside class="sheet" id="trustSheet" aria-label="Amanah Data" aria-hidden="true">
-          <div class="sheet-handle" aria-hidden="true"></div>
-          <div class="sheet-header">
-            <div><h2>Amanah Data</h2><p class="ms-only">Bagaimana TenangKITA menjaga maksud, had dan keselamatan data.</p><p class="en-only">How TenangKITA protects data meaning, limits and safety.</p></div>
-            <button class="icon-button" type="button" id="closeSheet" aria-label="Tutup Amanah Data">×</button>
-          </div>
-          <div class="mini-grid">
-            <div class="mini-card"><span>🏛️</span><b>Data Rasmi</b><p class="ms-only">DOSM, KPDN, MOF dan sumber kerajaan berkaitan.</p><p class="en-only">DOSM, KPDN, MOF and relevant government sources.</p></div>
-            <div class="mini-card"><span>📍</span><b>Data Berhampiran</b><p class="ms-only">Lokasi digunakan untuk paparan pilihan, bukan kelayakan.</p><p class="en-only">Location is used for options, not eligibility.</p></div>
-            <div class="mini-card"><span>🧮</span><b>Anggaran</b><p class="ms-only">Skor ialah model tafsiran sementara untuk prototaip.</p><p class="en-only">The score is a temporary interpretation model for prototype use.</p></div>
-            <div class="mini-card"><span>🔎</span><b>Semak Rasmi</b><p class="ms-only">Tindakan akhir kekal di portal rasmi berkaitan.</p><p class="en-only">Final actions remain on the relevant official portals.</p></div>
-          </div>
-        </aside>
-      </div>
-    </div>
+  <div class="gov-masthead" role="banner">
+    <span class="flag-dot" aria-hidden="true"></span>
+    <span>Prototaip dalaman GovTech Malaysia</span>
+    <span class="mast-separator" aria-hidden="true">•</span>
+    <span>Data contoh untuk penilaian v0.1</span>
   </div>
+
+  <main id="main" class="app-stage">
+    <section class="phone-shell" aria-label="TenangKITA mobile app preview">
+      <div class="status-bar" aria-hidden="true">
+        <span>9:41</span>
+        <span>●●● 5G 🔋</span>
+      </div>
+
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">TenangKITA v0.1</p>
+          <h1>Hari ini, keluarga Ismail</h1>
+        </div>
+        <div class="header-actions">
+          <button class="icon-btn" id="languageBtn" type="button" aria-label="Tukar bahasa">BM</button>
+          <button class="avatar-btn" type="button" aria-label="Profil keluarga">K</button>
+        </div>
+      </header>
+
+      <div class="app-scroll" id="appScroll">
+        <section class="screen active" id="screen-today" aria-labelledby="todayTitle">
+          <article class="hero-card">
+            <img src="assets/hero-family.png" alt="Ilustrasi keluarga Malaysia membeli barang asas di pasar" loading="eager">
+            <div class="hero-overlay">
+              <div class="hero-copy">
+                <span class="status-pill stable">Stabil</span>
+                <h2 id="todayTitle">Ketenangan keluarga masih terkawal.</h2>
+                <p>Tekanan belanja meningkat sedikit pada barang asas dan perjalanan harian.</p>
+              </div>
+              <div class="score-ring" aria-label="Skor ketenangan 82 daripada 100">
+                <strong id="scoreValue">82</strong>
+                <span>/100</span>
+              </div>
+            </div>
+          </article>
+
+          <div class="quick-row" aria-label="Ringkasan utama">
+            <article class="mini-card">
+              <span class="mini-icon" aria-hidden="true">🧺</span>
+              <p>Bakul</p>
+              <strong>+RM68</strong>
+            </article>
+            <article class="mini-card">
+              <span class="mini-icon" aria-hidden="true">⛽</span>
+              <p>Minyak</p>
+              <strong>RM132</strong>
+            </article>
+            <article class="mini-card">
+              <span class="mini-icon" aria-hidden="true">✅</span>
+              <p>Semakan</p>
+              <strong>2/4</strong>
+            </article>
+          </div>
+
+          <article class="advisor-card primary-advisor">
+            <div class="section-heading compact">
+              <div>
+                <p class="eyebrow">Pembantu peribadi</p>
+                <h3>Cadangan minggu ini</h3>
+              </div>
+              <button class="link-btn" data-open="trustSheet" type="button">Amanah data</button>
+            </div>
+            <ol class="action-list">
+              <li>
+                <span class="action-marker">1</span>
+                <div>
+                  <strong>Semak pilihan harga berhampiran.</strong>
+                  <p>Beras dan minyak masak diberi perhatian dahulu.</p>
+                </div>
+              </li>
+              <li>
+                <span class="action-marker">2</span>
+                <div>
+                  <strong>Gabungkan perjalanan kecil.</strong>
+                  <p>Anggaran minyak bulanan boleh dikurangkan jika urusan pasar dan sekolah disusun.</p>
+                </div>
+              </li>
+              <li>
+                <span class="action-marker">3</span>
+                <div>
+                  <strong>Semak manfaat rasmi.</strong>
+                  <p>TenangKITA hanya menyatakan mungkin berkaitan, bukan kelayakan.</p>
+                </div>
+              </li>
+            </ol>
+          </article>
+
+          <article class="insight-card">
+            <div>
+              <p class="eyebrow">Maksud kepada keluarga</p>
+              <h3>Bukan dashboard. Ini companion.</h3>
+              <p>TenangKITA dibangunkan supaya data negara menjadi kefahaman harian keluarga sebelum membuat keputusan kecil seperti membeli barang, bergerak, atau menyemak bantuan rasmi.</p>
+            </div>
+          </article>
+        </section>
+
+        <section class="screen" id="screen-prices" aria-labelledby="pricesTitle">
+          <div class="screen-topper">
+            <img src="assets/family-market.png" alt="Ilustrasi keluarga di pasar sebagai konteks harga barang asas" loading="lazy">
+            <div>
+              <p class="eyebrow">Belanja</p>
+              <h2 id="pricesTitle">Harga & peluang berhampiran</h2>
+              <p>Senarai dahulu, peta kemudian. Harga perlu disahkan sebelum membeli.</p>
+            </div>
+          </div>
+
+          <form class="control-panel" aria-label="Tapis pilihan harga">
+            <label>
+              Kawasan
+              <select id="areaSelect">
+                <option value="Shah Alam">Shah Alam</option>
+                <option value="Kuala Lumpur">Kuala Lumpur</option>
+                <option value="Johor Bahru">Johor Bahru</option>
+              </select>
+            </label>
+            <label>
+              Barang asas
+              <select id="itemSelect">
+                <option value="all">Semua</option>
+                <option value="Beras">Beras</option>
+                <option value="Ayam">Ayam</option>
+                <option value="Minyak masak">Minyak masak</option>
+                <option value="Telur">Telur</option>
+              </select>
+            </label>
+          </form>
+
+          <div class="price-summary-card">
+            <div>
+              <p>Anggaran ruang belanja</p>
+              <strong id="savingHint">RM18 hingga RM42</strong>
+            </div>
+            <span class="tag caution">Perlu semak rasmi</span>
+          </div>
+
+          <div class="list-stack" id="priceList" aria-live="polite"></div>
+        </section>
+
+        <section class="screen" id="screen-fuel" aria-labelledby="fuelTitle">
+          <div class="screen-topper">
+            <img src="assets/family-fuel-planning.png" alt="Ilustrasi keluarga merancang perjalanan dan minyak" loading="lazy">
+            <div>
+              <p class="eyebrow">Minyak</p>
+              <h2 id="fuelTitle">Rancang perjalanan keluarga</h2>
+              <p>Anggaran mudah untuk faham kesan minyak kepada sekolah, kerja dan pasar.</p>
+            </div>
+          </div>
+
+          <article class="calculator-card">
+            <label>
+              Jarak pergi balik sehari
+              <div class="input-unit"><input id="distanceInput" type="number" min="1" value="28"><span>km</span></div>
+            </label>
+            <label>
+              Hari perjalanan seminggu
+              <input id="daysInput" type="range" min="1" max="7" value="5">
+              <span class="range-value"><strong id="daysValue">5</strong> hari</span>
+            </label>
+            <label>
+              Kecekapan kenderaan
+              <select id="efficiencyInput">
+                <option value="10">10 km/L</option>
+                <option value="13" selected>13 km/L</option>
+                <option value="16">16 km/L</option>
+              </select>
+            </label>
+            <label>
+              Harga minyak per liter
+              <div class="input-unit"><span>RM</span><input id="fuelPriceInput" type="number" step="0.01" min="0" value="2.05"></div>
+            </label>
+          </article>
+
+          <article class="result-card">
+            <p class="eyebrow">Anggaran bulanan</p>
+            <strong id="fuelCost">RM94.31</strong>
+            <p id="fuelMeaning">Gabungkan urusan kecil untuk mengurangkan perjalanan berulang.</p>
+            <span class="tag estimate">Anggaran</span>
+          </article>
+        </section>
+
+        <section class="screen" id="screen-plan" aria-labelledby="planTitle">
+          <div class="screen-topper">
+            <img src="assets/family-checklist.png" alt="Ilustrasi keluarga menyemak pelan mingguan" loading="lazy">
+            <div>
+              <p class="eyebrow">Pelan</p>
+              <h2 id="planTitle">Pelan keluarga minggu ini</h2>
+              <p>Tindakan kecil yang lebih mudah dibuat oleh keluarga.</p>
+            </div>
+          </div>
+
+          <div class="progress-card">
+            <div>
+              <p>Kemajuan tindakan</p>
+              <strong><span id="checkedCount">1</span>/5 selesai</strong>
+            </div>
+            <div class="progress-bar" aria-hidden="true"><span id="progressBar"></span></div>
+          </div>
+
+          <div class="checklist" id="weeklyChecklist">
+            <label><input type="checkbox" checked> Semak harga barang asas sebelum membeli</label>
+            <label><input type="checkbox"> Tetapkan hari pasar dan hari isi minyak</label>
+            <label><input type="checkbox"> Gabungkan perjalanan sekolah, kerja dan pasar</label>
+            <label><input type="checkbox"> Semak manfaat rasmi yang mungkin berkaitan</label>
+            <label><input type="checkbox"> Simpan nota belanja minggu ini</label>
+          </div>
+        </section>
+
+        <section class="screen" id="screen-check" aria-labelledby="checkTitle">
+          <div class="screen-topper">
+            <img src="assets/family-tablet-planning.png" alt="Ilustrasi keluarga menyemak maklumat rasmi melalui tablet" loading="lazy">
+            <div>
+              <p class="eyebrow">Semakan</p>
+              <h2 id="checkTitle">Manfaat & semakan rasmi</h2>
+              <p>TenangKITA tidak menentukan kelayakan. Semakan rasmi kekal di portal agensi.</p>
+            </div>
+          </div>
+
+          <div class="benefit-list">
+            <article>
+              <div>
+                <h3>Sumbangan Tunai Rahmah</h3>
+                <p>Mungkin berkaitan mengikut profil isi rumah.</p>
+              </div>
+              <span class="tag official">Semak rasmi</span>
+            </article>
+            <article>
+              <div>
+                <h3>SARA</h3>
+                <p>Mungkin berkaitan jika tekanan barang asas meningkat.</p>
+              </div>
+              <span class="tag official">Semak rasmi</span>
+            </article>
+            <article>
+              <div>
+                <h3>Pas My50</h3>
+                <p>Mungkin berkaitan jika keluarga banyak menggunakan pengangkutan awam.</p>
+              </div>
+              <span class="tag official">Semak rasmi</span>
+            </article>
+            <article>
+              <div>
+                <h3>Jualan Rahmah</h3>
+                <p>Semak lokasi, tarikh dan senarai barang sebelum bergerak.</p>
+              </div>
+              <span class="tag caution">Perlu disahkan</span>
+            </article>
+          </div>
+
+          <button class="primary-btn full" data-open="trustSheet" type="button">Lihat Amanah Data</button>
+        </section>
+      </div>
+
+      <nav class="bottom-nav" aria-label="Navigasi aplikasi">
+        <button class="active" type="button" data-target="today"><span>🏠</span>Hari Ini</button>
+        <button type="button" data-target="prices"><span>🧺</span>Belanja</button>
+        <button type="button" data-target="fuel"><span>⛽</span>Minyak</button>
+        <button type="button" data-target="plan"><span>✅</span>Pelan</button>
+        <button type="button" data-target="check"><span>🔎</span>Semakan</button>
+      </nav>
+    </section>
+
+    <aside class="director-panel" aria-labelledby="directorTitle">
+      <span class="status-pill stable">Mobile app first</span>
+      <h2 id="directorTitle">TenangKITA dibangunkan untuk menjawab satu soalan rakyat.</h2>
+      <p class="lead">“Apa maksud keadaan ekonomi semasa kepada keluarga saya, dan apa tindakan selamat yang boleh saya buat hari ini?”</p>
+      <div class="strategy-grid">
+        <article>
+          <strong>Untuk rakyat</strong>
+          <p>Kefahaman keluarga, pilihan harga berhampiran, anggaran minyak, pelan mingguan dan semakan rasmi.</p>
+        </article>
+        <article>
+          <strong>Untuk Datuk KSU</strong>
+          <p>Bukti bahawa data negara boleh diterjemah kepada produk kerja yang praktikal, amanah dan boleh dikembangkan.</p>
+        </article>
+        <article>
+          <strong>Untuk agensi</strong>
+          <p>Cabang rakyat kepada Pantau Krisis, melengkapkan MyGOV, MyNotifikasi, OpenDOSM, PriceCatcher dan Portal Manfaat.</p>
+        </article>
+      </div>
+      <p class="small-note">Nota v0.1: Data contoh digunakan untuk membuktikan UX, aliran keputusan dan amanah data sebelum integrasi rasmi.</p>
+    </aside>
+  </main>
+
+  <div class="sheet-backdrop" id="sheetBackdrop" hidden></div>
+  <section class="bottom-sheet" id="trustSheet" role="dialog" aria-modal="true" aria-labelledby="trustTitle" hidden>
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <div class="sheet-header">
+      <div>
+        <p class="eyebrow">Amanah Data</p>
+        <h2 id="trustTitle">Setiap cadangan mesti jelas sumbernya.</h2>
+      </div>
+      <button class="icon-btn" id="closeSheet" type="button" aria-label="Tutup Amanah Data">×</button>
+    </div>
+    <div class="trust-list">
+      <article><strong>DOSM / OpenDOSM</strong><span>Data Rasmi</span><p>Isyarat ekonomi negara dan data terbuka rasmi.</p></article>
+      <article><strong>KPDN PriceCatcher</strong><span>Perlu Integrasi</span><p>Pilihan harga berhampiran setelah integrasi diluluskan.</p></article>
+      <article><strong>Portal Manfaat MOF</strong><span>Semak Rasmi</span><p>Kelayakan dan keputusan rasmi kekal melalui portal asal.</p></article>
+      <article><strong>TenangKITA Engine</strong><span>Anggaran</span><p>Skor prototaip untuk kefahaman keluarga sahaja.</p></article>
+    </div>
+  </section>
+
   <script src="app.js"></script>
 </body>
 </html>
