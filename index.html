@@ -1,426 +1,239 @@
-<!DOCTYPE html>
-<html lang="ms">
+<!doctype html>
+<html lang="ms" data-lang="ms">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>TenangKITA Portal v4.2 Clean MYDS Service Layout</title>
-<meta name="description" content="TenangKITA ialah portal rakyat untuk memahami isyarat ekonomi rasmi, harga berhampiran, minyak, perjalanan, manfaat dan amanah data." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
-<style>
-:root{
-  color-scheme:light;
-  --bg:#ffffff;
-  --bg-subtle:#f8fafc;
-  --bg-muted:#f4f6fb;
-  --text:#18181b;
-  --muted:#52525b;
-  --soft:#71717a;
-  --line:#e4e4e7;
-  --line-strong:#d4d4d8;
-  --blue:#2563eb;
-  --blue-dark:#1d4ed8;
-  --blue-soft:#eff6ff;
-  --green:#047857;
-  --green-soft:#ecfdf3;
-  --yellow:#b54708;
-  --yellow-soft:#fffaeb;
-  --red:#b42318;
-  --red-soft:#fef3f2;
-  --radius:16px;
-  --radius-lg:22px;
-  --shadow:0 1px 2px rgba(16,24,40,.05),0 12px 28px rgba(16,24,40,.08);
-  --container:1280px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:16px;line-height:1.5}
-body[data-lang="en"] [data-ms]{display:none!important}
-body:not([data-lang="en"]) [data-en]{display:none!important}
-a{color:var(--blue);text-decoration:none}
-a:hover{text-decoration:underline}
-button,input,select{font:inherit}
-button{cursor:pointer}
-:focus-visible{outline:3px solid #93c5fd;outline-offset:3px;border-radius:10px}
-.skiplink{position:absolute;left:-999px;top:12px;background:var(--blue);color:#fff;padding:10px 14px;border-radius:10px;z-index:9999;font-weight:800}
-.skiplink:focus{left:16px}
-.container{max-width:var(--container);margin:0 auto;padding:0 24px}
-.masthead{border-bottom:1px solid var(--line);background:#fff;font-size:13px;color:var(--muted)}
-.masthead .container{min-height:40px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.masthead strong{color:var(--text)}
-.masthead button{border:0;background:transparent;color:var(--blue);font-weight:800;padding:0}
-.details{display:none;background:#f9fafb;border-bottom:1px solid var(--line)}
-.details.open{display:block}
-.details .container{padding-top:14px;padding-bottom:14px}
-.details p{margin:0;color:var(--muted);max-width:900px;font-size:14px}
-.navbar{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-.navbar-inner{min-height:76px;display:flex;align-items:center;gap:24px;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:12px;color:var(--text);min-width:220px}
-.mark{width:42px;height:42px;border-radius:12px;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:900;font-family:Poppins,Inter,sans-serif;letter-spacing:-.05em}
-.brand-title{display:block;font-family:Poppins,Inter,sans-serif;font-weight:800;font-size:23px;letter-spacing:-.045em;line-height:1.05}
-.brand-sub{display:block;color:var(--muted);font-size:12px;margin-top:2px}
-.navlinks{display:flex;align-items:center;gap:4px;justify-content:center;flex:1}
-.navlinks a{display:inline-flex;align-items:center;min-height:40px;padding:8px 11px;color:var(--muted);font-weight:800;font-size:14px;border-radius:999px;white-space:nowrap;text-decoration:none}
-.navlinks a:hover,.navlinks a.active{background:var(--blue-soft);color:var(--blue-dark)}
-.actions{display:flex;gap:10px;align-items:center;justify-content:flex-end}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--line-strong);border-radius:999px;background:#fff;color:var(--text);min-height:42px;padding:9px 15px;font-weight:800;text-decoration:none;white-space:nowrap}
-.btn:hover{text-decoration:none;background:#f9fafb}
-.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
-.btn.primary:hover{background:var(--blue-dark)}
-.menu-btn{display:none}
-.mobile-menu{display:none;border-top:1px solid var(--line);padding:10px 0 14px;background:#fff}
-.mobile-menu.open{display:block}
-.mobile-menu a{display:block;padding:12px 14px;border-radius:12px;color:var(--muted);font-weight:800;text-decoration:none}
-.mobile-menu a:hover{background:var(--blue-soft);color:var(--blue-dark)}
-.phase{background:#f9fafb;border-bottom:1px solid var(--line);font-size:14px;color:var(--muted)}
-.phase .container{min-height:46px;display:flex;align-items:center;gap:10px}
-.phase-tag{display:inline-flex;align-items:center;border-radius:999px;background:var(--blue);color:#fff;font-weight:900;text-transform:uppercase;font-size:12px;padding:5px 10px;letter-spacing:.04em}
-main{display:block}
-section{scroll-margin-top:112px}
-.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
-.col-3{grid-column:span 3}.col-4{grid-column:span 4}.col-5{grid-column:span 5}.col-6{grid-column:span 6}.col-7{grid-column:span 7}.col-8{grid-column:span 8}.col-12{grid-column:span 12}
-.hero{padding:72px 0;background:linear-gradient(180deg,#fff 0%,#f8fafc 100%);border-bottom:1px solid var(--line)}
-.section{padding:72px 0;border-bottom:1px solid var(--line)}
-.section.alt{background:var(--bg-subtle)}
-h1,h2,h3,h4{font-family:Poppins,Inter,sans-serif;letter-spacing:-.035em;margin:0 0 12px;color:var(--text)}
-h1{font-size:52px;line-height:1.1;max-width:800px}
-h2{font-size:36px;line-height:1.2}
-h3{font-size:24px;line-height:1.28}
-h4{font-size:18px;line-height:1.35}
-p{color:var(--muted);margin:0 0 14px}.lead{font-size:20px;line-height:1.58;max-width:760px}.intro{font-size:18px;max-width:780px;margin-bottom:30px}.small{font-size:14px;color:var(--soft)}
-.kicker{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
-.tag{display:inline-flex;align-items:center;gap:6px;border-radius:999px;border:1px solid transparent;padding:5px 10px;font-size:12px;font-weight:900;line-height:1.2;white-space:nowrap}
-.tag.blue{background:var(--blue-soft);color:var(--blue-dark);border-color:#bfdbfe}.tag.green{background:var(--green-soft);color:#065f46;border-color:#bbf7d0}.tag.yellow{background:var(--yellow-soft);color:var(--yellow);border-color:#fedf89}.tag.red{background:var(--red-soft);color:var(--red);border-color:#fecdca}.tag.grey{background:#f4f4f5;color:var(--muted);border-color:var(--line)}
-.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:24px;box-shadow:0 1px 2px rgba(16,24,40,.04)}
-.card.emphasis{box-shadow:var(--shadow)}
-.card.blue{background:linear-gradient(150deg,#eff6ff 0%,#fff 65%)}.card.green{background:linear-gradient(150deg,#ecfdf3 0%,#fff 65%)}.card.yellow{background:linear-gradient(150deg,#fffaeb 0%,#fff 65%)}
-.hero-panel{border-radius:28px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);padding:26px}
-.hero-stat{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
-.metric{border:1px solid var(--line);border-radius:16px;background:#fff;padding:16px}.metric strong{display:block;font-family:Poppins,Inter,sans-serif;font-size:28px;letter-spacing:-.04em;line-height:1}.metric span{display:block;color:var(--muted);font-weight:700;font-size:13px;margin-top:7px}
-.callout{border-left:5px solid var(--blue);background:var(--blue-soft);border-radius:14px;padding:16px 18px;margin-top:22px}.callout strong{display:block;margin-bottom:4px}.callout p{margin:0;font-size:14px}
-.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.field{display:grid;gap:7px}label{font-size:14px;font-weight:800;color:var(--text)}select,input[type="number"],input[type="text"]{min-height:46px;border:1px solid var(--line-strong);border-radius:12px;background:#fff;color:var(--text);padding:10px 12px;width:100%}.hint{font-size:13px;color:var(--soft);margin:0}
-.result{position:sticky;top:112px;border-radius:var(--radius-lg);border:1px solid #bfdbfe;background:linear-gradient(150deg,#eff6ff 0%,#fff 68%);padding:24px}
-.score{width:150px;height:150px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--blue) 0 82%,#e4e4e7 82% 100%);position:relative;margin:10px auto 18px}.score:before{content:"";position:absolute;inset:14px;border-radius:50%;background:#fff}.score span{position:relative;font-family:Poppins,Inter,sans-serif;font-size:42px;font-weight:800;letter-spacing:-.04em;color:var(--text)}
-.summary{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}.summary-row{display:grid;grid-template-columns:190px minmax(0,1fr);gap:16px;padding:14px 16px;border-bottom:1px solid var(--line)}.summary-row:last-child{border-bottom:0}.summary-row dt{font-weight:800;color:var(--text)}.summary-row dd{margin:0;color:var(--muted)}
-.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:18px;background:#fff}table{width:100%;border-collapse:collapse;min-width:720px}th,td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}th{background:#f9fafb;color:var(--text);font-weight:900;font-size:14px}td{color:var(--muted)}tr:last-child td{border-bottom:0}.price{font-weight:900;color:var(--text)}
-.tasklist{display:grid;gap:12px}.task{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:16px;background:#fff;padding:14px}.task input{margin-top:4px;accent-color:var(--blue)}.task strong{display:block;color:var(--text);margin-bottom:2px}.task span{display:block;color:var(--muted);font-size:14px}
-.status-grid{display:grid;gap:12px}.status-row{display:grid;grid-template-columns:180px 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:16px;background:#fff;padding:14px}.status-row strong{color:var(--text)}.status-row span{color:var(--muted)}
-.timeline{display:grid;gap:12px}.timeline-item{border-left:4px solid var(--blue);background:#fff;border-radius:14px;border:1px solid var(--line);padding:16px 18px}.timeline-item p{margin:0}
-.footer{background:#111827;color:#d1d5db;padding:48px 0}.footer p,.footer a,.footer small{color:#d1d5db}.footer h4{color:#fff}.footer .mark{background:#fff;color:#111827}.footer .brand-title{color:#fff}.footer .brand-sub{color:#d1d5db}
-@media(max-width:1120px){.navlinks{display:none}.menu-btn{display:inline-flex}.col-3,.col-4,.col-5,.col-6,.col-7,.col-8{grid-column:span 6}.hero .col-7,.hero .col-5{grid-column:span 12}.result{position:relative;top:auto}.navbar-inner{gap:14px}.start-btn{display:none}}
-@media(max-width:767px){.container{padding:0 18px}.masthead .container{display:block;padding-top:8px;padding-bottom:8px}.masthead button{margin-top:4px}.navbar-inner{min-height:68px}.brand{min-width:0}.brand-title{font-size:21px}.mark{width:40px;height:40px}.phase .container{align-items:flex-start;padding-top:10px;padding-bottom:10px}.hero{padding:48px 0}.section{padding:54px 0}.grid{grid-template-columns:repeat(4,1fr);gap:18px}.col-3,.col-4,.col-5,.col-6,.col-7,.col-8,.col-12{grid-column:span 4}h1{font-size:36px}h2{font-size:28px}.lead,.intro{font-size:17px}.hero-stat{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.summary-row{grid-template-columns:1fr;gap:4px}.status-row{grid-template-columns:1fr}.actions{gap:6px}.btn{padding:9px 12px}.card,.hero-panel,.result{padding:20px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#075E54" />
+  <meta name="description" content="TenangKITA Mobile App v0.1, a rakyat-first economic resilience companion prototype aligned to MYDS service design standards." />
+  <title>TenangKITA Mobile App v0.1</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body data-lang="ms">
-<a href="#main" class="skiplink" data-ms="Langkau ke kandungan utama" data-en="Skip to main content">Langkau ke kandungan utama</a>
-<header>
-  <div class="masthead">
-    <div class="container">
-      <span><strong data-ms="Prototaip dalaman GovTech Malaysia" data-en="GovTech Malaysia internal prototype">Prototaip dalaman GovTech Malaysia</strong></span>
-      <button id="trustToggle" type="button" aria-expanded="false" aria-controls="trustNote" data-ms="Tentang prototaip ini" data-en="About this prototype">Tentang prototaip ini</button>
-    </div>
-  </div>
-  <div id="trustNote" class="details">
-    <div class="container">
-      <p data-ms="TenangKITA v4.2 ialah susun atur portal kerja untuk penilaian dalaman. Data dalam prototaip ini ialah data contoh, anggaran atau status integrasi, dan bukan keputusan rasmi kerajaan." data-en="TenangKITA v4.2 is a working portal layout for internal review. Data in this prototype is sample, estimated or integration status data, and is not an official government decision.">TenangKITA v4.2 ialah susun atur portal kerja untuk penilaian dalaman. Data dalam prototaip ini ialah data contoh, anggaran atau status integrasi, dan bukan keputusan rasmi kerajaan.</p>
-    </div>
-  </div>
-  <nav class="navbar" aria-label="Navigasi utama">
-    <div class="container navbar-inner">
-      <a class="brand" href="#utama" aria-label="TenangKITA laman utama">
-        <span class="mark" aria-hidden="true">TK</span>
-        <span><span class="brand-title">TenangKITA</span><span class="brand-sub" data-ms="Data negara, ketenangan keluarga" data-en="National data, family peace of mind">Data negara, ketenangan keluarga</span></span>
-      </a>
-      <div class="navlinks" id="desktopNav">
-        <a href="#utama" data-ms="Utama" data-en="Home">Utama</a>
-        <a href="#semak" data-ms="Semak" data-en="Check">Semak</a>
-        <a href="#harga" data-ms="Harga" data-en="Prices">Harga</a>
-        <a href="#minyak" data-ms="Minyak" data-en="Fuel">Minyak</a>
-        <a href="#manfaat" data-ms="Manfaat" data-en="Benefits">Manfaat</a>
-        <a href="#amanah" data-ms="Amanah Data" data-en="Data Trust">Amanah Data</a>
-        <a href="#agensi" data-ms="Untuk Agensi" data-en="For Agencies">Untuk Agensi</a>
-      </div>
-      <div class="actions">
-        <button class="btn" id="langToggle" type="button" aria-label="Tukar bahasa">BM / EN</button>
-        <a class="btn primary start-btn" href="#semak" data-ms="Mula semak" data-en="Start check">Mula semak</a>
-        <button class="btn menu-btn" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileMenu" data-ms="Menu" data-en="Menu">Menu</button>
-      </div>
-    </div>
-    <div class="container mobile-menu" id="mobileMenu">
-      <a href="#utama" data-ms="Utama" data-en="Home">Utama</a>
-      <a href="#semak" data-ms="Semak Keadaan" data-en="Situation Check">Semak Keadaan</a>
-      <a href="#harga" data-ms="Harga Berhampiran" data-en="Nearby Prices">Harga Berhampiran</a>
-      <a href="#minyak" data-ms="Minyak & Perjalanan" data-en="Fuel & Travel">Minyak & Perjalanan</a>
-      <a href="#manfaat" data-ms="Manfaat Rasmi" data-en="Official Benefits">Manfaat Rasmi</a>
-      <a href="#amanah" data-ms="Amanah Data" data-en="Data Trust">Amanah Data</a>
-      <a href="#agensi" data-ms="Untuk Agensi" data-en="For Agencies">Untuk Agensi</a>
-    </div>
-  </nav>
-  <div class="phase"><div class="container"><span class="phase-tag">Beta</span><span data-ms="Portal v4.2 tanpa artwork. Dibina untuk perjalanan perkhidmatan yang praktikal, boleh diuji dan sesuai dibawa ke MVP." data-en="Portal v4.2 without artwork. Built for a practical, testable service journey suitable for MVP.">Portal v4.2 tanpa artwork. Dibina untuk perjalanan perkhidmatan yang praktikal, boleh diuji dan sesuai dibawa ke MVP.</span></div></div>
-</header>
-<main id="main" tabindex="-1">
-  <section id="utama" class="hero" aria-labelledby="heroTitle">
-    <div class="container grid">
-      <div class="col-7">
-        <div class="kicker"><span class="tag blue" data-ms="Portal dahulu" data-en="Portal first">Portal dahulu</span><span class="tag green" data-ms="Aplikasi kemudian" data-en="App next">Aplikasi kemudian</span><span class="tag yellow" data-ms="Data amanah" data-en="Trusted data">Data amanah</span></div>
-        <h1 id="heroTitle" data-ms="TenangKITA membantu keluarga memahami keadaan ekonomi sebelum membuat keputusan harian." data-en="TenangKITA helps families understand the economic situation before making daily decisions.">TenangKITA membantu keluarga memahami keadaan ekonomi sebelum membuat keputusan harian.</h1>
-        <p class="lead" data-ms="Portal ini menukar isyarat ekonomi rasmi kepada kefahaman keluarga. Fokusnya ialah semak keadaan, lihat pilihan harga berhampiran, rancang minyak dan perjalanan, serta semak manfaat melalui saluran rasmi." data-en="This portal translates official economic signals into family understanding. It focuses on checking the situation, viewing nearby price options, planning fuel and travel, and checking benefits through official channels.">Portal ini menukar isyarat ekonomi rasmi kepada kefahaman keluarga. Fokusnya ialah semak keadaan, lihat pilihan harga berhampiran, rancang minyak dan perjalanan, serta semak manfaat melalui saluran rasmi.</p>
-        <div class="callout"><strong data-ms="Bukan pengganti MyGOV." data-en="Not a MyGOV replacement.">Bukan pengganti MyGOV.</strong><p data-ms="TenangKITA ialah lapisan kefahaman data rakyat yang boleh melengkapkan MyGOV, MyNotifikasi dan portal rasmi agensi." data-en="TenangKITA is a citizen data understanding layer that can complement MyGOV, MyNotifikasi and official agency portals.">TenangKITA ialah lapisan kefahaman data rakyat yang boleh melengkapkan MyGOV, MyNotifikasi dan portal rasmi agensi.</p></div>
-        <div class="actions" style="margin-top:24px"><a class="btn primary" href="#semak" data-ms="Semak keadaan keluarga" data-en="Check family situation">Semak keadaan keluarga</a><a class="btn" href="#agensi" data-ms="Lihat nilai untuk agensi" data-en="View agency value">Lihat nilai untuk agensi</a></div>
-      </div>
-      <aside class="col-5 hero-panel" aria-label="Ringkasan portal">
-        <h2 data-ms="Ringkasan Hari Ini" data-en="Today Summary">Ringkasan Hari Ini</h2>
-        <p data-ms="Paparan ringkas untuk menunjukkan keadaan, sebab, tindakan dan status data tanpa bergantung kepada artwork atau visual hiasan." data-en="A concise view showing situation, reason, action and data status without relying on decorative artwork.">Paparan ringkas untuk menunjukkan keadaan, sebab, tindakan dan status data tanpa bergantung kepada artwork atau visual hiasan.</p>
-        <div class="hero-stat">
-          <div class="metric"><strong>82</strong><span data-ms="Skor ketenangan contoh" data-en="Sample calmness score">Skor ketenangan contoh</span></div>
-          <div class="metric"><strong>RM54</strong><span data-ms="Anggaran impak minyak" data-en="Estimated fuel impact">Anggaran impak minyak</span></div>
-          <div class="metric"><strong>4</strong><span data-ms="Barang asas dipantau" data-en="Essentials monitored">Barang asas dipantau</span></div>
-          <div class="metric"><strong>6</strong><span data-ms="Label amanah data" data-en="Data trust labels">Label amanah data</span></div>
+<body>
+  <a class="skip-link" href="#app-main">Langkau ke kandungan utama</a>
+  <div class="page-shell">
+    <div class="prototype-stage">
+      <aside class="desktop-brief" aria-label="Ringkasan prototaip">
+        <div class="eyebrow">MYDS aligned prototype • Mobile first • v0.1</div>
+        <h1>TenangKITA sebagai aplikasi mudah alih yang praktikal.</h1>
+        <p>Versi ini mengembalikan artwork asal, tetapi dalam susun atur mobile app yang lebih kemas, ringkas, boleh digunakan dan lebih dekat dengan standard MYDS untuk perkhidmatan digital kerajaan.</p>
+        <div class="brief-grid">
+          <div class="brief-card"><b>Rakyat dahulu</b><span>Aliran utama bermula dengan keadaan keluarga hari ini, bukan dashboard teknikal.</span></div>
+          <div class="brief-card"><b>Data amanah</b><span>Setiap cadangan dilabel sebagai data contoh, anggaran atau semak rasmi.</span></div>
+          <div class="brief-card"><b>MVP ready</b><span>Struktur PWA disediakan untuk evolusi portal dan app sebenar.</span></div>
         </div>
       </aside>
-    </div>
-  </section>
 
-  <section class="section" aria-labelledby="journeyTitle">
-    <div class="container">
-      <h2 id="journeyTitle" data-ms="Perjalanan portal kerja" data-en="Working portal journey">Perjalanan portal kerja</h2>
-      <p class="intro" data-ms="Struktur baharu ini membuang Mod Rakyat dan Mod Kerajaan. Rakyat mendapat aliran utama. Keperluan kerajaan diletakkan dalam seksyen Untuk Agensi." data-en="This new structure removes Citizen Mode and Government Mode. Citizens get the main journey. Government needs are placed under the For Agencies section.">Struktur baharu ini membuang Mod Rakyat dan Mod Kerajaan. Rakyat mendapat aliran utama. Keperluan kerajaan diletakkan dalam seksyen Untuk Agensi.</p>
-      <div class="grid">
-        <article class="card blue col-3"><span class="tag blue">01</span><h3 data-ms="Semak" data-en="Check">Semak</h3><p data-ms="Rakyat masukkan maklumat asas untuk memahami keadaan keluarga." data-en="Citizens enter basic information to understand the family situation.">Rakyat masukkan maklumat asas untuk memahami keadaan keluarga.</p></article>
-        <article class="card green col-3"><span class="tag green">02</span><h3 data-ms="Banding" data-en="Compare">Banding</h3><p data-ms="Senarai pilihan harga berhampiran ditunjukkan sebelum peta." data-en="Nearby price options are shown as a list before any map.">Senarai pilihan harga berhampiran ditunjukkan sebelum peta.</p></article>
-        <article class="card yellow col-3"><span class="tag yellow">03</span><h3 data-ms="Rancang" data-en="Plan">Rancang</h3><p data-ms="Minyak, perjalanan dan tindakan mingguan dijelaskan secara praktikal." data-en="Fuel, travel and weekly actions are explained practically.">Minyak, perjalanan dan tindakan mingguan dijelaskan secara praktikal.</p></article>
-        <article class="card col-3"><span class="tag grey">04</span><h3 data-ms="Semak rasmi" data-en="Official check">Semak rasmi</h3><p data-ms="Manfaat hanya mungkin berkaitan. Kelayakan kekal melalui portal rasmi." data-en="Benefits are only possibly relevant. Eligibility remains with official portals.">Manfaat hanya mungkin berkaitan. Kelayakan kekal melalui portal rasmi.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section id="semak" class="section alt" aria-labelledby="checkTitle">
-    <div class="container grid">
-      <div class="col-7">
-        <div class="kicker"><span class="tag blue" data-ms="Anggaran" data-en="Estimate">Anggaran</span><span class="tag grey" data-ms="Bukan keputusan rasmi" data-en="Not an official decision">Bukan keputusan rasmi</span></div>
-        <h2 id="checkTitle" data-ms="Semak Keadaan Keluarga" data-en="Check Family Situation">Semak Keadaan Keluarga</h2>
-        <p class="intro" data-ms="Masukkan maklumat asas untuk melihat ringkasan keadaan. Portal ini tidak menilai keluarga dan tidak menentukan kelayakan bantuan." data-en="Enter basic information to view a situation summary. This portal does not judge families and does not determine benefit eligibility.">Masukkan maklumat asas untuk melihat ringkasan keadaan. Portal ini tidak menilai keluarga dan tidak menentukan kelayakan bantuan.</p>
-        <form class="card emphasis" id="familyForm">
-          <div class="form-grid">
-            <div class="field"><label for="area" data-ms="Kawasan" data-en="Area">Kawasan</label><select id="area"><option value="shahalam">Shah Alam, Selangor</option><option value="kl">Kuala Lumpur</option><option value="jb">Johor Bahru, Johor</option><option value="kk">Kota Kinabalu, Sabah</option></select><p class="hint" data-ms="Kawasan contoh untuk prototaip." data-en="Sample area for prototype.">Kawasan contoh untuk prototaip.</p></div>
-            <div class="field"><label for="members" data-ms="Bilangan isi rumah" data-en="Household size">Bilangan isi rumah</label><select id="members"><option value="3">3 orang</option><option value="4" selected>4 orang</option><option value="5">5 orang</option><option value="6">6 orang atau lebih</option></select></div>
-            <div class="field"><label for="travel" data-ms="Corak perjalanan" data-en="Travel pattern">Corak perjalanan</label><select id="travel"><option value="low">Kurang memandu</option><option value="medium" selected>Memandu sederhana</option><option value="high">Memandu tinggi</option></select></div>
-            <div class="field"><label for="buffer" data-ms="Ruang belanja" data-en="Spending buffer">Ruang belanja</label><select id="buffer"><option value="tight">Sangat terhad</option><option value="moderate" selected>Sederhana</option><option value="comfortable">Masih selesa</option></select></div>
+      <div class="phone-frame" id="phoneFrame">
+        <header class="app-topbar">
+          <div class="gov-masthead">
+            <div class="left"><span class="malaysia-dot" aria-hidden="true"></span><span class="ms-only">Perkhidmatan digital Kerajaan Malaysia</span><span class="en-only">Government of Malaysia digital service</span></div>
+            <span class="beta-tag">BETA v0.1</span>
           </div>
-          <div class="actions" style="margin-top:20px"><button class="btn primary" type="submit" data-ms="Kemas kini ringkasan" data-en="Update summary">Kemas kini ringkasan</button><button class="btn" type="button" id="locationBtn" data-ms="Benarkan lokasi" data-en="Allow location">Benarkan lokasi</button></div>
-          <p id="locationStatus" class="hint" style="margin-top:10px" data-ms="Lokasi manual sedang digunakan." data-en="Manual location is currently used.">Lokasi manual sedang digunakan.</p>
-        </form>
-      </div>
-      <aside class="col-5 result" aria-live="polite">
-        <div class="kicker"><span id="scoreStatus" class="tag green">Status Stabil</span><span class="tag yellow" data-ms="Data Contoh" data-en="Sample Data">Data Contoh</span></div>
-        <h3 data-ms="Ringkasan Untuk Saya" data-en="Summary For Me">Ringkasan Untuk Saya</h3>
-        <div class="score" id="scoreRing"><span id="scoreValue">82</span></div>
-        <dl class="summary">
-          <div class="summary-row"><dt data-ms="Keadaan" data-en="Situation">Keadaan</dt><dd id="situationText">Tekanan belanja meningkat sedikit, tetapi masih terkawal.</dd></div>
-          <div class="summary-row"><dt data-ms="Perlu perhatian" data-en="Needs attention">Perlu perhatian</dt><dd id="attentionText">Beras, minyak masak dan perjalanan harian.</dd></div>
-          <div class="summary-row"><dt data-ms="Tindakan" data-en="Action">Tindakan</dt><dd id="actionText">Semak pilihan harga berhampiran dan rancang perjalanan minggu ini.</dd></div>
-        </dl>
-      </aside>
-    </div>
-  </section>
-
-  <section id="harga" class="section" aria-labelledby="priceTitle">
-    <div class="container">
-      <div class="kicker"><span class="tag green" data-ms="Senarai dahulu" data-en="List first">Senarai dahulu</span><span class="tag grey" data-ms="Peta kemudian" data-en="Map later">Peta kemudian</span><span class="tag yellow" data-ms="Semak Rasmi" data-en="Official Check">Semak Rasmi</span></div>
-      <h2 id="priceTitle" data-ms="Harga & Peluang Berhampiran" data-en="Nearby Prices & Opportunities">Harga & Peluang Berhampiran</h2>
-      <p class="intro" data-ms="Bahagian ini tidak menggunakan perkataan termurah atau dijamin jimat. Ia hanya membantu rakyat melihat pilihan harga berhampiran yang perlu disahkan sebelum membeli." data-en="This section does not use words such as cheapest or guaranteed savings. It only helps citizens view nearby price options that must be verified before purchase.">Bahagian ini tidak menggunakan perkataan termurah atau dijamin jimat. Ia hanya membantu rakyat melihat pilihan harga berhampiran yang perlu disahkan sebelum membeli.</p>
-      <div class="grid">
-        <div class="card col-4">
-          <h3 data-ms="Tapis carian" data-en="Filter search">Tapis carian</h3>
-          <div class="field"><label for="priceArea" data-ms="Kawasan" data-en="Area">Kawasan</label><select id="priceArea"><option value="shahalam">Shah Alam</option><option value="kl">Kuala Lumpur</option><option value="jb">Johor Bahru</option></select></div>
-          <div class="field" style="margin-top:14px"><label for="priceItem" data-ms="Barang asas" data-en="Essential item">Barang asas</label><select id="priceItem"><option value="all">Semua barang</option><option value="beras">Beras</option><option value="ayam">Ayam</option><option value="minyak">Minyak masak</option></select></div>
-          <div class="callout"><strong data-ms="Prinsip UX" data-en="UX principle">Prinsip UX</strong><p data-ms="Paparan senarai lebih berguna untuk keputusan harian. Peta hanya perlu selepas senarai dan jarak difahami." data-en="A list view is more useful for daily decisions. Map view should come after list and distance are understood.">Paparan senarai lebih berguna untuk keputusan harian. Peta hanya perlu selepas senarai dan jarak difahami.</p></div>
-        </div>
-        <div class="col-8">
-          <div class="table-wrap">
-            <table aria-label="Pilihan harga berhampiran">
-              <thead><tr><th data-ms="Barang" data-en="Item">Barang</th><th data-ms="Kawasan" data-en="Area">Kawasan</th><th data-ms="Pilihan harga" data-en="Price option">Pilihan harga</th><th data-ms="Jarak" data-en="Distance">Jarak</th><th data-ms="Status" data-en="Status">Status</th></tr></thead>
-              <tbody id="priceRows"></tbody>
-            </table>
+          <div class="brand-row">
+            <div class="brand-lockup" aria-label="TenangKITA">
+              <div class="brand-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M18.3 5.2c-5.4.5-9.9 4.5-10.5 9.9-.1 1.2.9 2.2 2.1 2 5.3-.8 9-4.8 9.6-10.1.1-1.1-.4-1.9-1.2-1.8Z" fill="#fff"/><path d="M9 17c2.8-4.1 5.8-6.6 9-8.7" stroke="#075E54" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </div>
+              <div class="brand-copy">
+                <b>TenangKITA</b>
+                <span class="ms-only">Data negara, ketenangan keluarga.</span>
+                <span class="en-only">National data, family peace of mind.</span>
+              </div>
+            </div>
+            <div class="header-actions">
+              <button class="language-button" id="languageButton" type="button" aria-label="Tukar bahasa">BM</button>
+              <button class="icon-button" id="trustButton" type="button" aria-label="Buka Amanah Data">ⓘ</button>
+            </div>
           </div>
-          <p class="hint" style="margin-top:10px" data-ms="Harga, lokasi dan tarikh sebenar perlu disahkan melalui sumber rasmi atau integrasi data yang diluluskan." data-en="Actual price, location and date must be verified through official sources or approved data integration.">Harga, lokasi dan tarikh sebenar perlu disahkan melalui sumber rasmi atau integrasi data yang diluluskan.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+        </header>
 
-  <section id="minyak" class="section alt" aria-labelledby="fuelTitle">
-    <div class="container grid">
-      <div class="col-6">
-        <div class="kicker"><span class="tag yellow" data-ms="Anggaran" data-en="Estimate">Anggaran</span><span class="tag blue" data-ms="Perancangan keluarga" data-en="Family planning">Perancangan keluarga</span></div>
-        <h2 id="fuelTitle" data-ms="Minyak & Perjalanan" data-en="Fuel & Travel">Minyak & Perjalanan</h2>
-        <p class="intro" data-ms="Minyak memberi kesan kepada kerja, sekolah, pasar dan urusan keluarga. Kalkulator ini membantu rakyat faham kesan bulanan secara mudah." data-en="Fuel affects work, school, markets and family errands. This calculator helps citizens understand the monthly impact simply.">Minyak memberi kesan kepada kerja, sekolah, pasar dan urusan keluarga. Kalkulator ini membantu rakyat faham kesan bulanan secara mudah.</p>
-        <div class="card emphasis">
-          <div class="form-grid">
-            <div class="field"><label for="km" data-ms="Jarak sehari pergi balik" data-en="Daily return distance">Jarak sehari pergi balik</label><input id="km" type="number" value="42" min="1" max="300" /><p class="hint">km</p></div>
-            <div class="field"><label for="days" data-ms="Hari perjalanan seminggu" data-en="Travel days per week">Hari perjalanan seminggu</label><input id="days" type="number" value="5" min="1" max="7" /></div>
-            <div class="field"><label for="efficiency" data-ms="Anggaran penggunaan" data-en="Estimated efficiency">Anggaran penggunaan</label><select id="efficiency"><option value="10">10 km/L</option><option value="13" selected>13 km/L</option><option value="16">16 km/L</option></select></div>
-            <div class="field"><label for="fuelPrice" data-ms="Harga minyak per liter" data-en="Fuel price per litre">Harga minyak per liter</label><input id="fuelPrice" type="number" value="2.05" min="0" step="0.01" /></div>
+        <main class="app-content" id="app-main">
+          <section class="app-section active" id="screen-today" aria-labelledby="today-title">
+            <article class="hero-card" aria-label="Ringkasan keluarga hari ini">
+              <img src="assets/hero-family.png" alt="Ilustrasi keluarga Malaysia membeli barang asas di pasar" />
+              <div class="hero-content">
+                <div class="eyebrow-white ms-only">Hari ini • Keluarga Ismail & Nora</div>
+                <div class="eyebrow-white en-only">Today • Ismail & Nora family</div>
+                <h2 id="today-title" class="ms-only">Keadaan keluarga masih stabil.</h2>
+                <h2 class="en-only">Family situation remains stable.</h2>
+                <p class="ms-only">Tekanan belanja meningkat sedikit, tetapi masih terkawal jika pembelian dan perjalanan minggu ini dirancang.</p>
+                <p class="en-only">Spending pressure is rising slightly, but remains manageable with weekly purchase and travel planning.</p>
+              </div>
+            </article>
+
+            <div class="card success">
+              <div class="score-summary">
+                <div class="score-ring" aria-label="Skor keluarga 82 daripada 100"><strong>82</strong></div>
+                <div class="score-meta">
+                  <b class="ms-only">Status: Stabil</b><b class="en-only">Status: Stable</b>
+                  <p class="ms-only">TenangKITA membantu keluarga memahami keadaan, bukan menilai keluarga atau menentukan kelayakan bantuan.</p>
+                  <p class="en-only">TenangKITA helps families understand their situation, not judge families or determine eligibility.</p>
+                  <div class="chip-row">
+                    <span class="chip data">Data contoh</span>
+                    <span class="chip estimate">Anggaran</span>
+                    <span class="chip check">Semak rasmi</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="quick-grid">
+              <button class="quick-card" type="button" data-nav="screen-spend"><span>🧺</span><b class="ms-only">Belanja asas</b><b class="en-only">Essentials</b><p class="ms-only">Semak pilihan harga berhampiran.</p><p class="en-only">Check nearby price options.</p></button>
+              <button class="quick-card" type="button" data-nav="screen-fuel"><span>⛽</span><b class="ms-only">Minyak</b><b class="en-only">Fuel</b><p class="ms-only">Anggar kesan perjalanan minggu ini.</p><p class="en-only">Estimate weekly travel impact.</p></button>
+              <button class="quick-card" type="button" data-nav="screen-plan"><span>✅</span><b class="ms-only">Pelan</b><b class="en-only">Plan</b><p class="ms-only">Tindakan kecil untuk keluarga.</p><p class="en-only">Small actions for the family.</p></button>
+              <button class="quick-card" type="button" data-nav="screen-check"><span>🔎</span><b class="ms-only">Semakan</b><b class="en-only">Checks</b><p class="ms-only">Rujuk portal rasmi sahaja.</p><p class="en-only">Use official portals only.</p></button>
+            </div>
+
+            <div class="art-strip">
+              <img src="assets/family-today.png" alt="Ilustrasi keluarga melihat perancangan harian" />
+              <div><b class="ms-only">Apa maksudnya hari ini?</b><b class="en-only">What this means today</b><p class="ms-only">Beli barang asas ikut keperluan 7 hari, semak harga sebelum bergerak dan elakkan membuat keputusan tergesa-gesa.</p><p class="en-only">Buy essentials based on 7-day needs, check prices before travelling and avoid rushed decisions.</p></div>
+            </div>
+          </section>
+
+          <section class="app-section" id="screen-spend" aria-labelledby="spend-title">
+            <div class="section-header">
+              <div class="kicker">🧺 <span class="ms-only">Harga & peluang berhampiran</span><span class="en-only">Nearby price options</span></div>
+              <h2 id="spend-title" class="ms-only">Belanja asas keluarga.</h2>
+              <h2 class="en-only">Family essentials.</h2>
+              <p class="ms-only">Senarai dahulu, peta kemudian. Harga, lokasi dan tarikh mesti disahkan melalui sumber rasmi sebelum membeli.</p>
+              <p class="en-only">List first, map second. Price, location and date must be verified through official sources before purchase.</p>
+            </div>
+
+            <div class="art-strip">
+              <img src="assets/family-market.png" alt="Ilustrasi keluarga Malaysia di pasar" />
+              <div><b class="ms-only">Pilihan harga berhampiran</b><b class="en-only">Nearby price options</b><p class="ms-only">Gunakan kawasan manual dahulu. GPS hanya pilihan tambahan, bukan asas kelayakan.</p><p class="en-only">Use manual area first. GPS is optional and not a basis for eligibility.</p></div>
+            </div>
+
+            <div class="card">
+              <label class="field-group" for="areaSelect"><span class="field-label ms-only">Kawasan</span><span class="field-label en-only">Area</span><select id="areaSelect"><option value="shahalam">Shah Alam</option><option value="putrajaya">Putrajaya</option><option value="kl">Kuala Lumpur</option></select></label>
+              <div class="segmented" role="tablist" aria-label="Penapis barang">
+                <button type="button" class="active" data-filter="all">Semua</button>
+                <button type="button" data-filter="beras">Beras</button>
+                <button type="button" data-filter="ayam">Ayam</button>
+                <button type="button" data-filter="minyak">Minyak</button>
+                <button type="button" data-filter="sayur">Sayur</button>
+              </div>
+              <div class="list" id="priceList"></div>
+            </div>
+          </section>
+
+          <section class="app-section" id="screen-fuel" aria-labelledby="fuel-title">
+            <div class="section-header">
+              <div class="kicker">⛽ <span class="ms-only">Minyak & perjalanan</span><span class="en-only">Fuel & travel</span></div>
+              <h2 id="fuel-title" class="ms-only">Anggar kesan minyak.</h2>
+              <h2 class="en-only">Estimate fuel impact.</h2>
+              <p class="ms-only">Kalkulator ini menggunakan anggaran mudah untuk membantu keluarga merancang perjalanan, bukan angka rasmi.</p>
+              <p class="en-only">This calculator uses a simple estimate to support travel planning, not an official figure.</p>
+            </div>
+
+            <div class="art-strip">
+              <img src="assets/family-fuel-planning.png" alt="Ilustrasi keluarga merancang perjalanan dan penggunaan minyak" />
+              <div><b class="ms-only">Rancang sebelum bergerak</b><b class="en-only">Plan before travelling</b><p class="ms-only">Gabungkan urusan kecil dan semak semula perjalanan yang tidak mendesak.</p><p class="en-only">Combine small errands and review non-urgent travel.</p></div>
+            </div>
+
+            <div class="card">
+              <div class="field-group"><span class="field-label ms-only">Kenaikan harga minyak per liter</span><span class="field-label en-only">Fuel increase per litre</span><div class="range-row"><input id="fuelRise" type="range" min="0" max="1.2" value="0.3" step="0.05" /><span class="range-value" id="fuelRiseValue">RM0.30</span></div></div>
+              <div class="field-group"><span class="field-label ms-only">Anggaran penggunaan bulanan</span><span class="field-label en-only">Estimated monthly usage</span><div class="range-row"><input id="fuelUse" type="range" min="40" max="360" value="180" step="10" /><span class="range-value" id="fuelUseValue">180L</span></div></div>
+              <div class="field-group"><span class="field-label ms-only">Belanja asas bulanan</span><span class="field-label en-only">Monthly essentials spend</span><div class="range-row"><input id="basketSpend" type="range" min="700" max="2600" value="1456" step="20" /><span class="range-value" id="basketSpendValue">RM1456</span></div></div>
+              <div class="calc-output">
+                <div class="metric-card"><span class="ms-only">Kesan minyak</span><span class="en-only">Fuel impact</span><strong id="fuelImpact">RM54</strong></div>
+                <div class="metric-card"><span class="ms-only">Skor anggaran</span><span class="en-only">Estimated score</span><strong id="familyScore">82</strong></div>
+              </div>
+              <div class="divider"></div>
+              <p id="fuelSummary" class="ms-only">Tekanan masih terkawal. Rancang pembelian dan perjalanan untuk 7 hari akan datang.</p>
+              <p id="fuelSummaryEn" class="en-only">Pressure remains manageable. Plan purchases and travel for the next 7 days.</p>
+            </div>
+          </section>
+
+          <section class="app-section" id="screen-plan" aria-labelledby="plan-title">
+            <div class="section-header">
+              <div class="kicker">✅ <span class="ms-only">Pelan keluarga</span><span class="en-only">Family plan</span></div>
+              <h2 id="plan-title" class="ms-only">Tindakan minggu ini.</h2>
+              <h2 class="en-only">This week’s actions.</h2>
+              <p class="ms-only">TenangKITA menukar data kepada tindakan kecil yang boleh dibuat oleh keluarga.</p>
+              <p class="en-only">TenangKITA turns data into small actions a family can take.</p>
+            </div>
+
+            <div class="art-strip">
+              <img src="assets/family-checklist.png" alt="Ilustrasi keluarga membuat senarai semak mingguan" />
+              <div><b class="ms-only">Mulakan dengan satu tindakan</b><b class="en-only">Start with one action</b><p class="ms-only">Bukan semua perkara perlu diselesaikan hari ini. Yang penting, keluarga tahu langkah seterusnya.</p><p class="en-only">Not everything needs to be solved today. What matters is knowing the next step.</p></div>
+            </div>
+
+            <div class="card">
+              <h3 class="ms-only">Senarai semak 7 hari</h3><h3 class="en-only">7-day checklist</h3>
+              <p id="planProgressText">0 / 5 selesai</p>
+              <div class="progress-bar" aria-hidden="true"><div class="progress-fill" id="planProgress"></div></div>
+              <div class="divider"></div>
+              <div class="check-list" id="weeklyPlan">
+                <label class="check-item"><input type="checkbox" /><span><b class="ms-only">Semak harga beras dan ayam</b><b class="en-only">Check rice and chicken prices</b><span class="ms-only">Bandingkan pilihan berhampiran sebelum membeli.</span><span class="en-only">Compare nearby options before purchasing.</span></span></label>
+                <label class="check-item"><input type="checkbox" /><span><b class="ms-only">Rancang menu 7 hari</b><b class="en-only">Plan a 7-day menu</b><span class="ms-only">Kurangkan pembelian berulang dan pembaziran.</span><span class="en-only">Reduce repeat purchases and waste.</span></span></label>
+                <label class="check-item"><input type="checkbox" /><span><b class="ms-only">Gabungkan perjalanan kecil</b><b class="en-only">Combine small trips</b><span class="ms-only">Kurangkan penggunaan minyak yang tidak perlu.</span><span class="en-only">Reduce unnecessary fuel use.</span></span></label>
+                <label class="check-item"><input type="checkbox" /><span><b class="ms-only">Semak manfaat berkaitan</b><b class="en-only">Check relevant support</b><span class="ms-only">Gunakan portal rasmi untuk semakan sebenar.</span><span class="en-only">Use official portals for actual checks.</span></span></label>
+                <label class="check-item"><input type="checkbox" /><span><b class="ms-only">Kemas kini keadaan keluarga</b><b class="en-only">Update family situation</b><span class="ms-only">Semak semula jika harga atau jadual berubah.</span><span class="en-only">Review again when prices or schedules change.</span></span></label>
+              </div>
+            </div>
+          </section>
+
+          <section class="app-section" id="screen-check" aria-labelledby="check-title">
+            <div class="section-header">
+              <div class="kicker">🔎 <span class="ms-only">Manfaat & semakan rasmi</span><span class="en-only">Support & official checks</span></div>
+              <h2 id="check-title" class="ms-only">Semak melalui sumber rasmi.</h2>
+              <h2 class="en-only">Check through official sources.</h2>
+              <p class="ms-only">Aplikasi ini hanya menunjukkan perkara yang mungkin berkaitan. Ia tidak menentukan kelayakan.</p>
+              <p class="en-only">This app only shows what may be relevant. It does not determine eligibility.</p>
+            </div>
+
+            <div class="art-strip">
+              <img src="assets/family-tablet-planning.png" alt="Ilustrasi keluarga menyemak maklumat rasmi melalui tablet" />
+              <div><b class="ms-only">Bukan aplikasi manfaat</b><b class="en-only">Not a benefits app</b><p class="ms-only">TenangKITA ialah lapisan kefahaman data rakyat yang melengkapkan ekosistem sedia ada.</p><p class="en-only">TenangKITA is a citizen data understanding layer that complements the existing ecosystem.</p></div>
+            </div>
+
+            <div class="list">
+              <a class="official-link" href="#" aria-label="Portal Manfaat MOF"><span><b>Portal Manfaat MOF</b><span class="ms-only">Semakan manfaat dan sokongan berkaitan.</span><span class="en-only">Check relevant benefits and support.</span></span><em>↗</em></a>
+              <a class="official-link" href="#" aria-label="PriceCatcher KPDN"><span><b>PriceCatcher KPDN</b><span class="ms-only">Rujukan harga dan lokasi rasmi.</span><span class="en-only">Official price and location reference.</span></span><em>↗</em></a>
+              <a class="official-link" href="#" aria-label="OpenDOSM"><span><b>OpenDOSM / DOSM</b><span class="ms-only">Isyarat ekonomi rasmi negara.</span><span class="en-only">Official national economic signals.</span></span><em>↗</em></a>
+            </div>
+
+            <div class="card warning">
+              <h3 class="ms-only">Prinsip selamat</h3><h3 class="en-only">Safe principle</h3>
+              <p class="ms-only">Gunakan “mungkin berkaitan”, “semak rasmi” dan “anggaran”. Elakkan “anda layak”, “termurah” atau “dijamin jimat”.</p>
+              <p class="en-only">Use “may be relevant”, “official check” and “estimate”. Avoid “you are eligible”, “cheapest” or “guaranteed savings”.</p>
+            </div>
+          </section>
+
+          <p class="footer-note">TenangKITA Mobile App v0.1 • Prototype for GovTech Malaysia discussion • © 2026</p>
+        </main>
+
+        <nav class="bottom-nav" aria-label="Navigasi utama aplikasi">
+          <button class="nav-button active" type="button" data-nav="screen-today"><span>☀️</span><span class="ms-only">Hari Ini</span><span class="en-only">Today</span></button>
+          <button class="nav-button" type="button" data-nav="screen-spend"><span>🧺</span><span class="ms-only">Belanja</span><span class="en-only">Spend</span></button>
+          <button class="nav-button" type="button" data-nav="screen-fuel"><span>⛽</span><span class="ms-only">Minyak</span><span class="en-only">Fuel</span></button>
+          <button class="nav-button" type="button" data-nav="screen-plan"><span>✅</span><span class="ms-only">Pelan</span><span class="en-only">Plan</span></button>
+          <button class="nav-button" type="button" data-nav="screen-check"><span>🔎</span><span class="ms-only">Semakan</span><span class="en-only">Check</span></button>
+        </nav>
+
+        <div class="sheet-scrim" id="sheetScrim"></div>
+        <aside class="sheet" id="trustSheet" aria-label="Amanah Data" aria-hidden="true">
+          <div class="sheet-handle" aria-hidden="true"></div>
+          <div class="sheet-header">
+            <div><h2>Amanah Data</h2><p class="ms-only">Bagaimana TenangKITA menjaga maksud, had dan keselamatan data.</p><p class="en-only">How TenangKITA protects data meaning, limits and safety.</p></div>
+            <button class="icon-button" type="button" id="closeSheet" aria-label="Tutup Amanah Data">×</button>
           </div>
-        </div>
-      </div>
-      <aside class="col-6 card blue emphasis">
-        <h3 data-ms="Anggaran Impak Bulanan" data-en="Estimated Monthly Impact">Anggaran Impak Bulanan</h3>
-        <div class="hero-stat">
-          <div class="metric"><strong id="monthlyFuel">RM132.46</strong><span data-ms="Kos minyak bulanan" data-en="Monthly fuel cost">Kos minyak bulanan</span></div>
-          <div class="metric"><strong id="monthlyLitres">64.6 L</strong><span data-ms="Penggunaan bulanan" data-en="Monthly usage">Penggunaan bulanan</span></div>
-        </div>
-        <dl class="summary" style="margin-top:18px">
-          <div class="summary-row"><dt data-ms="Maksud" data-en="Meaning">Maksud</dt><dd data-ms="Perjalanan boleh dirancang supaya urusan kecil digabungkan." data-en="Travel can be planned so small errands are combined.">Perjalanan boleh dirancang supaya urusan kecil digabungkan.</dd></div>
-          <div class="summary-row"><dt data-ms="Tindakan" data-en="Action">Tindakan</dt><dd data-ms="Semak pelan minggu ini sebelum bergerak." data-en="Check this week's plan before travelling.">Semak pelan minggu ini sebelum bergerak.</dd></div>
-        </dl>
-      </aside>
-    </div>
-  </section>
-
-  <section id="manfaat" class="section" aria-labelledby="benefitTitle">
-    <div class="container grid">
-      <div class="col-5">
-        <div class="kicker"><span class="tag grey" data-ms="Semak Rasmi" data-en="Official Check">Semak Rasmi</span><span class="tag red" data-ms="Bukan kelayakan" data-en="Not eligibility">Bukan kelayakan</span></div>
-        <h2 id="benefitTitle" data-ms="Manfaat & Semakan Rasmi" data-en="Benefits & Official Checks">Manfaat & Semakan Rasmi</h2>
-        <p class="intro" data-ms="TenangKITA hanya menunjukkan perkara yang mungkin berkaitan. Ia tidak menentukan kelayakan, jumlah bantuan atau keputusan rasmi." data-en="TenangKITA only shows what may be relevant. It does not determine eligibility, benefit amount or official decisions.">TenangKITA hanya menunjukkan perkara yang mungkin berkaitan. Ia tidak menentukan kelayakan, jumlah bantuan atau keputusan rasmi.</p>
-        <div class="callout"><strong data-ms="Bahasa selamat" data-en="Safe wording">Bahasa selamat</strong><p data-ms="Gunakan mungkin berkaitan, semak rasmi dan perlu disahkan. Elakkan anda layak, dijamin atau pasti." data-en="Use may be relevant, official check and must be verified. Avoid eligible, guaranteed or certain.">Gunakan mungkin berkaitan, semak rasmi dan perlu disahkan. Elakkan anda layak, dijamin atau pasti.</p></div>
-      </div>
-      <div class="col-7">
-        <div class="tasklist" id="taskList">
-          <label class="task"><input type="checkbox" /><span><strong>Sumbangan Tunai Rahmah</strong><span data-ms="Mungkin berkaitan mengikut profil isi rumah. Semak melalui portal rasmi." data-en="May be relevant based on household profile. Check through the official portal.">Mungkin berkaitan mengikut profil isi rumah. Semak melalui portal rasmi.</span></span></label>
-          <label class="task"><input type="checkbox" /><span><strong>SARA</strong><span data-ms="Mungkin berkaitan jika perbelanjaan barang asas meningkat. Perlu semakan rasmi." data-en="May be relevant if essential spending increases. Official check required.">Mungkin berkaitan jika perbelanjaan barang asas meningkat. Perlu semakan rasmi.</span></span></label>
-          <label class="task"><input type="checkbox" /><span><strong>Pas My50</strong><span data-ms="Mungkin berkaitan jika keluarga banyak menggunakan pengangkutan awam." data-en="May be relevant if the family frequently uses public transport.">Mungkin berkaitan jika keluarga banyak menggunakan pengangkutan awam.</span></span></label>
-          <label class="task"><input type="checkbox" /><span><strong>Jualan Rahmah</strong><span data-ms="Semak lokasi, tarikh dan senarai barang sebelum bergerak." data-en="Check location, date and item list before travelling.">Semak lokasi, tarikh dan senarai barang sebelum bergerak.</span></span></label>
-        </div>
-        <p class="hint" style="margin-top:12px"><span id="taskCount">0 / 4</span> <span data-ms="semakan ditanda." data-en="checks marked.">semakan ditanda.</span></p>
+          <div class="mini-grid">
+            <div class="mini-card"><span>🏛️</span><b>Data Rasmi</b><p class="ms-only">DOSM, KPDN, MOF dan sumber kerajaan berkaitan.</p><p class="en-only">DOSM, KPDN, MOF and relevant government sources.</p></div>
+            <div class="mini-card"><span>📍</span><b>Data Berhampiran</b><p class="ms-only">Lokasi digunakan untuk paparan pilihan, bukan kelayakan.</p><p class="en-only">Location is used for options, not eligibility.</p></div>
+            <div class="mini-card"><span>🧮</span><b>Anggaran</b><p class="ms-only">Skor ialah model tafsiran sementara untuk prototaip.</p><p class="en-only">The score is a temporary interpretation model for prototype use.</p></div>
+            <div class="mini-card"><span>🔎</span><b>Semak Rasmi</b><p class="ms-only">Tindakan akhir kekal di portal rasmi berkaitan.</p><p class="en-only">Final actions remain on the relevant official portals.</p></div>
+          </div>
+        </aside>
       </div>
     </div>
-  </section>
-
-  <section id="amanah" class="section alt" aria-labelledby="trustTitle">
-    <div class="container">
-      <div class="kicker"><span class="tag blue" data-ms="Amanah data" data-en="Data trust">Amanah data</span><span class="tag grey" data-ms="Telus" data-en="Transparent">Telus</span></div>
-      <h2 id="trustTitle" data-ms="Amanah Data" data-en="Data Trust">Amanah Data</h2>
-      <p class="intro" data-ms="Setiap maklumat perlu menunjukkan sumber, status integrasi, masa bacaan dan had penggunaan supaya rakyat dan pengurusan tahu tahap kepercayaan data." data-en="Every piece of information should show source, integration status, reading time and usage limits so citizens and management know the trust level of the data.">Setiap maklumat perlu menunjukkan sumber, status integrasi, masa bacaan dan had penggunaan supaya rakyat dan pengurusan tahu tahap kepercayaan data.</p>
-      <div class="status-grid">
-        <div class="status-row"><strong>DOSM / OpenDOSM</strong><span data-ms="Isyarat ekonomi rasmi dan API terbuka." data-en="Official economic signals and open API.">Isyarat ekonomi rasmi dan API terbuka.</span><span class="tag green" data-ms="Data Rasmi" data-en="Official Data">Data Rasmi</span></div>
-        <div class="status-row"><strong>KPDN PriceCatcher</strong><span data-ms="Harga barang asas melalui dataset atau integrasi diluluskan." data-en="Essential item prices via dataset or approved integration.">Harga barang asas melalui dataset atau integrasi diluluskan.</span><span class="tag yellow" data-ms="Perlu Integrasi" data-en="Integration Needed">Perlu Integrasi</span></div>
-        <div class="status-row"><strong>Portal Manfaat MOF</strong><span data-ms="Semakan manfaat rasmi kekal di portal asal." data-en="Official benefit checks remain on the original portal.">Semakan manfaat rasmi kekal di portal asal.</span><span class="tag grey" data-ms="Semak Rasmi" data-en="Official Check">Semak Rasmi</span></div>
-        <div class="status-row"><strong>TenangKITA Engine</strong><span data-ms="Skor prototaip untuk kefahaman sahaja." data-en="Prototype score for understanding only.">Skor prototaip untuk kefahaman sahaja.</span><span class="tag yellow" data-ms="Anggaran" data-en="Estimate">Anggaran</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="agensi" class="section" aria-labelledby="agencyTitle">
-    <div class="container grid">
-      <div class="col-5">
-        <div class="kicker"><span class="tag blue" data-ms="Untuk Datuk KSU" data-en="For KSU view">Untuk Datuk KSU</span><span class="tag green" data-ms="MVP ready path" data-en="MVP ready path">MVP ready path</span></div>
-        <h2 id="agencyTitle" data-ms="Untuk Agensi & Pengurusan" data-en="For Agencies & Management">Untuk Agensi & Pengurusan</h2>
-        <p class="intro" data-ms="Seksyen ini menerangkan nilai strategik TenangKITA sebagai cabang rakyat kepada Pantau Krisis, bukan sebagai dashboard baharu yang berdiri sendiri." data-en="This section explains TenangKITA's strategic value as a citizen branch of Pantau Krisis, not as a new standalone dashboard.">Seksyen ini menerangkan nilai strategik TenangKITA sebagai cabang rakyat kepada Pantau Krisis, bukan sebagai dashboard baharu yang berdiri sendiri.</p>
-      </div>
-      <div class="col-7">
-        <div class="timeline">
-          <div class="timeline-item"><h3 data-ms="Fasa 1: Portal produksi minimum" data-en="Phase 1: Minimum production portal">Fasa 1: Portal produksi minimum</h3><p data-ms="Utama, semakan keluarga, harga berhampiran, minyak, manfaat, amanah data dan halaman agensi." data-en="Home, family check, nearby prices, fuel, benefits, data trust and agency page.">Utama, semakan keluarga, harga berhampiran, minyak, manfaat, amanah data dan halaman agensi.</p></div>
-          <div class="timeline-item"><h3 data-ms="Fasa 2: Integrasi data rasmi" data-en="Phase 2: Official data integration">Fasa 2: Integrasi data rasmi</h3><p data-ms="OpenDOSM, PriceCatcher KPDN, Portal Manfaat MOF, snapshot data dan audit label amanah." data-en="OpenDOSM, KPDN PriceCatcher, MOF Benefits Portal, data snapshots and trust label audit.">OpenDOSM, PriceCatcher KPDN, Portal Manfaat MOF, snapshot data dan audit label amanah.</p></div>
-          <div class="timeline-item"><h3 data-ms="Fasa 3: Aplikasi mudah alih" data-en="Phase 3: Mobile app">Fasa 3: Aplikasi mudah alih</h3><p data-ms="Tab mudah seperti Hari Ini, Belanja, Minyak, Pelan dan Semakan dengan notifikasi yang selamat." data-en="Simple tabs such as Today, Spending, Fuel, Plan and Checks with safe notifications.">Tab mudah seperti Hari Ini, Belanja, Minyak, Pelan dan Semakan dengan notifikasi yang selamat.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-<footer class="footer">
-  <div class="container grid">
-    <div class="col-6">
-      <div class="brand"><span class="mark" aria-hidden="true">TK</span><span><span class="brand-title">TenangKITA</span><span class="brand-sub">Data negara, ketenangan keluarga</span></span></div>
-      <p style="margin-top:16px" data-ms="Portal rakyat untuk kefahaman ekonomi keluarga, dibina dengan prinsip jelas, selamat, boleh dipercayai dan boleh dikembangkan ke aplikasi mudah alih." data-en="Citizen portal for family economic understanding, built with clear, safe, trusted and mobile ready principles.">Portal rakyat untuk kefahaman ekonomi keluarga, dibina dengan prinsip jelas, selamat, boleh dipercayai dan boleh dikembangkan ke aplikasi mudah alih.</p>
-      <small>© 2026 TenangKITA Malaysia. Prototaip dalaman untuk penilaian.</small>
-    </div>
-    <div class="col-3"><h4>Portal</h4><p><a href="#semak">Semak Keluarga</a><br><a href="#harga">Harga Berhampiran</a><br><a href="#manfaat">Manfaat Rasmi</a></p></div>
-    <div class="col-3"><h4>Amanah</h4><p><a href="#amanah">Amanah Data</a><br><a href="#agensi">Untuk Agensi</a><br><a href="#utama">Kembali ke atas</a></p></div>
   </div>
-</footer>
-<script>
-const body=document.body;
-const langToggle=document.getElementById('langToggle');
-const trustToggle=document.getElementById('trustToggle');
-const trustNote=document.getElementById('trustNote');
-const menuToggle=document.getElementById('menuToggle');
-const mobileMenu=document.getElementById('mobileMenu');
-function syncLang(){langToggle.textContent=body.dataset.lang==='en'?'EN / BM':'BM / EN'}
-langToggle.addEventListener('click',()=>{body.dataset.lang=body.dataset.lang==='en'?'ms':'en';syncLang();updateScore();renderPrices();});
-trustToggle.addEventListener('click',()=>{const open=trustNote.classList.toggle('open');trustToggle.setAttribute('aria-expanded',String(open));});
-menuToggle.addEventListener('click',()=>{const open=mobileMenu.classList.toggle('open');menuToggle.setAttribute('aria-expanded',String(open));});
-mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobileMenu.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');}));
-const navLinks=[...document.querySelectorAll('.navlinks a')];
-const sections=[...document.querySelectorAll('main section[id]')];
-const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+entry.target.id));}})},{rootMargin:'-42% 0px -52% 0px',threshold:0});
-sections.forEach(s=>observer.observe(s));
-const scoreValue=document.getElementById('scoreValue');
-const scoreRing=document.getElementById('scoreRing');
-const scoreStatus=document.getElementById('scoreStatus');
-const situationText=document.getElementById('situationText');
-const attentionText=document.getElementById('attentionText');
-const actionText=document.getElementById('actionText');
-function updateScore(){
-  let score=88;
-  const area=document.getElementById('area').value;
-  const members=Number(document.getElementById('members').value);
-  const travel=document.getElementById('travel').value;
-  const buffer=document.getElementById('buffer').value;
-  if(area==='kl')score-=6;if(area==='jb')score-=4;if(area==='kk')score-=5;
-  if(members>=5)score-=5;if(members>=6)score-=8;
-  if(travel==='medium')score-=4;if(travel==='high')score-=10;
-  if(buffer==='tight')score-=14;if(buffer==='comfortable')score+=5;
-  score=Math.max(48,Math.min(95,score));
-  scoreValue.textContent=score;
-  scoreRing.style.background=`conic-gradient(var(--blue) 0 ${score}%,#e4e4e7 ${score}% 100%)`;
-  scoreStatus.className='tag '+(score>=80?'green':score>=65?'yellow':'red');
-  const en=body.dataset.lang==='en';
-  if(score>=80){scoreStatus.textContent=en?'Stable Status':'Status Stabil';situationText.textContent=en?'Spending pressure has increased slightly, but remains manageable.':'Tekanan belanja meningkat sedikit, tetapi masih terkawal.';attentionText.textContent=en?'Rice, cooking oil and daily travel.':'Beras, minyak masak dan perjalanan harian.';actionText.textContent=en?'Check nearby price options and plan this week’s travel.':'Semak pilihan harga berhampiran dan rancang perjalanan minggu ini.';}
-  else if(score>=65){scoreStatus.textContent=en?'Needs Attention':'Perlu Perhatian';situationText.textContent=en?'Several weekly cost items need closer attention.':'Beberapa kos mingguan perlu diberi perhatian lebih dekat.';attentionText.textContent=en?'Basic groceries, fuel and benefit checks.':'Barang asas, minyak dan semakan manfaat.';actionText.textContent=en?'Use the weekly plan and proceed to official benefit checks.':'Gunakan pelan mingguan dan teruskan kepada semakan manfaat rasmi.';}
-  else{scoreStatus.textContent=en?'Pressure Rising':'Tekanan Meningkat';situationText.textContent=en?'Estimated household pressure is rising. Official checks are recommended.':'Anggaran tekanan isi rumah semakin meningkat. Semakan rasmi disarankan.';attentionText.textContent=en?'Food basket, fuel, transport and support.':'Bakul makanan, minyak, pengangkutan dan sokongan.';actionText.textContent=en?'Prioritise essentials and check official channels.':'Utamakan barang asas dan semak saluran rasmi.';}
-}
-document.getElementById('familyForm').addEventListener('submit',e=>{e.preventDefault();updateScore();});
-['area','members','travel','buffer'].forEach(id=>document.getElementById(id).addEventListener('change',updateScore));
-document.getElementById('locationBtn').addEventListener('click',()=>{const el=document.getElementById('locationStatus');const en=body.dataset.lang==='en';if(!navigator.geolocation){el.textContent=en?'Geolocation is not supported by this browser.':'Pengesanan lokasi tidak disokong oleh pelayar ini.';return;}el.textContent=en?'Requesting browser location permission.':'Memohon kebenaran lokasi daripada pelayar.';navigator.geolocation.getCurrentPosition(()=>{el.textContent=en?'Location received. Prototype still uses sample area data.':'Lokasi diterima. Prototaip masih menggunakan data kawasan contoh.';},()=>{el.textContent=en?'Location permission was not granted. Manual area remains active.':'Kebenaran lokasi tidak diberikan. Kawasan manual masih aktif.';});});
-const priceData=[
-  {item:'beras',ms:'Beras tempatan 5kg',en:'Local rice 5kg',area:'shahalam',price:'RM18.90',distance:'2.4 km',status:'Data Contoh'},
-  {item:'ayam',ms:'Ayam standard 1kg',en:'Standard chicken 1kg',area:'shahalam',price:'RM9.40',distance:'3.1 km',status:'Data Contoh'},
-  {item:'minyak',ms:'Minyak masak 1kg',en:'Cooking oil 1kg',area:'shahalam',price:'RM6.90',distance:'1.8 km',status:'Semak Rasmi'},
-  {item:'beras',ms:'Beras tempatan 5kg',en:'Local rice 5kg',area:'kl',price:'RM19.50',distance:'1.9 km',status:'Data Contoh'},
-  {item:'ayam',ms:'Ayam standard 1kg',en:'Standard chicken 1kg',area:'kl',price:'RM9.80',distance:'2.2 km',status:'Data Contoh'},
-  {item:'minyak',ms:'Minyak masak 1kg',en:'Cooking oil 1kg',area:'kl',price:'RM7.10',distance:'2.6 km',status:'Semak Rasmi'},
-  {item:'beras',ms:'Beras tempatan 5kg',en:'Local rice 5kg',area:'jb',price:'RM18.70',distance:'3.0 km',status:'Data Contoh'},
-  {item:'ayam',ms:'Ayam standard 1kg',en:'Standard chicken 1kg',area:'jb',price:'RM9.20',distance:'4.1 km',status:'Data Contoh'},
-  {item:'minyak',ms:'Minyak masak 1kg',en:'Cooking oil 1kg',area:'jb',price:'RM6.80',distance:'2.9 km',status:'Semak Rasmi'}
-];
-function renderPrices(){
-  const area=document.getElementById('priceArea').value;
-  const item=document.getElementById('priceItem').value;
-  const en=body.dataset.lang==='en';
-  const rows=priceData.filter(r=>r.area===area&&(item==='all'||r.item===item));
-  document.getElementById('priceRows').innerHTML=rows.map(r=>`<tr><td><strong>${en?r.en:r.ms}</strong></td><td>${area==='shahalam'?'Shah Alam':area==='kl'?'Kuala Lumpur':'Johor Bahru'}</td><td class="price">${r.price}</td><td>${r.distance}</td><td><span class="tag ${r.status==='Semak Rasmi'?'grey':'yellow'}">${en?(r.status==='Semak Rasmi'?'Official Check':'Sample Data'):r.status}</span></td></tr>`).join('');
-}
-['priceArea','priceItem'].forEach(id=>document.getElementById(id).addEventListener('change',renderPrices));
-function updateFuel(){
-  const km=Math.max(1,Number(document.getElementById('km').value)||1);
-  const days=Math.max(1,Math.min(7,Number(document.getElementById('days').value)||1));
-  const efficiency=Math.max(1,Number(document.getElementById('efficiency').value)||13);
-  const price=Math.max(0,Number(document.getElementById('fuelPrice').value)||0);
-  const litres=(km*days*4)/efficiency;
-  const cost=litres*price;
-  document.getElementById('monthlyLitres').textContent=litres.toFixed(1)+' L';
-  document.getElementById('monthlyFuel').textContent='RM'+cost.toFixed(2);
-}
-['km','days','efficiency','fuelPrice'].forEach(id=>document.getElementById(id).addEventListener('input',updateFuel));
-const taskInputs=[...document.querySelectorAll('#taskList input')];
-function updateTasks(){document.getElementById('taskCount').textContent=taskInputs.filter(i=>i.checked).length+' / '+taskInputs.length;}
-taskInputs.forEach(i=>i.addEventListener('change',updateTasks));
-syncLang();updateScore();renderPrices();updateFuel();updateTasks();
-</script>
+  <script src="app.js"></script>
 </body>
 </html>
